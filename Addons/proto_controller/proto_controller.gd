@@ -15,6 +15,8 @@ extends CharacterBody3D
 @export var can_sprint : bool = false
 ## Can we press to enter freefly mode (noclip)?
 @export var can_freefly : bool = false
+## Can we look around?
+@export var can_look : bool = true
 
 @export_group("Speeds")
 ## Look around rotation speed.
@@ -66,7 +68,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		release_mouse()
 	
 	# Look around
-	if mouse_captured and event is InputEventMouseMotion:
+	if mouse_captured and can_look and event is InputEventMouseMotion:
 		rotate_look(event.relative)
 	
 	# Toggle freefly mode

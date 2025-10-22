@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddxaqp2rhgl86"]
+[gd_scene load_steps=7 format=3 uid="uid://ddxaqp2rhgl86"]
 
 [ext_resource type="Script" uid="uid://dm8oagsclqabx" path="res://Addons/proto_controller/proto_controller.gd" id="1_v0iea"]
-[ext_resource type="Script" path="res://Scripts/interaction_component.gd" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://b2i7v67m6bs16" path="res://Scripts/interaction_component.gd" id="2_cvnsp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -13,6 +13,9 @@ height = 1.8
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
 radius = 0.4
 height = 1.8
+
+[sub_resource type="LabelSettings" id="LabelSettings_cvnsp"]
+font_size = 30
 
 [node name="Player" type="Node3D"]
 
@@ -61,5 +64,6 @@ offset_right = 364.5
 offset_bottom = 132.5
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = SubResource("LabelSettings_cvnsp")
 horizontal_alignment = 1
 vertical_alignment = 1

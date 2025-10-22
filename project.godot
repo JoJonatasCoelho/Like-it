@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="Like It"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
+
 [input]
 
 move_left={
