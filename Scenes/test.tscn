@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://cayayie3dsxmm"]
+
+[ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/player.tscn" id="1_lc1oi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lc1oi"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_8od7v"]
+sky_material = SubResource("ProceduralSkyMaterial_lc1oi")
+
+[sub_resource type="Environment" id="Environment_qc4db"]
+background_mode = 2
+sky = SubResource("Sky_8od7v")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_o3qbn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lc1oi"]
+albedo_color = Color(0.65317076, 0.6406309, 0.81333053, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8od7v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qc4db"]
+albedo_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+
+[node name="Test" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qc4db")
+
+[node name="Floor" type="CSGMesh3D" parent="."]
+transform = Transform3D(39.242657, 0, 0, 0, 1, 0, 0, 0, 44.072, 0, 0, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_o3qbn")
+material = SubResource("StandardMaterial3D_lc1oi")
+
+[node name="TestBlock" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.845449, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_8od7v")
+material = SubResource("StandardMaterial3D_qc4db")
+
+[node name="Player" parent="." instance=ExtResource("1_lc1oi")]
+transform = Transform3D(0.9546882, 0, 0.29760805, 0, 1, 0, -0.29760805, 0, 0.9546882, 0.42834222, 0.5, 8.217395)
