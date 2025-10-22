@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddxaqp2rhgl86"]
+[gd_scene load_steps=7 format=3 uid="uid://ddxaqp2rhgl86"]
 
 [ext_resource type="Script" uid="uid://dm8oagsclqabx" path="res://Addons/proto_controller/proto_controller.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://b2i7v67m6bs16" path="res://Scripts/interaction_component.gd" id="2_cvnsp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -12,6 +13,9 @@ height = 1.8
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
 radius = 0.4
 height = 1.8
+
+[sub_resource type="LabelSettings" id="LabelSettings_cvnsp"]
+font_size = 30
 
 [node name="Player" type="Node3D"]
 
@@ -40,3 +44,26 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="ProtoController/Head"]
+
+[node name="RayCast3D" type="RayCast3D" parent="ProtoController/Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -8.497494e-08, -0.99999994, 0, 1.9439999, -4.3711385e-08, 0, 0, 0)
+collision_mask = 2
+
+[node name="InteractionComponent" type="Node3D" parent="ProtoController/Head/Camera3D"]
+script = ExtResource("2_cvnsp")
+
+[node name="Interaction Label" type="Label" parent="ProtoController/Head"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -364.5
+offset_top = -132.5
+offset_right = 364.5
+offset_bottom = 132.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_cvnsp")
+horizontal_alignment = 1
+vertical_alignment = 1

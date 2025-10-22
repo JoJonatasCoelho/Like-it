@@ -1,6 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cayayie3dsxmm"]
+[gd_scene load_steps=14 format=3 uid="uid://cayayie3dsxmm"]
 
 [ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/player.tscn" id="1_lc1oi"]
+[ext_resource type="PackedScene" uid="uid://p7y7vqn01gnu" path="res://Scenes/door.tscn" id="2_8od7v"]
+[ext_resource type="PackedScene" uid="uid://gip2uj27sl4a" path="res://Scenes/radio.tscn" id="3_i3aeo"]
+[ext_resource type="PackedScene" uid="uid://dqq0dd360wjel" path="res://Scenes/photo.tscn" id="3_qc4db"]
+[ext_resource type="Texture2D" uid="uid://l6k4l55i0ocx" path="res://Catherine.png" id="4_35xla"]
+[ext_resource type="PackedScene" uid="uid://b6qypnmb2fuky" path="res://Scenes/ui.tscn" id="4_ys1qc"]
+[ext_resource type="PackedScene" uid="uid://decy35mve4tbg" path="res://Scenes/audio.tscn" id="7_5wyu1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lc1oi"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,9 +28,6 @@ albedo_color = Color(0.65317076, 0.6406309, 0.81333053, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8od7v"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qc4db"]
-albedo_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
-
 [node name="Test" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -40,11 +43,34 @@ use_collision = true
 mesh = SubResource("BoxMesh_o3qbn")
 material = SubResource("StandardMaterial3D_lc1oi")
 
-[node name="TestBlock" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.845449, 0)
+[node name="Player" parent="." instance=ExtResource("1_lc1oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5)
+
+[node name="Door" parent="." instance=ExtResource("2_8od7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1)
+
+[node name="Radio" parent="." instance=ExtResource("3_i3aeo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.5, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(3.1000001, 0, 0, 0, 1.2, 0, 0, 0, 1.6, -3.5, 1, 0)
 use_collision = true
 mesh = SubResource("BoxMesh_8od7v")
-material = SubResource("StandardMaterial3D_qc4db")
 
-[node name="Player" parent="." instance=ExtResource("1_lc1oi")]
-transform = Transform3D(0.9546882, 0, 0.29760805, 0, 1, 0, -0.29760805, 0, 0.9546882, 0.42834222, 0.5, 8.217395)
+[node name="Photo" parent="." instance=ExtResource("3_qc4db")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.622453, 0.5)
+
+[node name="Photo" parent="Photo" index="0"]
+photo_texture = ExtResource("4_35xla")
+
+[node name="UI" parent="." instance=ExtResource("4_ys1qc")]
+
+[node name="Audio" parent="." instance=ExtResource("7_5wyu1")]
+
+[node name="BGM" parent="Audio" index="0"]
+autoplay = false
+
+[editable path="Player"]
+[editable path="Photo"]
+[editable path="UI"]
+[editable path="Audio"]
