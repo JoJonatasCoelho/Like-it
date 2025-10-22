@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cayayie3dsxmm"]
+[gd_scene load_steps=13 format=3 uid="uid://cayayie3dsxmm"]
 
 [ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/player.tscn" id="1_lc1oi"]
 [ext_resource type="PackedScene" uid="uid://p7y7vqn01gnu" path="res://Scenes/door.tscn" id="2_8od7v"]
+[ext_resource type="PackedScene" uid="uid://gip2uj27sl4a" path="res://Scenes/radio.tscn" id="3_i3aeo"]
 [ext_resource type="PackedScene" uid="uid://dqq0dd360wjel" path="res://Scenes/photo.tscn" id="3_qc4db"]
 [ext_resource type="Texture2D" uid="uid://l6k4l55i0ocx" path="res://Catherine.png" id="4_35xla"]
 [ext_resource type="PackedScene" uid="uid://b6qypnmb2fuky" path="res://Scenes/ui.tscn" id="4_ys1qc"]
@@ -47,6 +48,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5)
 [node name="Door" parent="." instance=ExtResource("2_8od7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1)
 
+[node name="Radio" parent="." instance=ExtResource("3_i3aeo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.5, 0)
+
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(3.1000001, 0, 0, 0, 1.2, 0, 0, 0, 1.6, -3.5, 1, 0)
 use_collision = true
@@ -59,9 +63,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.622453, 0.5)
 photo_texture = ExtResource("4_35xla")
 
 [node name="UI" parent="." instance=ExtResource("4_ys1qc")]
-
-[node name="PhotoViewer" parent="UI/CanvasLayer" index="1"]
-visible = false
 
 [editable path="Player"]
 [editable path="Photo"]

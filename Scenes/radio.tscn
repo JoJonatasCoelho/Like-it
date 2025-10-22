@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://gip2uj27sl4a"]
+
+[ext_resource type="Script" uid="uid://boks5rmxlorc0" path="res://Scripts/radio.gd" id="1_8y21s"]
+[ext_resource type="AudioStream" uid="uid://bfi61la3l8h3n" path="res://Assets/audio/POL-elevator-lift2.wav" id="2_bdbpc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bdbpc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ibud7"]
+
+[node name="Radio" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+script = ExtResource("1_8y21s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.82943994, 0, 0, 0, 0.51839995, 0, 0, 0, 0.51839995, 0, 0.26, 0)
+mesh = SubResource("BoxMesh_bdbpc")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.82943994, 0, 0, 0, 0.51839995, 0, 0, 0, 0.51839995, 0, 0.26, 0)
+shape = SubResource("BoxShape3D_ibud7")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="StaticBody3D"]
+stream = ExtResource("2_bdbpc")
+autoplay = true

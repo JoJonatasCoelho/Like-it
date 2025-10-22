@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://decy35mve4tbg"]
+
+[ext_resource type="AudioStream" uid="uid://bfi61la3l8h3n" path="res://Assets/audio/POL-elevator-lift2.wav" id="1_l04ps"]
+
+[node name="Audio" type="Node3D"]
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_l04ps")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]

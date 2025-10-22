@@ -1,9 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6qypnmb2fuky"]
+[gd_scene load_steps=3 format=3 uid="uid://b6qypnmb2fuky"]
 
-[ext_resource type="Texture2D" uid="uid://l6k4l55i0ocx" path="res://Catherine.png" id="1_jxero"]
 [ext_resource type="Script" uid="uid://nq4v65apnrq8" path="res://Scripts/ui.gd" id="1_qdvrb"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_qdvrb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qdvrb"]
 font_size = 30
@@ -33,10 +30,8 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("ImageTexture_qdvrb")
 
 [node name="PhotoViewer" type="TextureRect" parent="CanvasLayer"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -48,7 +43,6 @@ offset_right = 321.0
 offset_bottom = 179.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_jxero")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="CanvasLayer"]
