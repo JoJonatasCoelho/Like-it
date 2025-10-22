@@ -1,5 +1,7 @@
 extends Interactable
 
+@onready var animator = $"../AnimationPlayer"
+
 func interact(_caller):
-	print("Interagiu com o cubo.")
-	queue_free()
+	animator.play("abrir_porta")
+	#queue_free()
