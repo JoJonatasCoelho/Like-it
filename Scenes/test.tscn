@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cayayie3dsxmm"]
+[gd_scene load_steps=10 format=3 uid="uid://cayayie3dsxmm"]
 
+[ext_resource type="Script" uid="uid://dhnryqa86w0ub" path="res://Scripts/test_block.gd" id="1_8od7v"]
 [ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/player.tscn" id="1_lc1oi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lc1oi"]
@@ -43,8 +44,10 @@ material = SubResource("StandardMaterial3D_lc1oi")
 [node name="TestBlock" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.845449, 0)
 use_collision = true
+collision_layer = 3
 mesh = SubResource("BoxMesh_8od7v")
 material = SubResource("StandardMaterial3D_qc4db")
+script = ExtResource("1_8od7v")
 
 [node name="Player" parent="." instance=ExtResource("1_lc1oi")]
-transform = Transform3D(0.9546882, 0, 0.29760805, 0, 1, 0, -0.29760805, 0, 0.9546882, 0.42834222, 0.5, 8.217395)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5)
