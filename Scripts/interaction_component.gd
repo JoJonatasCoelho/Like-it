@@ -3,8 +3,8 @@ extends Node3D
 @onready var interaction_raycast : RayCast3D = $"../RayCast3D"
 @onready var interaction_label : Label = $"../../Interaction Label"
 var interaction_is_reset : bool = true
+var is_interacting : bool = false
 
-# Checks if Raycast3D hits something to interact with:
 func _process(_delta):
 	if interaction_raycast.is_colliding():
 		var interactable = interaction_raycast.get_collider()
@@ -20,8 +20,14 @@ func _process(_delta):
 			interaction_is_reset = true
 
 func _input(event):
-	if event.is_action_pressed("interact"): #Adjust to match your InputMap
+	if is_interacting:
+		return
+		
+	if event.is_action_pressed("interact"):
 		if interaction_raycast.is_colliding():
 			var interactable = interaction_raycast.get_collider()
 			if interactable.has_method("interact"):
-				interactable.interact(self) # Calls the interact function on what the Raycast is colliding with, passing self.
+				is_interacting = true
+				interaction_label.text = ""  
+				await interactable.interact(self)
+				is_interacting = false

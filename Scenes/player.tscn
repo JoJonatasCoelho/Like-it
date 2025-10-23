@@ -1,19 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddxaqp2rhgl86"]
+[gd_scene load_steps=15 format=3 uid="uid://ddxaqp2rhgl86"]
 
 [ext_resource type="Script" uid="uid://dm8oagsclqabx" path="res://addons/proto_controller/proto_controller.gd" id="1_6t5aa"]
-[ext_resource type="Script" path="res://Scripts/interaction_component.gd" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://b2i7v67m6bs16" path="res://Scripts/interaction_component.gd" id="2_cvnsp"]
 [ext_resource type="PackedScene" uid="uid://cigkko4hgq8p" path="res://Assets/model/PlayerBody.fbx" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://cqmpo3oir4k85" path="res://Assets/model/man_DarkpaleRed_clothes_blood.png" id="4_3smsa"]
 [ext_resource type="Texture2D" uid="uid://c151ui15fqg0k" path="res://Assets/model/man_Red_texture.png" id="5_8erm5"]
 [ext_resource type="Animation" uid="uid://uh6ghueo6xm8" path="res://Assets/animations/standingUp.res" id="5_fkybt"]
 [ext_resource type="Animation" uid="uid://cl20htdrx8jku" path="res://Assets/animations/breathing_idle.res" id="5_x3wgy"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
-albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
-radius = 0.4
-height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
 radius = 0.4
@@ -364,13 +357,6 @@ input_right = "move_right"
 input_forward = "move_up"
 input_back = "move_down"
 
-[node name="Mesh" type="MeshInstance3D" parent="ProtoController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-visible = false
-material_override = SubResource("StandardMaterial3D_iof21")
-cast_shadow = 0
-mesh = SubResource("CapsuleMesh_ucva2")
-
 [node name="Collider" type="CollisionShape3D" parent="ProtoController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_iof21")
@@ -379,7 +365,6 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038683057, 1.6029497, -0.19518329)
 
 [node name="Camera3D" type="Camera3D" parent="ProtoController/Head"]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="ProtoController/Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -8.497494e-08, -0.99999994, 0, 1.9439999, -4.3711385e-08, 0, 0, 0)
@@ -405,10 +390,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PlayerBody" parent="ProtoController" instance=ExtResource("3_6t5aa")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
 [node name="Game_engine" parent="ProtoController/PlayerBody" index="0"]
-transform = Transform3D(0.99979854, 0.019991912, -0.0017984966, -0.019937167, 0.9994488, 0.026545482, 0.0023282003, -0.026504276, 0.999646, 0, 0, 0)
+transform = Transform3D(0.99979854, 0.01999191, -0.0017984973, -0.019937165, 0.9994488, 0.026545495, 0.002328201, -0.02650429, 0.999646, 0, 0, 0)
 
 [node name="Skeleton3D" parent="ProtoController/PlayerBody/Game_engine" index="0"]
 bones/1/rotation = Quaternion(0.5794509, 0.40526128, 0.5794509, -0.40526128)
