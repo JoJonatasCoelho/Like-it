@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://n1tebp7uvn36"]
+[gd_scene load_steps=8 format=3 uid="uid://n1tebp7uvn36"]
 
 [ext_resource type="Script" uid="uid://c1gmxvobootlc" path="res://level.gd" id="1_tumq0"]
 [ext_resource type="PackedScene" uid="uid://8eu3q1gwbqsv" path="res://Scenes/house.tscn" id="2_6phgx"]
 [ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/player.tscn" id="2_k5f4k"]
+[ext_resource type="PackedScene" uid="uid://bq84n3n78cq5b" path="res://Scenes/water.tscn" id="4_81xng"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6phgx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -27,3 +28,6 @@ environment = SubResource("Environment_81xng")
 transform = Transform3D(0.59999996, 0, 0, 0, 0.6, 0, 0, 0, 0.59999996, 0.56076366, 0, -2.2576776)
 
 [node name="House" parent="." instance=ExtResource("2_6phgx")]
+
+[node name="Water" parent="." instance=ExtResource("4_81xng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020427704, -0.4265166, 0.0015153885)
