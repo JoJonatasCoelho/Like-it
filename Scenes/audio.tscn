@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://decy35mve4tbg"]
 
 [ext_resource type="AudioStream" uid="uid://bfi61la3l8h3n" path="res://Assets/audio/POL-elevator-lift2.wav" id="1_l04ps"]
-[ext_resource type="Script" uid="uid://dg4ps1yqp4f0o" path="res://Scenes/background_audio.gd" id="1_y8l05"]
+[ext_resource type="Script" uid="uid://dg4ps1yqp4f0o" path="res://Scripts/background_audio.gd" id="1_y8l05"]
 
 [node name="Audio" type="Node3D"]
 script = ExtResource("1_y8l05")
