@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4kpfgrxglt1n"]
+
+[ext_resource type="PackedScene" uid="uid://nar21s035vu8" path="res://Assets/Objects/psx_style_barrel.glb" id="1_c2mmk"]
+[ext_resource type="Script" uid="uid://cun3jj2j5jjf1" path="res://Scripts/trash.gd" id="1_tsx7w"]
+[ext_resource type="Texture2D" uid="uid://cjuh7x0femd6c" path="res://icon.svg" id="2_3xsam"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tsx7w"]
+height = 0.5314636
+radius = 0.25390625
+
+[node name="Trash" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+script = ExtResource("1_tsx7w")
+photo_texture = ExtResource("2_3xsam")
+
+[node name="Sketchfab_Scene" parent="StaticBody3D" instance=ExtResource("1_c2mmk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.9802322e-08, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33905452, 0)
+shape = SubResource("CylinderShape3D_tsx7w")
