@@ -2,7 +2,9 @@ extends CanvasLayer
 
 @onready var photo_viewer = $PhotoViewer
 @onready var label = $Label
+@onready var subtitle = $Subtitles
 var is_photo_open = false
+var dialogue_playing = false
 
 func toggle_photo(texture: Texture2D):
 	var player = get_tree().root.get_node("Test/Player/ProtoController")
@@ -21,5 +23,22 @@ func toggle_photo(texture: Texture2D):
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 		if player:
 			label.text = "Aperte \"E\" para fechar"
+			player.can_look = false
+			player.can_move = false
+			
+func show_dialogue(dialogue: String):
+	var player = get_tree().root.get_node("Test/Player/ProtoController")
+	if dialogue_playing:
+		subtitle.text = ""
+		dialogue_playing = false
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		if player:
+			player.can_look = true
+			player.can_move = true
+	else:
+		subtitle.text = dialogue
+		dialogue_playing = true
+		Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+		if player:
 			player.can_look = false
 			player.can_move = false
