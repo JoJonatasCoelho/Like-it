@@ -68,7 +68,7 @@ photo_texture = ExtResource("4_35xla")
 autoplay = false
 
 [node name="Player" parent="." instance=ExtResource("1_lc1oi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6812438, 1.3489302)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.8000264)
 
 [editable path="Photo"]
 [editable path="UI"]
