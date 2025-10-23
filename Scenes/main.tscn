@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://csfpe5g5qy118"]
+[gd_scene load_steps=2 format=3 uid="uid://csfpe5g5qy118"]
+
+[ext_resource type="PackedScene" uid="uid://bbu6t1rd3232e" path="res://Assets/model/house.glb" id="1_jjgbg"]
 
 [node name="Main" type="Node3D"]
+
+[node name="house2" parent="." instance=ExtResource("1_jjgbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.179487, 0, 1.8896704)
+
+[node name="house" parent="." instance=ExtResource("1_jjgbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1236024, 0, 1.8896141)
+
+[node name="house3" parent="." instance=ExtResource("1_jjgbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.73673, 0, 1.8896704)
+
+[node name="house4" parent="." instance=ExtResource("1_jjgbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.433641, 0, 1.8896141)

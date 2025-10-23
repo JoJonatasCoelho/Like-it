@@ -54,6 +54,7 @@ var freeflying : bool = false
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+@onready var animator: AnimationPlayer = $PlayerBody/AnimationPlayer
 
 func _ready() -> void:
 	check_input_mappings()
@@ -110,9 +111,12 @@ func _physics_process(delta: float) -> void:
 		if move_dir:
 			velocity.x = move_dir.x * move_speed
 			velocity.z = move_dir.z * move_speed
+			animator.play("walk")
+			
 		else:
 			velocity.x = move_toward(velocity.x, 0, move_speed)
 			velocity.z = move_toward(velocity.z, 0, move_speed)
+			animator.play("breathing_idle")
 	else:
 		velocity.x = 0
 		velocity.y = 0

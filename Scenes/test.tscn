@@ -43,9 +43,6 @@ use_collision = true
 mesh = SubResource("BoxMesh_o3qbn")
 material = SubResource("StandardMaterial3D_lc1oi")
 
-[node name="Player" parent="." instance=ExtResource("1_lc1oi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.5)
-
 [node name="Door" parent="." instance=ExtResource("2_8od7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1)
 
@@ -70,7 +67,9 @@ photo_texture = ExtResource("4_35xla")
 [node name="BGM" parent="Audio" index="0"]
 autoplay = false
 
-[editable path="Player"]
+[node name="Player" parent="." instance=ExtResource("1_lc1oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6812438, 1.3489302)
+
 [editable path="Photo"]
 [editable path="UI"]
 [editable path="Audio"]
