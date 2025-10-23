@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjby7owv6xqbm"]
+
+[ext_resource type="PackedScene" uid="uid://bvplnyyl4ybfp" path="res://Assets/Objects/psx_closet.glb" id="1_ixttv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0t2tp"]
+size = Vector3(1.7145996, 2.1450195, 1)
+
+[node name="Closet" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Sketchfab_Scene" parent="StaticBody3D" instance=ExtResource("1_ixttv")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024780273, 1.2047029, 0)
+shape = SubResource("BoxShape3D_0t2tp")

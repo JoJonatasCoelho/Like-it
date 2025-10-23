@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvhdcbceade7x"]
+
+[ext_resource type="PackedScene" uid="uid://bgem6xme6xsg2" path="res://Assets/Objects/psx_wooden_drawers.glb" id="1_p10vb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tuu3a"]
+size = Vector3(1.2029877, 0.94714355, 0.6639404)
+
+[node name="Gabinet" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02144742, 0.52197134, -0.032676995)
+shape = SubResource("BoxShape3D_tuu3a")
+
+[node name="Sketchfab_Scene" parent="StaticBody3D" instance=ExtResource("1_p10vb")]
