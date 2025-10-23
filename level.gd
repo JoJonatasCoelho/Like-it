@@ -1,9 +1,8 @@
 extends Node3D
 
-@export var player: CharacterBody3D 
-@export var player_animator: AnimationPlayer 
+@onready var player: CharacterBody3D = get_tree().root.get_node("Map/Player/ProtoController") 
+@onready var player_animator: AnimationPlayer = get_tree().root.get_node("Map/Player/ProtoController/PlayerBody/AnimationPlayer") 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player.can_move = false
 	player.can_look = false

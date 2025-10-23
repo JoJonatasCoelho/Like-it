@@ -38,10 +38,8 @@ albedo_texture = ExtResource("4_5qtum")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q6lx1"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[node name="Map" type="Node3D" node_paths=PackedStringArray("player", "player_animator")]
+[node name="Map" type="Node3D"]
 script = ExtResource("1_5qtum")
-player = NodePath("Player/ProtoController")
-player_animator = NodePath("Player/ProtoController/PlayerBody/AnimationPlayer")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rg57b")
@@ -50,7 +48,7 @@ environment = SubResource("Environment_rg57b")
 transform = Transform3D(0.59999996, 0, 0, 0, 0.6, 0, 0, 0, 0.59999996, 0.56076366, 0, -2.2576776)
 
 [node name="Game_engine" parent="Player/ProtoController/PlayerBody" index="0"]
-transform = Transform3D(0.98679507, -0.04809119, 0.15466818, -0.15375128, 0.022235276, 0.98785937, -0.050946426, -0.99859536, 0.014547583, 0, 0, 0)
+transform = Transform3D(0.986795, -0.04809119, 0.15466818, -0.15375127, 0.022235276, 0.98785937, -0.050946422, -0.99859536, 0.014547583, 0, 0, 0)
 
 [node name="House" parent="." instance=ExtResource("2_dlo4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0028687716, 0, 0.001970023)

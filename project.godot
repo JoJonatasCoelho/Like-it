@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Like It"
-run/main_scene="uid://bqlqngg600wus"
+run/main_scene="uid://cwng4e3faio4u"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
