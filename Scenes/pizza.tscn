@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dttxsaxb44557"]
+
+[ext_resource type="PackedScene" uid="uid://c0jkudn4mrx4g" path="res://Assets/Objects/ps1_pizza.glb" id="1_nkrds"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_je5pd"]
+size = Vector3(0.8927002, 0.6533203, 0.8933258)
+
+[node name="Pizza" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.007598877, 0.20670196, -0.007976532)
+shape = SubResource("BoxShape3D_je5pd")
+
+[node name="Sketchfab_Scene" parent="StaticBody3D" instance=ExtResource("1_nkrds")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

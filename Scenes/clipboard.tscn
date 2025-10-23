@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://djygw8pegtbei"]
+
+[ext_resource type="PackedScene" uid="uid://bi2jwy0vvqwdh" path="res://Assets/Objects/ps1_style_patient_sheet_with_clipboard.glb" id="1_w5eus"]
+[ext_resource type="Script" uid="uid://tuhwqk3igdc5" path="res://Scripts/pasta.gd" id="2_ndh86"]
+[ext_resource type="Texture2D" uid="uid://l6k4l55i0ocx" path="res://Catherine.png" id="3_ndh86"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_swann"]
+size = Vector3(0.21905518, 0.40911865, 0.04083252)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(0.99273634, 0.12016748, -0.0058561508, -3.47085e-10, 0.048675444, 0.9988146, 0.12031008, -0.99155957, 0.04832188, 0, 0, 0)
+collision_layer = 3
+script = ExtResource("2_ndh86")
+photo_texture = ExtResource("3_ndh86")
+
+[node name="Pasta" parent="StaticBody3D" instance=ExtResource("1_w5eus")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 3.7252903e-09, 4.656613e-10, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1.0000001, 1.5646219e-07, -3.7252903e-09, 0, 0.99999654, 8.568168e-08, 1.8952414e-07, -9.4622374e-07, 1, -0.0004577702, -0.019134417, -0.0017395113)
+shape = SubResource("BoxShape3D_swann")
