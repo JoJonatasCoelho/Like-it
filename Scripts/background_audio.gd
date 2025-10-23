@@ -1,10 +1,8 @@
 extends Node3D
 
-@onready var BGM = $BGM
-
-func _process(delta: float) -> void:
-	var _node = get_tree().get("Player")
-	
-	#if _node is 
-	
-	
+func _on_body_entered(body: Node3D) -> void:
+	if body is CharacterBody3D:
+		var mc = get_tree().root.get_node("Test/Player/ProtoController")
+		print(mc)
+		mc.die()
+		print("entrei")
