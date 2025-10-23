@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://b6qypnmb2fuky" path="res://Scenes/ui.tscn" id="4_ys1qc"]
 [ext_resource type="Texture2D" uid="uid://dboyb8uh488je" path="res://aquadyen.jpg" id="6_0c07c"]
 [ext_resource type="PackedScene" uid="uid://decy35mve4tbg" path="res://Scenes/audio.tscn" id="7_5wyu1"]
-[ext_resource type="PackedScene" path="res://Scenes/clipboard.tscn" id="9_2cgwh"]
+[ext_resource type="PackedScene" uid="uid://djygw8pegtbei" path="res://Scenes/clipboard.tscn" id="9_2cgwh"]
 [ext_resource type="PackedScene" uid="uid://cf35yxgcqh63t" path="res://Assets/Animals/cat_-_ps1_low_poly_rigged.glb" id="9_iaow0"]
-[ext_resource type="PackedScene" path="res://Scenes/trash.tscn" id="10_iaow0"]
+[ext_resource type="PackedScene" uid="uid://b4kpfgrxglt1n" path="res://Scenes/trash.tscn" id="10_iaow0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lc1oi"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
