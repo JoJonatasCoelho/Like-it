@@ -126,6 +126,9 @@ func _physics_process(delta: float) -> void:
 
 
 func die():
+	print("morreu")
+	can_move = false
+	can_look = false
 	animator.play("open_door")
 	animator.play("die")
 

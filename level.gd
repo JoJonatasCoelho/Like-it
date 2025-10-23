@@ -1,7 +1,7 @@
 extends Node3D
 
-@onready var player: CharacterBody3D = $Player/ProtoController
-@onready var player_animator: AnimationPlayer = $Player/ProtoController/PlayerBody/AnimationPlayer
+@onready var player: CharacterBody3D = $Map/Player/ProtoController
+@onready var player_animator: AnimationPlayer = $Map/Player/ProtoController/PlayerBody/AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
