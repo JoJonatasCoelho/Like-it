@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw38fqffw1xgs"]
+
+[ext_resource type="Script" uid="uid://bv480jelemsui" path="res://Scripts/checkpoint_areas.gd" id="1_lbcco"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jkya8"]
+
+[node name="Checkpoint" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_lbcco")
+volume_increase = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_jkya8")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
