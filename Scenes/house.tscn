@@ -9,7 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://p7y7vqn01gnu" path="res://Scenes/door.tscn" id="7_l3jqw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_okrnj"]
-size = Vector3(6.043518, 0.4350586, 2.8615723)
+size = Vector3(6.1788483, 0.4350586, 4.487732)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l3jqw"]
+size = Vector3(6.180313, 0.19555664, 1.7131042)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ug6d"]
+size = Vector3(3.763279, 0.19555664, 1.7131042)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gau5j"]
+size = Vector3(0.95518684, 0.19555664, 1.4888763)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hgtk"]
 resource_name = "wood003.004"
@@ -155,44 +164,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6saip")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xj1h3"]
-resource_name = "door.005"
-cull_mode = 2
-albedo_texture = ExtResource("2_l3jqw")
-texture_filter = 2
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_bu6dc"]
-_surfaces = [{
-"aabb": AABB(-0.04300499, -0.91241366, -0.6710589, 0.04296446, 0.9296146, 1.3643937),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAACAAMAAAAEAAEAAgAFAAMAAgABAAUAAAADAAYABAAAAAYABgADAAUAAQAEAAcABAAGAAcAAQAHAAUABgAFAAcA"),
-"name": "door.005",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("//8AAP//AAD/////AAAAAP//AAAAAAAAAAAAAAAAAAD///////8AAAAA//8AAAAAAAAAAP//AAAAAP////8AAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_1xnus"]
-resource_name = "house_door_002_door_002_0_001"
-_surfaces = [{
-"aabb": AABB(-0.04300499, -0.91241366, -0.6710589, 0.04296446, 0.9296146, 1.3643937),
-"attribute_data": PackedByteArray("EAI6/+79mgIQApoC7v06/xACOv/u/ZoC7v06/xACmgJKiAb5tHf4BrR3BvlKiPgGH4xqB99zlPjfc2oHH4yU+B+MlPjfc2oH33OU+B+MagdKiPgGtHcG+bR3+AZKiAb5"),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_xj1h3"),
-"name": "door.005",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("//8AAP//qir/////AACqKv//AAAAAKoq////////qioAAAAA//9U1QAA//8AAFTVAAD/////VNUAAAAAAABU1f//AAD///8/AAAAAAAA/z8AAAAA////P///AAAAAP8/////////AIAAAAAA//8AgAAA/////wCA//8AAP//AID//wAAAAAAAAAA//8AAAAAAAAAAAAAAAD/////AAAAAP////8AAP+/AAD//////78AAP//AAD/v/////////+/qiqqKqoqqiqqKqoqqiqqKlTVVNVU1VTVVNVU1VTVVNUAAP9/AAD/fwAA/38AAP9//3////9/////f////3///////3////9/////f////3////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_bu6dc")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erq2b"]
 resource_name = "bathroom_floor.001"
@@ -585,11 +556,32 @@ shadow_mesh = SubResource("ArrayMesh_6rjwf")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12558985, -0.33277458, -2.6605139)
+[node name="Floor_Collision" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2334313, -0.33277458, -1.9459448)
 shape = SubResource("BoxShape3D_okrnj")
 
+[node name="LWall_Collision" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2.232699, 1.0545392, -4.283966)
+shape = SubResource("BoxShape3D_l3jqw")
+
+[node name="RWall_Collision" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2.232699, 1.0545392, 0.38122934)
+shape = SubResource("BoxShape3D_l3jqw")
+
+[node name="MWall_Collision" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.0241818, 0.911934, -1.2459376)
+shape = SubResource("BoxShape3D_7ug6d")
+
+[node name="MWall_Collision2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 2.850283, 0.79982007, -3.700541)
+shape = SubResource("BoxShape3D_gau5j")
+
+[node name="MWall_Collision3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 2.850283, 0.79982007, -1.4271721)
+shape = SubResource("BoxShape3D_gau5j")
+
 [node name="house" type="Node3D" parent="."]
+metadata/_edit_group_ = true
 
 [node name="Sketchfab_model_001" type="Node3D" parent="house"]
 transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, 0.99999994, 0, -0.99999994, -3.5762787e-07, 0, 0, 0)
@@ -631,11 +623,6 @@ skeleton = NodePath("")
 
 [node name="door_006" type="Node3D" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001"]
 transform = Transform3D(100, 0, 0, 0, -3.5762783e-05, 99.999985, 0, -99.999985, -3.5762783e-05, 291.03693, 54.16985, -311.13046)
-
-[node name="door_002_door_002_0_001" type="MeshInstance3D" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/door_006"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6834128, 0, 0.066891134)
-mesh = SubResource("ArrayMesh_1xnus")
-skeleton = NodePath("")
 
 [node name="floor_001" type="Node3D" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001"]
 transform = Transform3D(100, 0, 0, 0, -3.5762783e-05, 99.999985, 0, -99.999985, -3.5762783e-05, 226.75104, -18.31941, -193.92862)
