@@ -1,7 +1,6 @@
-[gd_scene load_steps=51 format=4 uid="uid://8eu3q1gwbqsv"]
+[gd_scene load_steps=45 format=4 uid="uid://8eu3q1gwbqsv"]
 
 [ext_resource type="Texture2D" uid="uid://be0v4ohujmas7" path="res://Assets/model/house_wood003_diffuse.jpg" id="1_bu6dc"]
-[ext_resource type="Texture2D" uid="uid://burl7mu6j42qk" path="res://Assets/model/house_door_diffuse.jpg" id="2_l3jqw"]
 [ext_resource type="Texture2D" uid="uid://d4itbu4xfg23" path="res://Assets/model/house_bathroom_floor_diffuse.jpg" id="3_gau5j"]
 [ext_resource type="Texture2D" uid="uid://cx5bfvqfsep65" path="res://Assets/model/house_Material.jpg" id="4_7ug6d"]
 [ext_resource type="Texture2D" uid="uid://cjp8tisjykm7k" path="res://Assets/model/house_tiles005_diffuse.jpg" id="5_lmwq5"]
@@ -19,6 +18,9 @@ size = Vector3(3.763279, 0.19555664, 1.7131042)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gau5j"]
 size = Vector3(0.95518684, 0.19555664, 1.4888763)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bu6dc"]
+size = Vector3(3.0390897, 0.001, 1.4888763)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hgtk"]
 resource_name = "wood003.004"
@@ -88,82 +90,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_u3c4k")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i61fb"]
-resource_name = "door.003"
-cull_mode = 2
-albedo_texture = ExtResource("2_l3jqw")
-texture_filter = 2
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_xhlg2"]
-_surfaces = [{
-"aabb": AABB(-0.04300499, -0.91241366, -0.6710589, 0.04296446, 0.9296146, 1.3643937),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAACAAMAAAAEAAEAAgAFAAMAAgABAAUAAAADAAYABAAAAAYABgADAAUAAQAEAAcABAAGAAcAAQAHAAUABgAFAAcA"),
-"name": "door.003",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("//8AAP//AAD/////AAAAAP//AAAAAAAAAAAAAAAAAAD///////8AAAAA//8AAAAAAAAAAP//AAAAAP////8AAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_4t21v"]
-resource_name = "house_door_door_0_001"
-_surfaces = [{
-"aabb": AABB(-0.04300499, -0.91241366, -0.6710589, 0.04296446, 0.9296146, 1.3643937),
-"attribute_data": PackedByteArray("EAI6/+79mgIQApoC7v06/xACOv/u/ZoC7v06/xACmgJKiAb5tHf4BrR3BvlKiPgGH4xqB99zlPjfc2oHH4yU+B+MlPjfc2oH33OU+B+MagdKiPgGtHcG+bR3+AZKiAb5"),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_i61fb"),
-"name": "door.003",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("//8AAP//qir/////AACqKv//AAAAAKoq////////qioAAAAA//9U1QAA//8AAFTVAAD/////VNUAAAAAAABU1f//AAD///8/AAAAAAAA/z8AAAAA////P///AAAAAP8/////////AIAAAAAA//8AgAAA/////wCA//8AAP//AID//wAAAAAAAAAA//8AAAAAAAAAAAAAAAD/////AAAAAP////8AAP+/AAD//////78AAP//AAD/v/////////+/qiqqKqoqqiqqKqoqqiqqKlTVVNVU1VTVVNVU1VTVVNUAAP9/AAD/fwAA/38AAP9//3////9/////f////3///////3////9/////f////3////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_xhlg2")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iq2dk"]
-resource_name = "door.004"
-cull_mode = 2
-albedo_texture = ExtResource("2_l3jqw")
-texture_filter = 2
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_6saip"]
-_surfaces = [{
-"aabb": AABB(-0.04300499, -0.91241366, -0.6710589, 0.04296446, 0.9296146, 1.3643937),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAACAAMAAAAEAAEAAgAFAAMAAgABAAUAAAADAAYABAAAAAYABgADAAUAAQAEAAcABAAGAAcAAQAHAAUABgAFAAcA"),
-"name": "door.004",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("//8AAP//AAD/////AAAAAP//AAAAAAAAAAAAAAAAAAD///////8AAAAA//8AAAAAAAAAAP//AAAAAP////8AAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_ir0a2"]
-resource_name = "house_door_001_door_001_0_001"
-_surfaces = [{
-"aabb": AABB(-0.04300499, -0.91241366, -0.6710589, 0.04296446, 0.9296146, 1.3643937),
-"attribute_data": PackedByteArray("EAI6/+79mgIQApoC7v06/xACOv/u/ZoC7v06/xACmgJKiAb5tHf4BrR3BvlKiPgGH4xqB99zlPjfc2oHH4yU+B+MlPjfc2oH33OU+B+MagdKiPgGtHcG+bR3+AZKiAb5"),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_iq2dk"),
-"name": "door.004",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("//8AAP//qir/////AACqKv//AAAAAKoq////////qioAAAAA//9U1QAA//8AAFTVAAD/////VNUAAAAAAABU1f//AAD///8/AAAAAAAA/z8AAAAA////P///AAAAAP8/////////AIAAAAAA//8AgAAA/////wCA//8AAP//AID//wAAAAAAAAAA//8AAAAAAAAAAAAAAAD/////AAAAAP////8AAP+/AAD//////78AAP//AAD/v/////////+/qiqqKqoqqiqqKqoqqiqqKlTVVNVU1VTVVNVU1VTVVNUAAP9/AAD/fwAA/38AAP9//3////9/////f////3///////3////9/////f////3////9/////f////3////9/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_6saip")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erq2b"]
 resource_name = "bathroom_floor.001"
@@ -576,6 +502,10 @@ shape = SubResource("BoxShape3D_7ug6d")
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 2.850283, 0.79982007, -3.700541)
 shape = SubResource("BoxShape3D_gau5j")
 
+[node name="MWall_Collision4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -0.77384907, 0.79982007, -2.6585896)
+shape = SubResource("BoxShape3D_bu6dc")
+
 [node name="MWall_Collision3" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 2.850283, 0.79982007, -1.4271721)
 shape = SubResource("BoxShape3D_gau5j")
@@ -606,23 +536,6 @@ transform = Transform3D(0, -61.7573, 0, 0, 0, 2.4229283, -1.3585672, 0, 0, 88.88
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0517576e-05, 0, -7.629398e-06)
 mesh = SubResource("ArrayMesh_00dkv")
 skeleton = NodePath("")
-
-[node name="door_004" type="Node3D" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001"]
-transform = Transform3D(100, 0, 0, 0, -3.5762783e-05, 99.999985, 0, -99.999985, -3.5762783e-05, 543.33093, 54.16985, -125.77833)
-
-[node name="door_door_0_001" type="MeshInstance3D" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/door_004"]
-mesh = SubResource("ArrayMesh_4t21v")
-skeleton = NodePath("")
-
-[node name="door_005" type="Node3D" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001"]
-transform = Transform3D(-100.000046, 1.9470726e-05, -1.9470726e-05, -1.9470728e-05, 0, 100.00003, 1.9470728e-05, 100.00003, 3.7910907e-12, 286.60828, 54.16985, 0.48248762)
-
-[node name="door_001_door_001_0_001" type="MeshInstance3D" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/door_005"]
-mesh = SubResource("ArrayMesh_ir0a2")
-skeleton = NodePath("")
-
-[node name="door_006" type="Node3D" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001"]
-transform = Transform3D(100, 0, 0, 0, -3.5762783e-05, 99.999985, 0, -99.999985, -3.5762783e-05, 291.03693, 54.16985, -311.13046)
 
 [node name="floor_001" type="Node3D" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001"]
 transform = Transform3D(100, 0, 0, 0, -3.5762783e-05, 99.999985, 0, -99.999985, -3.5762783e-05, 226.75104, -18.31941, -193.92862)
@@ -683,5 +596,16 @@ skeleton = NodePath("")
 mesh = SubResource("ArrayMesh_pqrgt")
 skeleton = NodePath("")
 
-[node name="Door" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001" instance=ExtResource("7_l3jqw")]
+[node name="Door6" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001" instance=ExtResource("7_l3jqw")]
 transform = Transform3D(-4.3711384e-06, 0, 99.99999, 0, 99.99997, 0, -99.99999, 0, -4.3711384e-06, 275.01883, -11.061041, -310.6921)
+
+[node name="Door4" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001" instance=ExtResource("7_l3jqw")]
+transform = Transform3D(-4.3711384e-06, 0, 99.999985, 0, 99.99997, 0, -99.99999, 0, -4.371138e-06, 532.2868, -11.061041, -125.78963)
+
+[node name="Door5" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001" instance=ExtResource("7_l3jqw")]
+transform = Transform3D(-4.371139e-06, 0, 100, 0, 100, 0, -100, 0, -4.371139e-06, 275.019, -11.061, -88.526)
+
+[node name="Door" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5" index="0"]
+script = null
+
+[editable path="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]

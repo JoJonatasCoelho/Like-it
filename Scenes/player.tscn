@@ -352,7 +352,7 @@ _data = {
 [node name="ProtoController" type="CharacterBody3D" parent="."]
 script = ExtResource("1_6t5aa")
 can_jump = false
-base_speed = 1.0
+base_speed = 2.0
 input_left = "move_left"
 input_right = "move_right"
 input_forward = "move_up"
@@ -394,7 +394,7 @@ vertical_alignment = 1
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
 [node name="Game_engine" parent="ProtoController/PlayerBody" index="0"]
-transform = Transform3D(0.99979854, 0.01999191, -0.0017984973, -0.019937165, 0.9994488, 0.026545497, 0.0023282012, -0.026504291, 0.999646, 0, 0, 0)
+transform = Transform3D(0.99979854, 0.01999191, -0.0017984989, -0.019937165, 0.9994488, 0.026545517, 0.002328203, -0.026504312, 0.999646, 0, 0, 0)
 
 [node name="Skeleton3D" parent="ProtoController/PlayerBody/Game_engine" index="0"]
 bones/1/rotation = Quaternion(0.5794509, 0.40526128, 0.5794509, -0.40526128)
