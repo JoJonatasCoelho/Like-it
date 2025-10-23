@@ -7,7 +7,6 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 		if body is CharacterBody3D:
-			var mc = get_tree().root.get_node("Map/Player/ProtoController")
-			mc.die() 
+			body.die() 
 			await get_tree().create_timer(4.6).timeout
 			get_tree().quit()

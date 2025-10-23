@@ -399,7 +399,7 @@ vertical_alignment = 1
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
 [node name="Game_engine" parent="ProtoController/PlayerBody" index="0"]
-transform = Transform3D(0.9997778, 0.017754205, 0.011347764, -0.017805109, 0.99983174, 0.0044007637, -0.011267721, -0.004601835, 0.999926, 0, 0, 0)
+transform = Transform3D(0.9997778, 0.017754208, 0.011347764, -0.017805113, 0.99983174, 0.004400764, -0.011267721, -0.0046018353, 0.999926, 0, 0, 0)
 
 [node name="Skeleton3D" parent="ProtoController/PlayerBody/Game_engine" index="0"]
 bones/1/rotation = Quaternion(0.5794509, 0.40526128, 0.5794509, -0.40526128)
