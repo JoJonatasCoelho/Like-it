@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://boks5rmxlorc0" path="res://Scripts/radio.gd" id="1_8y21s"]
 [ext_resource type="AudioStream" uid="uid://bfi61la3l8h3n" path="res://Assets/audio/POL-elevator-lift2.wav" id="2_bdbpc"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_bdbpc"]
+[ext_resource type="PackedScene" uid="uid://dyw4s00564y2u" path="res://Assets/Objects/radio.glb" id="3_ibud7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ibud7"]
+size = Vector3(0.7425537, 0.4248047, 0.5375366)
 
 [node name="Radio" type="Node3D"]
 
@@ -13,15 +13,13 @@
 collision_layer = 3
 script = ExtResource("1_8y21s")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(0.82943994, 0, 0, 0, 0.51839995, 0, 0, 0, 0.51839995, 0, 0.26, 0)
-mesh = SubResource("BoxMesh_bdbpc")
-skeleton = NodePath("../..")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(0.82943994, 0, 0, 0, 0.51839995, 0, 0, 0, 0.51839995, 0, 0.26, 0)
+transform = Transform3D(0.82943994, 0, 0, 0, 0.51839995, 0, 0, 0, 0.51839995, 0.049561873, 0.07172671, -0.03308027)
 shape = SubResource("BoxShape3D_ibud7")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="StaticBody3D"]
 stream = ExtResource("2_bdbpc")
 autoplay = true
+
+[node name="radio" parent="StaticBody3D" instance=ExtResource("3_ibud7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9394775, -0.03382671, -0.018633842)

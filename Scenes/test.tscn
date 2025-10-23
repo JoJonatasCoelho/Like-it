@@ -78,7 +78,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49767804, 0.8000264)
 metadata/_edit_group_ = true
 
 [node name="Game_engine" parent="Player/ProtoController/PlayerBody" index="0"]
-transform = Transform3D(0.99979854, 0.01999191, -0.0017984968, -0.019937165, 0.9994488, 0.026545485, 0.0023282003, -0.02650428, 0.999646, 0, 0, 0)
+transform = Transform3D(0.99979854, 0.01999191, -0.0017984973, -0.019937165, 0.9994488, 0.026545491, 0.002328201, -0.026504286, 0.999646, 0, 0, 0)
 
 [node name="Cat" parent="." instance=ExtResource("9_iaow0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2275615, 0.46180904, 0.36808908)
