@@ -1,8 +1,8 @@
 extends Area3D
 
-@onready var world_env: WorldEnvironment = get_node("/root/Map/WorldEnvironment")
-@onready var water: Node3D = get_node("/Map/Level/Water")
-@onready var audio = get_node("/Level/Map/Audio/BGM")
+@onready var world_env: WorldEnvironment = get_tree().root.get_node("Map/WorldEnvironment")
+@onready var water: Node3D = get_tree().root.get_node("Map/Water")
+@onready var audio : AudioStreamPlayer = get_tree().root.get_node("Map/Audio/BGM")
 
 @export var has_been_passed: bool = false
 @export var water_rise_amount: float = 0.5
@@ -11,7 +11,7 @@ extends Area3D
 func _on_body_entered(body: Node3D) -> void:
 	if !has_been_passed:
 		if body is CharacterBody3D:
-			print("ENTROOOU")
+			print(world_env)
 			var env := world_env.environment
 			var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
@@ -29,7 +29,7 @@ func _on_body_entered(body: Node3D) -> void:
 				print("entrou 2")
 				
 			
-			if audio is AudioStreamPlayer3D or audio is AudioStreamPlayer:
+			if audio is AudioStreamPlayer:
 				print("Volume atual: ", audio.volume_db)
 				print("Volume increase: ", volume_increase)
 				

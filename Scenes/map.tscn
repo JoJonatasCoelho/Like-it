@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://cwng4e3faio4u"]
+[gd_scene load_steps=21 format=3 uid="uid://cwng4e3faio4u"]
 
+[ext_resource type="Script" uid="uid://c1gmxvobootlc" path="res://level.gd" id="1_5qtum"]
 [ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/player.tscn" id="1_olcgw"]
 [ext_resource type="PackedScene" uid="uid://8eu3q1gwbqsv" path="res://Scenes/house.tscn" id="2_dlo4w"]
 [ext_resource type="PackedScene" uid="uid://dqq0dd360wjel" path="res://Scenes/photo.tscn" id="3_q6lx1"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b6qypnmb2fuky" path="res://Scenes/ui.tscn" id="10_riaky"]
 [ext_resource type="PackedScene" uid="uid://cw38fqffw1xgs" path="res://Scenes/checkpoint.tscn" id="11_dlo4w"]
 [ext_resource type="Script" uid="uid://dj460881h7wmf" path="res://Scenes/final.gd" id="12_q6lx1"]
+[ext_resource type="PackedScene" uid="uid://decy35mve4tbg" path="res://Scenes/audio.tscn" id="14_ie368"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vtkp8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -36,13 +38,19 @@ albedo_texture = ExtResource("4_5qtum")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q6lx1"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[node name="Map" type="Node3D"]
+[node name="Map" type="Node3D" node_paths=PackedStringArray("player", "player_animator")]
+script = ExtResource("1_5qtum")
+player = NodePath("Player/ProtoController")
+player_animator = NodePath("Player/ProtoController/PlayerBody/AnimationPlayer")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rg57b")
 
 [node name="Player" parent="." instance=ExtResource("1_olcgw")]
 transform = Transform3D(0.59999996, 0, 0, 0, 0.6, 0, 0, 0, 0.59999996, 0.56076366, 0, -2.2576776)
+
+[node name="Game_engine" parent="Player/ProtoController/PlayerBody" index="0"]
+transform = Transform3D(0.98679507, -0.04809119, 0.15466818, -0.15375128, 0.022235276, 0.98785937, -0.050946426, -0.99859536, 0.014547583, 0, 0, 0)
 
 [node name="House" parent="." instance=ExtResource("2_dlo4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0028687716, 0, 0.001970023)
@@ -188,8 +196,12 @@ mesh = SubResource("BoxMesh_dlo4w")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("ConcavePolygonShape3D_q6lx1")
 
+[node name="Audio" parent="." instance=ExtResource("14_ie368")]
+
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
 
+[editable path="Player"]
+[editable path="Player/ProtoController/PlayerBody"]
 [editable path="House"]
 [editable path="House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
@@ -209,3 +221,8 @@ shape = SubResource("ConcavePolygonShape3D_q6lx1")
 [editable path="House5"]
 [editable path="House5/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="House5/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
+[editable path="Checkpoint"]
+[editable path="Checkpoint2"]
+[editable path="Checkpoint3"]
+[editable path="Checkpoint4"]
+[editable path="Audio"]
