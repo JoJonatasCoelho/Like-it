@@ -17,6 +17,7 @@ albedo_color = Color(0.223068, 0.39937004, 0.616996, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_cyg26"]
 material = SubResource("StandardMaterial3D_2qpch")
+size = Vector3(0.01, 0.2, 0.01)
 
 [node name="Node3D" type="Node3D"]
 
@@ -25,7 +26,6 @@ collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00049999356, 0)
-visible = false
 shape = SubResource("BoxShape3D_dx7ad")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]

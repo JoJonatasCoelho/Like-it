@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6qypnmb2fuky"]
+[gd_scene load_steps=4 format=3 uid="uid://dl4y6m3avgg0b"]
 
-[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_qdvrb"]
+[ext_resource type="Script" uid="uid://nq4v65apnrq8" path="res://Scripts/ui.gd" id="1_qdvrb"]
+[ext_resource type="Texture2D" uid="uid://cl3ueywcl2jpp" path="res://Assets/images/dot.png" id="2_qdvrb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qdvrb"]
 font_size = 30
@@ -30,6 +31,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_qdvrb")
 
 [node name="PhotoViewer" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 8
