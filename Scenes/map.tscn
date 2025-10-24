@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cwng4e3faio4u"]
+[gd_scene load_steps=38 format=3 uid="uid://cwng4e3faio4u"]
 
 [ext_resource type="Script" uid="uid://c1gmxvobootlc" path="res://level.gd" id="1_5qtum"]
 [ext_resource type="PackedScene" uid="uid://8eu3q1gwbqsv" path="res://Scenes/house.tscn" id="2_dlo4w"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cw38fqffw1xgs" path="res://Scenes/checkpoint.tscn" id="11_dlo4w"]
 [ext_resource type="Script" uid="uid://dj460881h7wmf" path="res://Scenes/final.gd" id="12_q6lx1"]
 [ext_resource type="PackedScene" uid="uid://decy35mve4tbg" path="res://Scenes/audio.tscn" id="14_ie368"]
+[ext_resource type="AudioStream" uid="uid://lx4kg28jopyt" path="res://Assets/audio/Horrible-Realization.mp3" id="22_uus22"]
 [ext_resource type="Texture2D" uid="uid://dkif0yhlev1al" path="res://black-screen-background.png" id="23_ltf6m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vtkp8"]
@@ -699,7 +700,7 @@ transform = Transform3D(1, 0, 0, 0, -0.8675138, -0.49741313, 0, 0.49741313, -0.8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3077545, 1.5640635, -1.1307905)
 
 [node name="Water" parent="." instance=ExtResource("9_j4oe2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5792837, -0.15285927, -0.500082)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5792837, -0.8881932, -0.500082)
 
 [node name="UI" parent="." instance=ExtResource("10_riaky")]
 
@@ -718,15 +719,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.689741, -0.11524534, -0.38
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.413357, 0, -0.548296)
 script = ExtResource("12_q6lx1")
+SFX = ExtResource("22_uus22")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
 visible = false
 mesh = SubResource("BoxMesh_dlo4w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.45742443, 0, 0, 0, 1, 0, 0, 0, 1.2518106, 0.6012974, 0, -0.22647732)
 shape = SubResource("ConcavePolygonShape3D_q6lx1")
 
 [node name="Audio" parent="." instance=ExtResource("14_ie368")]
+
+[node name="SFX" parent="Audio" index="1"]
+stream = ExtResource("22_uus22")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(6.046858, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.79520774, -4.319679)

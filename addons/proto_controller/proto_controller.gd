@@ -126,10 +126,10 @@ func _physics_process(delta: float) -> void:
 
 
 func die():
-	print("morreu")
 	can_move = false
 	can_look = false
 	animator.play("open_door")
+	await get_tree().create_timer(1.25).timeout
 	animator.play("die")
 
 ## Rotate us to look around.
