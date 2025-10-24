@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cf35yxgcqh63t" path="res://Assets/Animals/cat_-_ps1_low_poly_rigged.glb" id="9_iaow0"]
 [ext_resource type="Script" uid="uid://dg4ps1yqp4f0o" path="res://Scripts/background_audio.gd" id="9_qpfo2"]
 [ext_resource type="PackedScene" uid="uid://b4kpfgrxglt1n" path="res://Scenes/trash.tscn" id="10_iaow0"]
+[ext_resource type="Script" uid="uid://unrv273kmh5e" path="res://Scripts/subtitle.gd" id="10_qpfo2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lc1oi"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -35,6 +36,16 @@ albedo_color = Color(0.65317076, 0.6406309, 0.81333053, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0c07c"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0c07c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2cgwh"]
+font_size = 30
+
+[sub_resource type="GDScript" id="GDScript_2cgwh"]
+script/source = "extends Interactable
+
+func interact(_caller):
+	super.interact(_caller)
+"
 
 [node name="Test" type="Node3D"]
 
@@ -70,6 +81,17 @@ material_override = SubResource("StandardMaterial3D_2cgwh")
 
 [node name="UI" parent="." instance=ExtResource("4_ys1qc")]
 
+[node name="Subtitles" type="Label" parent="UI/CanvasLayer" index="3"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -138.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_2cgwh")
+horizontal_alignment = 1
+
 [node name="Audio" parent="." instance=ExtResource("7_5wyu1")]
 
 [node name="BGM" parent="Audio" index="0"]
@@ -80,10 +102,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49767804, 0.8000264)
 metadata/_edit_group_ = true
 
 [node name="Game_engine" parent="Player/ProtoController/PlayerBody" index="0"]
+<<<<<<< HEAD
+transform = Transform3D(0.99979854, 0.01999191, -0.0017985016, -0.019937165, 0.9994488, 0.02654555, 0.0023282063, -0.026504345, 0.999646, 0, 0, 0)
+=======
 transform = Transform3D(0.99979854, 0.01999191, -0.0017985024, -0.019937165, 0.9994488, 0.026545562, 0.0023282075, -0.026504356, 0.999646, 0, 0, 0)
+>>>>>>> release
 
 [node name="Cat" parent="." instance=ExtResource("9_iaow0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2275615, 0.46180904, 0.36808908)
+script = SubResource("GDScript_2cgwh")
 
 [node name="Clipboard" parent="." instance=ExtResource("9_2cgwh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9401002, 1.6081208, 0.43110996)
@@ -91,6 +118,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9401002, 1.6081208, 0.4311
 [node name="Trash" parent="." instance=ExtResource("10_iaow0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1725547, 0.46936023, 0)
 
+<<<<<<< HEAD
+[node name="SubtitleTest" parent="." instance=ExtResource("3_qc4db")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.520993, 1.6219711, 0.46147907)
+
+[node name="Photo" parent="SubtitleTest" index="0"]
+script = ExtResource("10_qpfo2")
+dialogue = "Uau, que bela foto."
+=======
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24647522, -2.0834284)
 script = ExtResource("9_qpfo2")
@@ -106,9 +141,11 @@ mesh = SubResource("BoxMesh_0c07c")
 skeleton = NodePath("../..")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+>>>>>>> release
 
 [editable path="Photo"]
 [editable path="UI"]
 [editable path="Audio"]
 [editable path="Player"]
 [editable path="Player/ProtoController/PlayerBody"]
+[editable path="SubtitleTest"]

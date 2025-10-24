@@ -1,23 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5dp83nstsmix"]
-
-[ext_resource type="Texture2D" uid="uid://diqyvhk6eyrnl" path="res://dialog.jpeg" id="1_twcdb"]
+[gd_scene format=3 uid="uid://c5dp83nstsmix"]
 
 [node name="dialog_box" type="MarginContainer"]
-anchors_preset = -1
-anchor_left = 0.354
-anchor_top = 0.193
-anchor_right = 0.96400005
-anchor_bottom = 0.565
-offset_left = 0.19198608
-offset_top = -0.06400299
-offset_right = 0.47192383
-offset_bottom = -0.11999512
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -25.5
+offset_right = 14.5
+offset_bottom = 25.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 
 [node name="bg_dialog_box" type="NinePatchRect" parent="."]
 layout_mode = 2
-texture = ExtResource("1_twcdb")
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="text_container" type="MarginContainer" parent="."]
 layout_mode = 2
