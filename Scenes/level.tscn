@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://n1tebp7uvn36"]
 
 [ext_resource type="Script" uid="uid://c1gmxvobootlc" path="res://level.gd" id="1_tumq0"]
-[ext_resource type="PackedScene" uid="uid://bkbv2il1eg4tl" path="res://Scenes/map.tscn" id="3_6phgx"]
+[ext_resource type="PackedScene" uid="uid://cwng4e3faio4u" path="res://Scenes/map.tscn" id="3_6phgx"]
 [ext_resource type="PackedScene" uid="uid://decy35mve4tbg" path="res://Scenes/audio.tscn" id="5_wqkje"]
 
 [node name="Level" type="Node3D"]
@@ -12,15 +12,14 @@ script = ExtResource("1_tumq0")
 [node name="Map" parent="." instance=ExtResource("3_6phgx")]
 
 [editable path="Map"]
-[editable path="Map/Player/ProtoController/PlayerBody"]
 [editable path="Map/House"]
 [editable path="Map/House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="Map/House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
-[editable path="Map/House/Photo"]
+[editable path="Map/House/OldSquadPhoto"]
 [editable path="Map/House2"]
 [editable path="Map/House2/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="Map/House2/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
-[editable path="Map/House2/Clipboard"]
+[editable path="Map/House2/ClipboardNotes"]
 [editable path="Map/House3"]
 [editable path="Map/House3/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="Map/House3/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]

@@ -52,23 +52,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0028687716, 0, 0.001970023
 [node name="Door" parent="House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5" index="0"]
 script = null
 
-[node name="Photo" parent="House" instance=ExtResource("3_q6lx1")]
+[node name="OldSquadPhoto" parent="House" instance=ExtResource("3_q6lx1")]
 transform = Transform3D(0.29999998, 0, 0, 0, 0.29980573, -0.010794276, 0, 0.010794276, 0.29980573, 0.7407372, 0.78025943, -1.485375)
 
-[node name="Photo" parent="House/Photo" index="0"]
+[node name="Photo" parent="House/OldSquadPhoto" index="0"]
 photo_texture = ExtResource("4_5qtum")
+animation_name = "Foto da antiga equipe"
 
-[node name="MeshInstance3D" parent="House/Photo/Photo" index="0"]
+[node name="MeshInstance3D" parent="House/OldSquadPhoto/Photo" index="0"]
 material_override = SubResource("StandardMaterial3D_macow")
 
 [node name="House2" parent="." instance=ExtResource("2_dlo4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2706184, -0.01930046, -0.01282829)
 
-[node name="Clipboard" parent="House2" instance=ExtResource("5_ie368")]
+[node name="ClipboardNotes" parent="House2" instance=ExtResource("5_ie368")]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 0.7504921, 0.8473131, -1.5035961)
 
-[node name="StaticBody3D" parent="House2/Clipboard" index="0"]
+[node name="StaticBody3D" parent="House2/ClipboardNotes" index="0"]
 photo_texture = ExtResource("6_x5dfk")
+animation_name = "Nota do pai"
 
 [node name="House3" parent="." instance=ExtResource("2_dlo4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.49717, 0, 0.001970023)
@@ -96,6 +98,7 @@ transform = Transform3D(-0.9285182, 0, 0.3712869, 0, 1, 0, -0.3712869, 0, -0.928
 
 [node name="StaticBody3D" parent="House3/Clipboard" index="0"]
 photo_texture = ExtResource("7_fls3e")
+animation_name = "Arrependimento"
 
 [node name="House4" parent="." instance=ExtResource("2_dlo4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.717882, 0, 0.001970023)
@@ -126,6 +129,7 @@ transform = Transform3D(-0.75354046, 0, -0.6574015, 0, 1, 0, 0.6574015, 0, -0.75
 
 [node name="StaticBody3D" parent="House4/Clipboard" index="0"]
 photo_texture = ExtResource("8_k63oc")
+animation_name = "Final"
 
 [node name="House5" parent="." instance=ExtResource("2_dlo4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.96058, 0, 0.001970023)
@@ -214,11 +218,11 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, -2.7530832)
 [editable path="House"]
 [editable path="House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
-[editable path="House/Photo"]
+[editable path="House/OldSquadPhoto"]
 [editable path="House2"]
 [editable path="House2/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="House2/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
-[editable path="House2/Clipboard"]
+[editable path="House2/ClipboardNotes"]
 [editable path="House3"]
 [editable path="House3/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="House3/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
