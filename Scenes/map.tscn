@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bkbv2il1eg4tl"]
+[gd_scene load_steps=23 format=3 uid="uid://cwng4e3faio4u"]
 
 [ext_resource type="Script" uid="uid://c1gmxvobootlc" path="res://level.gd" id="1_5qtum"]
 [ext_resource type="PackedScene" uid="uid://8eu3q1gwbqsv" path="res://Scenes/house.tscn" id="2_dlo4w"]
@@ -8,10 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://ytjrs36t812l" path="res://Assets/Documents/DOCUMENTO 1.png" id="6_x5dfk"]
 [ext_resource type="Texture2D" uid="uid://c52h6vwm8c3yc" path="res://Assets/Documents/DOCUMENTO 2.png" id="7_fls3e"]
 [ext_resource type="Texture2D" uid="uid://bc55icoxsyhg" path="res://Assets/Documents/DOCUMENTO 3.png" id="8_k63oc"]
-[ext_resource type="PackedScene" uid="uid://bq84n3n78cq5b" path="res://Scenes/water.tscn" id="9_j4oe2"]
+[ext_resource type="PackedScene" path="res://Scenes/water.tscn" id="9_j4oe2"]
 [ext_resource type="PackedScene" uid="uid://b6qypnmb2fuky" path="res://Scenes/ui.tscn" id="10_riaky"]
 [ext_resource type="PackedScene" uid="uid://cw38fqffw1xgs" path="res://Scenes/checkpoint.tscn" id="11_dlo4w"]
-[ext_resource type="Script" path="res://Scenes/final.gd" id="12_q6lx1"]
+[ext_resource type="Script" uid="uid://dj460881h7wmf" path="res://Scenes/final.gd" id="12_q6lx1"]
 [ext_resource type="PackedScene" uid="uid://decy35mve4tbg" path="res://Scenes/audio.tscn" id="14_ie368"]
 [ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/player.tscn" id="16_fls3e"]
 [ext_resource type="AudioStream" uid="uid://lx4kg28jopyt" path="res://Assets/audio/Horrible-Realization.mp3" id="22_uus22"]
@@ -196,6 +196,7 @@ shape = SubResource("ConcavePolygonShape3D_q6lx1")
 
 [node name="SFX" parent="Audio" index="1"]
 stream = ExtResource("22_uus22")
+volume_db = 20.0
 
 [node name="BLACKOUT" type="Sprite3D" parent="."]
 transform = Transform3D(6.046858, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.79520774, -4.319679)
