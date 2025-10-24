@@ -3,7 +3,6 @@ extends Interactable
 @onready var audio_player : AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 func _ready():
-	audio_player.stream = preload("res://Assets/audio/POL-elevator-lift2.wav")
 	audio_player.play(0)
 
 func interact(_caller):

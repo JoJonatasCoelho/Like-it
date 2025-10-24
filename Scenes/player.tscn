@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddxaqp2rhgl86"]
+[gd_scene load_steps=17 format=3 uid="uid://ddxaqp2rhgl86"]
 
 [ext_resource type="Script" uid="uid://dm8oagsclqabx" path="res://addons/proto_controller/proto_controller.gd" id="1_6t5aa"]
 [ext_resource type="Script" uid="uid://b2i7v67m6bs16" path="res://Scripts/interaction_component.gd" id="2_cvnsp"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cqmpo3oir4k85" path="res://Assets/model/man_DarkpaleRed_clothes_blood.png" id="4_3smsa"]
 [ext_resource type="Texture2D" uid="uid://c151ui15fqg0k" path="res://Assets/model/man_Red_texture.png" id="5_8erm5"]
 [ext_resource type="Animation" uid="uid://uh6ghueo6xm8" path="res://Assets/animations/standingUp.res" id="5_fkybt"]
-[ext_resource type="Animation" uid="uid://cl20htdrx8jku" path="res://Assets/animations/breathing_idle.res" id="5_x3wgy"]
+[ext_resource type="Animation" uid="uid://bxvms7mshh5sc" path="res://Assets/animations/breathing_idle.res" id="5_x3wgy"]
+[ext_resource type="Animation" uid="uid://drf3ojgwwpqaf" path="res://Assets/animations/open_door.res" id="8_8erm5"]
+[ext_resource type="Animation" uid="uid://bli4s82qq380v" path="res://Assets/animations/die.res" id="9_f1ek2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
 radius = 0.4
@@ -53,7 +55,7 @@ resource_name = "walk"
 length = 1.0333333
 tracks/0/type = "position_3d"
 tracks/0/imported = true
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Game_engine")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -343,6 +345,8 @@ tracks/40/keys = PackedFloat32Array(0, 1, 0.16704378, -0.18397135, -0.0059699835
 _data = {
 &"RESET": SubResource("Animation_x3wgy"),
 &"breathing_idle": ExtResource("5_x3wgy"),
+&"die": ExtResource("9_f1ek2"),
+&"open_door": ExtResource("8_8erm5"),
 &"standingUp": ExtResource("5_fkybt"),
 &"walk": SubResource("Animation_fkybt")
 }
@@ -352,7 +356,7 @@ _data = {
 [node name="ProtoController" type="CharacterBody3D" parent="."]
 script = ExtResource("1_6t5aa")
 can_jump = false
-base_speed = 1.0
+base_speed = 2.0
 input_left = "move_left"
 input_right = "move_right"
 input_forward = "move_up"
@@ -366,9 +370,10 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038683057, 1.6029497, -0.19518329)
 
 [node name="Camera3D" type="Camera3D" parent="ProtoController/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="ProtoController/Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, -8.497494e-08, -0.99999994, 0, 1.9439999, -4.3711385e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -3.539114e-08, -0.99999994, 0, 0.8096548, -4.3711385e-08, 0, 0, 0)
 collision_mask = 2
 
 [node name="InteractionComponent" type="Node3D" parent="ProtoController/Head/Camera3D"]
@@ -394,7 +399,7 @@ vertical_alignment = 1
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
 [node name="Game_engine" parent="ProtoController/PlayerBody" index="0"]
-transform = Transform3D(0.99979854, 0.01999191, -0.0017984973, -0.019937165, 0.9994488, 0.026545497, 0.0023282012, -0.026504291, 0.999646, 0, 0, 0)
+transform = Transform3D(0.99979836, 0.019991908, -0.0017984967, -0.019937161, 0.99944866, 0.026545482, 0.0023281998, -0.026504274, 0.99964595, 0, 0, 0)
 
 [node name="Skeleton3D" parent="ProtoController/PlayerBody/Game_engine" index="0"]
 bones/1/rotation = Quaternion(0.5794509, 0.40526128, 0.5794509, -0.40526128)
@@ -498,7 +503,7 @@ bones/41/rotation = Quaternion(0.022212436, -0.037098084, -0.01237521, 0.9989881
 bones/41/scale = Vector3(0.99999994, 0.99999994, 0.9999999)
 bones/42/position = Vector3(-7.7563583e-10, 0.040631067, 1.7040081e-08)
 bones/42/rotation = Quaternion(0.14257771, 0.0048881057, 0.03391239, 0.9891904)
-bones/43/rotation = Quaternion(0.2484664, -0.08207227, -0.028298452, 0.96474236)
+bones/43/rotation = Quaternion(0.21405266, 0.0063428674, -0.013188787, 0.9767125)
 bones/44/position = Vector3(-7.140002e-17, 0.10158181, 2.4904622e-08)
 bones/44/rotation = Quaternion(-0.1610186, -1.4743466e-09, -3.9193462e-10, 0.9869514)
 bones/45/rotation = Quaternion(0.96619797, 0.04541718, -0.2419321, -0.07660121)

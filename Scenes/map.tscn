@@ -1,0 +1,237 @@
+[gd_scene load_steps=23 format=3 uid="uid://cwng4e3faio4u"]
+
+[ext_resource type="Script" uid="uid://c1gmxvobootlc" path="res://level.gd" id="1_5qtum"]
+[ext_resource type="PackedScene" uid="uid://8eu3q1gwbqsv" path="res://Scenes/house.tscn" id="2_dlo4w"]
+[ext_resource type="PackedScene" uid="uid://dqq0dd360wjel" path="res://Scenes/photo.tscn" id="3_q6lx1"]
+[ext_resource type="Texture2D" uid="uid://bmhud6pre53jv" path="res://Assets/Documents/FOTO.png" id="4_5qtum"]
+[ext_resource type="PackedScene" uid="uid://djygw8pegtbei" path="res://Scenes/clipboard.tscn" id="5_ie368"]
+[ext_resource type="Texture2D" uid="uid://ytjrs36t812l" path="res://Assets/Documents/DOCUMENTO 1.png" id="6_x5dfk"]
+[ext_resource type="Texture2D" uid="uid://c52h6vwm8c3yc" path="res://Assets/Documents/DOCUMENTO 2.png" id="7_fls3e"]
+[ext_resource type="Texture2D" uid="uid://bc55icoxsyhg" path="res://Assets/Documents/DOCUMENTO 3.png" id="8_k63oc"]
+[ext_resource type="PackedScene" path="res://Scenes/water.tscn" id="9_j4oe2"]
+[ext_resource type="PackedScene" uid="uid://b6qypnmb2fuky" path="res://Scenes/ui.tscn" id="10_riaky"]
+[ext_resource type="PackedScene" uid="uid://cw38fqffw1xgs" path="res://Scenes/checkpoint.tscn" id="11_dlo4w"]
+[ext_resource type="Script" uid="uid://dj460881h7wmf" path="res://Scenes/final.gd" id="12_q6lx1"]
+[ext_resource type="PackedScene" uid="uid://decy35mve4tbg" path="res://Scenes/audio.tscn" id="14_ie368"]
+[ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/player.tscn" id="16_fls3e"]
+[ext_resource type="AudioStream" uid="uid://lx4kg28jopyt" path="res://Assets/audio/Horrible-Realization.mp3" id="22_uus22"]
+[ext_resource type="Texture2D" uid="uid://dkif0yhlev1al" path="res://black-screen-background.png" id="23_ltf6m"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vtkp8"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_8od7v"]
+sky_material = SubResource("ProceduralSkyMaterial_vtkp8")
+
+[sub_resource type="Environment" id="Environment_rg57b"]
+background_mode = 2
+sky = SubResource("Sky_8od7v")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.37891182, 0.5178365, 0.9472377, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_macow"]
+albedo_texture = ExtResource("4_5qtum")
+
+[sub_resource type="BoxMesh" id="BoxMesh_dlo4w"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q6lx1"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Map" type="Node3D"]
+script = ExtResource("1_5qtum")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rg57b")
+
+[node name="House" parent="." instance=ExtResource("2_dlo4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0028687716, 0, 0.001970023)
+
+[node name="Door" parent="House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5" index="0"]
+script = null
+
+[node name="Photo" parent="House" instance=ExtResource("3_q6lx1")]
+transform = Transform3D(0.29999998, 0, 0, 0, 0.29980573, -0.010794276, 0, 0.010794276, 0.29980573, 0.7407372, 0.78025943, -1.485375)
+
+[node name="Photo" parent="House/Photo" index="0"]
+photo_texture = ExtResource("4_5qtum")
+
+[node name="MeshInstance3D" parent="House/Photo/Photo" index="0"]
+material_override = SubResource("StandardMaterial3D_macow")
+
+[node name="House2" parent="." instance=ExtResource("2_dlo4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2706184, -0.01930046, -0.01282829)
+
+[node name="Clipboard" parent="House2" instance=ExtResource("5_ie368")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 0.7504921, 0.8473131, -1.5035961)
+
+[node name="StaticBody3D" parent="House2/Clipboard" index="0"]
+photo_texture = ExtResource("6_x5dfk")
+
+[node name="House3" parent="." instance=ExtResource("2_dlo4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.49717, 0, 0.001970023)
+
+[node name="Gabinet" parent="House3" index="2"]
+transform = Transform3D(-0.8999977, -2.1625242e-09, 0.0019792046, -0.0003074342, 0.8890762, -0.13979763, -0.0019551818, -0.13979796, -0.88907397, 1.0996752, -0.117560446, -1.4974539)
+
+[node name="Radio" parent="House3" index="3"]
+transform = Transform3D(-0.9714374, 0, -0.23729603, 0, 1, 0, 0.23729603, 0, -0.9714374, 1.40833, 0.8309053, -1.7127128)
+
+[node name="Chair" parent="House3" index="4"]
+transform = Transform3D(0.70414555, 0.22671372, -0.3045981, -0.24518098, 0.7615027, 0, 0.28994033, 0.09335208, 0.7397432, 3.7621527, 0, -3.6012838)
+
+[node name="Items" parent="House3" index="5"]
+transform = Transform3D(0.13728407, 0, 0.060440753, 0, 0.14999999, 0, -0.060440753, 0, 0.13728407, 3.3526888, -0.08431621, -1.7028638)
+
+[node name="Pizza" parent="House3" index="6"]
+transform = Transform3D(-0.7452616, -1.1162355e-08, 0.29083514, -0.0012283847, 0.7999927, -0.0031477362, -0.29083255, -0.0033789873, -0.7452549, 4.228818, 0.11260566, -3.3759851)
+
+[node name="Closet" parent="House3" index="7"]
+transform = Transform3D(0.026260998, 0, -0.6995073, 0.106230415, 0.6918809, 0.003988117, 0.6913939, -0.10630524, 0.025956405, 5.176509, -0.11167985, -3.0088325)
+
+[node name="Clipboard" parent="House3" instance=ExtResource("5_ie368")]
+transform = Transform3D(-0.9285182, 0, 0.3712869, 0, 1, 0, -0.3712869, 0, -0.9285182, 0.73441124, 0.8192511, -1.6844573)
+
+[node name="StaticBody3D" parent="House3/Clipboard" index="0"]
+photo_texture = ExtResource("7_fls3e")
+
+[node name="House4" parent="." instance=ExtResource("2_dlo4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.717882, 0, 0.001970023)
+
+[node name="Gabinet" parent="House4" index="2"]
+transform = Transform3D(-0.8999977, -2.1494602e-09, 0.0019792046, -0.0019779957, -0.031456605, -0.8994478, 6.917931e-05, -0.89945006, 0.03145653, 1.0996742, -0.117560446, -1.4974539)
+
+[node name="Radio" parent="House4" index="3"]
+transform = Transform3D(-0.9997816, -0.0057595596, -0.02008714, -0.0057583973, 0.9999834, -0.00011569518, 0.020087473, -1.15938224e-10, -0.99979824, 1.4083309, 0.12309748, -1.9139227)
+
+[node name="Chair" parent="House4" index="4"]
+transform = Transform3D(0.11417942, 0.20016171, -0.7660929, 0.05590615, 0.7700473, 0.20952716, 0.78983396, -0.08344121, 0.09591658, 4.1074924, -0.07120374, -2.8805747)
+
+[node name="Items" parent="House4" index="5"]
+transform = Transform3D(0.12187057, 0, 0.08745037, -0.003980739, -0.14984453, 0.005547546, 0.08735973, -0.0068279975, -0.12174424, 3.3526897, 1.7153122, -1.7028638)
+
+[node name="Pizza" parent="House4" index="6"]
+transform = Transform3D(-0.74526167, 0, 0.2908352, 0, 0.79999995, 0, -0.2908352, 0, -0.74526167, 3.3530102, 0.148669, -3.3721602)
+
+[node name="Closet" parent="House4" index="7"]
+transform = Transform3D(0.024040869, -0.2816878, -0.64037025, 0.010567719, 0.64082134, -0.28148955, 0.6995073, 0, 0.026260998, 5.176508, -0.11167985, -3.0088325)
+
+[node name="Toilet" parent="House4" index="8"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0.94932747, 1.6361978, -0.71829855)
+
+[node name="Clipboard" parent="House4" instance=ExtResource("5_ie368")]
+transform = Transform3D(-0.75354046, 0, -0.6574015, 0, 1, 0, 0.6574015, 0, -0.75354046, 0.7092438, 0.108315825, -2.225588)
+
+[node name="StaticBody3D" parent="House4/Clipboard" index="0"]
+photo_texture = ExtResource("8_k63oc")
+
+[node name="House5" parent="." instance=ExtResource("2_dlo4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.96058, 0, 0.001970023)
+
+[node name="Door6" parent="House5/house/Sketchfab_model_001/houses_fbx_001/RootNode_001" index="7"]
+transform = Transform3D(-6.3477523e-07, -98.93991, 14.521962, -4.324802e-06, 14.521962, 98.939926, -99.99999, 0, -4.371138e-06, 275.0188, -415.3829, -310.69202)
+visible = false
+
+[node name="Door5" parent="House5/house/Sketchfab_model_001/houses_fbx_001/RootNode_001" index="9"]
+transform = Transform3D(-4.371139e-06, 0, 100, 0, 99.99999, 0, -99.99999, 0, -4.371139e-06, 275.01904, -190.85397, -88.526)
+visible = false
+
+[node name="Gabinet" parent="House5" index="2"]
+transform = Transform3D(-0.8999977, -2.1494602e-09, 0.0019792046, -0.0018416777, 0.32963184, -0.83746004, -0.00072489644, -0.8374621, -0.32963103, 1.0996742, -0.117560446, -1.4974539)
+
+[node name="Radio" parent="House5" index="3"]
+transform = Transform3D(0.042538397, 0, -0.9990949, 0, 1, 0, 0.9990949, 0, 0.042538397, 4.463253, 1.0514967, -1.8589395)
+
+[node name="Chair" parent="House5" index="4"]
+transform = Transform3D(0.4405244, -0.6652449, -0.058201388, 0.66778606, 0.43884808, 0.03839423, 0, -0.06972459, 0.7969557, 3.7621536, 0, -3.6012838)
+
+[node name="Items" parent="House5" index="5"]
+transform = Transform3D(-0.149876, 0.005457908, -0.0027197981, -0.005546905, -0.14981294, 0.00503079, -0.002533356, 0.0051272083, 0.14989091, 3.8728848, 1.6942061, -1.0707318)
+
+[node name="Pizza" parent="House5" index="6"]
+transform = Transform3D(-0.72653043, 0.17823258, 0.28352538, 0.16603741, 0.779893, -0.06479538, -0.29083514, 3.5527135e-16, -0.7452616, 4.143858, 0.50410384, -3.2728615)
+
+[node name="Closet" parent="House5" index="7"]
+transform = Transform3D(-0.010389679, -0.6656372, -0.21637763, 0.030973632, 0.2157522, -0.6652006, 0.69923735, -0.019447451, 0.026250865, 5.176508, -0.11167985, -3.0088325)
+
+[node name="Toilet" parent="House5" index="8"]
+transform = Transform3D(1, 0, 0, 0, -0.8675138, -0.49741313, 0, 0.49741313, -0.8675138, 0.94932747, 1.3315735, -0.71829855)
+
+[node name="Toilet Paper" parent="House5" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3077545, 1.5640635, -1.1307905)
+
+[node name="Water" parent="." instance=ExtResource("9_j4oe2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5792837, -0.8881932, -0.500082)
+
+[node name="UI" parent="." instance=ExtResource("10_riaky")]
+
+[node name="Checkpoint" parent="." instance=ExtResource("11_dlo4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.025789, -0.06600022, -0.37686443)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("11_dlo4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.327395, -0.071523726, -0.34993112)
+
+[node name="Checkpoint3" parent="." instance=ExtResource("11_dlo4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.503954, -0.11524534, -0.3201817)
+
+[node name="Checkpoint4" parent="." instance=ExtResource("11_dlo4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.689741, -0.11524534, -0.38464642)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.413357, 0, -0.548296)
+script = ExtResource("12_q6lx1")
+SFX = ExtResource("22_uus22")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+visible = false
+mesh = SubResource("BoxMesh_dlo4w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.45742443, 0, 0, 0, 1, 0, 0, 0, 1.2518106, 0.6012974, 0, -0.22647732)
+shape = SubResource("ConcavePolygonShape3D_q6lx1")
+
+[node name="Audio" parent="." instance=ExtResource("14_ie368")]
+
+[node name="SFX" parent="Audio" index="1"]
+stream = ExtResource("22_uus22")
+volume_db = 20.0
+
+[node name="BLACKOUT" type="Sprite3D" parent="."]
+transform = Transform3D(6.046858, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.79520774, -4.319679)
+texture = ExtResource("23_ltf6m")
+
+[node name="BLACKOUT2" type="Sprite3D" parent="."]
+transform = Transform3D(-2.6431647e-07, 0, -0.9999998, 0, 1, 0, 6.046856, 0, -4.371138e-08, 30.464182, -0.79520774, -0.5824928)
+texture = ExtResource("23_ltf6m")
+
+[node name="Player" parent="." instance=ExtResource("16_fls3e")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, -2.7530832)
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+
+[editable path="House"]
+[editable path="House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
+[editable path="House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
+[editable path="House/Photo"]
+[editable path="House2"]
+[editable path="House2/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
+[editable path="House2/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
+[editable path="House2/Clipboard"]
+[editable path="House3"]
+[editable path="House3/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
+[editable path="House3/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
+[editable path="House3/Clipboard"]
+[editable path="House4"]
+[editable path="House4/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
+[editable path="House4/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
+[editable path="House4/Clipboard"]
+[editable path="House5"]
+[editable path="House5/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
+[editable path="House5/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
+[editable path="Checkpoint"]
+[editable path="Checkpoint2"]
+[editable path="Checkpoint3"]
+[editable path="Checkpoint4"]
+[editable path="Audio"]

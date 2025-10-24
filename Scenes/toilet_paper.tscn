@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bppucmfjxknsd"]
+
+[ext_resource type="PackedScene" uid="uid://o5x6fi3t5iig" path="res://Assets/Objects/retro_lowpoly_toilet_paper.glb" id="1_1gwoj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3cmy5"]
+size = Vector3(0.5376587, 0.6577759, 0.5527344)
+
+[node name="Toilet Paper" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.016342163, -0.013668822, 0.06708985)
+shape = SubResource("BoxShape3D_3cmy5")
+
+[node name="Sketchfab_Scene" parent="StaticBody3D" instance=ExtResource("1_1gwoj")]

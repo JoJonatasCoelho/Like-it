@@ -125,6 +125,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func die():
+	can_move = false
+	can_look = false
+	animator.play("open_door")
+	await get_tree().create_timer(1.25).timeout
+	animator.play("die")
+
 ## Rotate us to look around.
 ## Base of controller rotates around y (left/right). Head rotates around x (up/down).
 ## Modifies look_rotation based on rot_input, then resets basis and rotates by look_rotation.

@@ -8,7 +8,7 @@
 
 [node name="Area3D" type="Area3D" parent="."]
 script = ExtResource("1_lbcco")
-volume_increase = 3.0
+volume_increase = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_jkya8")
