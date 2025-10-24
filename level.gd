@@ -8,5 +8,6 @@ func _ready() -> void:
 	player.can_look = false
 	player_animator.play("standingUp")
 	await get_tree().create_timer(11.4).timeout
+	player_animator.play("RESET")
 	player.can_move = true
 	player.can_look = true

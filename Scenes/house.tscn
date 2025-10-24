@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cjp8tisjykm7k" path="res://Assets/model/house_tiles005_diffuse.jpg" id="5_lmwq5"]
 [ext_resource type="Texture2D" uid="uid://drqf6t1hgo0r2" path="res://Assets/model/house_house_wallpaper001_0.jpg" id="6_x4svt"]
 [ext_resource type="PackedScene" uid="uid://cvhdcbceade7x" path="res://Scenes/gabinet.tscn" id="7_gau5j"]
-[ext_resource type="PackedScene" uid="uid://daxgm56ioo6pf" path="res://Scenes/waterdrip.tscn" id="7_j14gn"]
+[ext_resource type="PackedScene" uid="uid://b7owrg7rqor8x" path="res://Scenes/waterdrip.tscn" id="7_j14gn"]
 [ext_resource type="PackedScene" uid="uid://p7y7vqn01gnu" path="res://Scenes/door.tscn" id="7_l3jqw"]
 [ext_resource type="PackedScene" uid="uid://gip2uj27sl4a" path="res://Scenes/radio.tscn" id="8_gau5j"]
 [ext_resource type="PackedScene" uid="uid://bas4xdtdis5uh" path="res://Scenes/chair.tscn" id="9_7ug6d"]
