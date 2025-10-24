@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://daxgm56ioo6pf"]
+[gd_scene load_steps=6 format=3 uid="uid://b7owrg7rqor8x"]
 
 [ext_resource type="AudioStream" uid="uid://dn6o1m3rdrmam" path="res://Assets/audio/POL-cave-dripping.wav" id="1_2qpch"]
 
@@ -12,14 +12,11 @@ gravity = Vector3(0, -1, 0)
 linear_accel_min = -2.2351742e-06
 linear_accel_max = 1.9999977
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dx7ad"]
-albedo_color = Color(0.23137255, 0.54901963, 0.91764706, 1)
-disable_receive_shadows = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2qpch"]
+albedo_color = Color(0.223068, 0.39937004, 0.616996, 1)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_dx7ad"]
-material = SubResource("StandardMaterial3D_dx7ad")
-radius = 0.03
-height = 0.1
+[sub_resource type="BoxMesh" id="BoxMesh_cyg26"]
+material = SubResource("StandardMaterial3D_2qpch")
 
 [node name="Node3D" type="Node3D"]
 
@@ -36,7 +33,7 @@ amount = 3
 lifetime = 2.7699999999999996
 collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_dx7ad")
-draw_pass_1 = SubResource("CapsuleMesh_dx7ad")
+draw_pass_1 = SubResource("BoxMesh_cyg26")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_2qpch")
