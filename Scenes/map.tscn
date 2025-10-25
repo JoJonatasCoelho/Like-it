@@ -193,7 +193,7 @@ visible = false
 mesh = SubResource("BoxMesh_dlo4w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(0.45742443, 0, 0, 0, 1, 0, 0, 0, 1.2518106, 0.6012974, 0, -0.22647732)
+transform = Transform3D(1.160368, 0, 0, 0, 1, 0, 0, 0, 1.2518106, 0.6012974, 0, -0.22647732)
 shape = SubResource("ConcavePolygonShape3D_q6lx1")
 
 [node name="Audio" parent="." instance=ExtResource("14_ie368")]
