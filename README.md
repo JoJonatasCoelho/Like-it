@@ -64,9 +64,8 @@ O jogo aborda o tema através da **memória e da culpa**, mostrando o conflito i
 
 ## 📦 Instalação e Execução
 1. Baixe a versão do jogo para seu sistema operacional (Linux ou Windows).  
-2. Extraia o arquivo `.zip`.  
-3. Execute o arquivo **LikeIt.exe** (Windows) ou **LikeIt.x86_64** (Linux).  
-4. Aproveite — e reflita sobre o impacto humano nos mares. 🌊
+2. Execute o arquivo **LikeIt.exe** (Windows) ou **LikeIt.x86_64** (Linux).  
+3. Aproveite — e reflita sobre o impacto humano nos mares. 🌊
 
 ---
 
