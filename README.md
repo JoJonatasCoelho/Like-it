@@ -3,19 +3,19 @@
 ### Equipe: **Softworks**
 
 **Integrantes:**
-- Caroline de Albuquerque Arrais
-- Victor Franklin Matias Silva
-- Isaac da Cunha Cavalcanti Duarte
-- Jonatas Cleyton Fonseca Coelho
+- Caroline de Albuquerque Arrais  
+- Victor Franklin Matias Silva  
+- Isaac da Cunha Cavalcanti Duarte  
+- Jonatas Cleyton Fonseca Coelho  
 
 ---
 
 ## 🧩 Sobre o jogo
 
-**Like It** é um jogo narrativo em primeira pessoa desenvolvido durante uma *game jam* com o tema:
+**Like It** é um jogo narrativo em primeira pessoa desenvolvido durante uma *game jam* com o tema:  
 > **"Cultura Oceânica: explorando, preservando e valorizando os mares"**
 
-Você controla **José Mendes**, um homem que acorda em sua casa e precisa enfrentar as consequências de suas ações passadas.
+Você controla **José Mendes**, um homem que acorda em sua casa e precisa enfrentar as consequências de suas ações passadas.  
 No passado, ele trabalhou em uma empresa de exploração marítima — hoje, assombrado pela culpa, sofre **alucinações com o mar** e tenta encontrar redenção em meio à sua própria consciência.
 
 O jogo mistura **exploração ambiental**, **atmosfera introspectiva** e **elementos psicológicos**, convidando o jogador a refletir sobre o impacto humano nos oceanos.
@@ -63,13 +63,12 @@ O jogo aborda o tema através da **memória e da culpa**, mostrando o conflito i
 ---
 
 ## 📦 Instalação e Execução
-1. Baixe a versão do jogo para seu sistema operacional (Linux ou Windows).
-2. Extraia o arquivo `.zip`.
-3. Execute o arquivo **LikeIt.exe** (Windows) ou **LikeIt.x86_64** (Linux).
+1. Baixe a versão do jogo para seu sistema operacional (Linux ou Windows).  
+2. Extraia o arquivo `.zip`.  
+3. Execute o arquivo **LikeIt.exe** (Windows) ou **LikeIt.x86_64** (Linux).  
 4. Aproveite — e reflita sobre o impacto humano nos mares. 🌊
 
 ---
 
 ## 🌊 Softworks — 2025
 *"As ondas vêm e vão, mas nossas ações permanecem."*
-
