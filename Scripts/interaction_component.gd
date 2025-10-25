@@ -11,7 +11,7 @@ func _process(_delta):
 		if interactable != null and interactable.has_method("interact"):
 			interaction_label.text = "Aperte \"E\" para interagir."
 		else:
-			interaction_label.text = "Vish, caiu no else"
+			interaction_label.text = "Estranho..."
 
 	else:
 		if !interaction_is_reset:

@@ -1,8 +1,10 @@
 extends Interactable
 
 @export var photo_texture: Texture2D
+@export var animation_name: String 
+@onready var ui: CanvasLayer = get_tree().root.get_node("Map/UI/CanvasLayer")
 
 func interact(_caller):
-	var ui = get_tree().root.get_node("Level/UI/CanvasLayer")
-	if ui is CanvasLayer:
-		ui.toggle_photo(photo_texture)
+	var subtitle_animator: AnimationPlayer = ui.get_node("SubtitlesAnimation")
+	ui.toggle_photo(photo_texture)
+	subtitle_animator.play(animation_name)

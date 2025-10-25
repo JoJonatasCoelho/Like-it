@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://8eu3q1gwbqsv"]
+[gd_scene load_steps=54 format=4 uid="uid://8eu3q1gwbqsv"]
 
 [ext_resource type="Texture2D" uid="uid://be0v4ohujmas7" path="res://Assets/model/house_wood003_diffuse.jpg" id="1_bu6dc"]
 [ext_resource type="Texture2D" uid="uid://d4itbu4xfg23" path="res://Assets/model/house_bathroom_floor_diffuse.jpg" id="3_gau5j"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cjp8tisjykm7k" path="res://Assets/model/house_tiles005_diffuse.jpg" id="5_lmwq5"]
 [ext_resource type="Texture2D" uid="uid://drqf6t1hgo0r2" path="res://Assets/model/house_house_wallpaper001_0.jpg" id="6_x4svt"]
 [ext_resource type="PackedScene" uid="uid://cvhdcbceade7x" path="res://Scenes/gabinet.tscn" id="7_gau5j"]
+[ext_resource type="PackedScene" uid="uid://b7owrg7rqor8x" path="res://Scenes/waterdrip.tscn" id="7_j14gn"]
 [ext_resource type="PackedScene" uid="uid://p7y7vqn01gnu" path="res://Scenes/door.tscn" id="7_l3jqw"]
 [ext_resource type="PackedScene" uid="uid://gip2uj27sl4a" path="res://Scenes/radio.tscn" id="8_gau5j"]
 [ext_resource type="PackedScene" uid="uid://bas4xdtdis5uh" path="res://Scenes/chair.tscn" id="9_7ug6d"]
@@ -510,6 +511,10 @@ shape = SubResource("BoxShape3D_7ug6d")
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 2.850283, 0.79982007, -3.700541)
 shape = SubResource("BoxShape3D_gau5j")
 
+[node name="MWall_Collision5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 5.439808, 0.79982007, 0.19907698)
+shape = SubResource("BoxShape3D_gau5j")
+
 [node name="MWall_Collision4" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -0.77384907, 0.79982007, -2.6585896)
 shape = SubResource("BoxShape3D_bu6dc")
@@ -519,7 +524,6 @@ transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -
 shape = SubResource("BoxShape3D_gau5j")
 
 [node name="house" type="Node3D" parent="."]
-metadata/_edit_group_ = true
 
 [node name="Sketchfab_model_001" type="Node3D" parent="house"]
 transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, 0.99999994, 0, -0.99999994, -3.5762787e-07, 0, 0, 0)
@@ -613,8 +617,8 @@ transform = Transform3D(-4.3711384e-06, 0, 99.999985, 0, 99.99997, 0, -99.99999,
 [node name="Door5" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001" instance=ExtResource("7_l3jqw")]
 transform = Transform3D(-4.371139e-06, 0, 100, 0, 100, 0, -100, 0, -4.371139e-06, 275.019, -11.061, -88.526)
 
-[node name="Door" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5" index="0"]
-script = null
+[node name="Dripping" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5/Door" index="3" instance=ExtResource("7_j14gn")]
+transform = Transform3D(-4.371141e-08, 0, -1.0000001, 0, 1.0000001, 0, 1, 0, -4.3711413e-08, -0.6772071, 0.8531754, -2.3837352)
 
 [node name="Gabinet" parent="." instance=ExtResource("7_gau5j")]
 transform = Transform3D(-0.8999978, -2.1216693e-09, 0.0019792046, 0.00013909405, 0.89777464, 0.06325077, -0.0019743112, 0.06325093, -0.89777243, 1.0996747, -0.117560446, -1.4974539)
@@ -640,4 +644,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9493278, -0.083265305, -0.7
 [node name="Toilet Paper" parent="." instance=ExtResource("14_j14gn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3077538, 0.5399503, -1.1307905)
 
+[editable path="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]

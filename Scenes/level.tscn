@@ -1,36 +1,38 @@
-[gd_scene load_steps=9 format=3 uid="uid://n1tebp7uvn36"]
+[gd_scene load_steps=4 format=3 uid="uid://n1tebp7uvn36"]
 
-[ext_resource type="Script" path="res://level.gd" id="1_tumq0"]
-[ext_resource type="PackedScene" uid="uid://8eu3q1gwbqsv" path="res://Scenes/house.tscn" id="2_6phgx"]
-[ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/player.tscn" id="2_k5f4k"]
-[ext_resource type="PackedScene" path="res://Scenes/water.tscn" id="4_81xng"]
+[ext_resource type="Script" uid="uid://c1gmxvobootlc" path="res://level.gd" id="1_tumq0"]
+[ext_resource type="PackedScene" uid="uid://cwng4e3faio4u" path="res://Scenes/map.tscn" id="3_6phgx"]
 [ext_resource type="PackedScene" uid="uid://decy35mve4tbg" path="res://Scenes/audio.tscn" id="5_wqkje"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6phgx"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_8od7v"]
-sky_material = SubResource("ProceduralSkyMaterial_6phgx")
-
-[sub_resource type="Environment" id="Environment_81xng"]
-background_mode = 2
-sky = SubResource("Sky_8od7v")
-tonemap_mode = 2
-glow_enabled = true
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_tumq0")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_81xng")
-
-[node name="Player" parent="." instance=ExtResource("2_k5f4k")]
-transform = Transform3D(0.59999996, 0, 0, 0, 0.6, 0, 0, 0, 0.59999996, 0.56076366, 0, -2.2576776)
-
-[node name="House" parent="." instance=ExtResource("2_6phgx")]
-
-[node name="Water" parent="." instance=ExtResource("4_81xng")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020427704, -0.4265166, 0.0015153885)
-
 [node name="Audio" parent="." instance=ExtResource("5_wqkje")]
+
+[node name="Map" parent="." instance=ExtResource("3_6phgx")]
+
+[editable path="Map"]
+[editable path="Map/House"]
+[editable path="Map/House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
+[editable path="Map/House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
+[editable path="Map/House/OldSquadPhoto"]
+[editable path="Map/House2"]
+[editable path="Map/House2/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
+[editable path="Map/House2/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
+[editable path="Map/House2/ClipboardNotes"]
+[editable path="Map/House3"]
+[editable path="Map/House3/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
+[editable path="Map/House3/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
+[editable path="Map/House3/Clipboard"]
+[editable path="Map/House4"]
+[editable path="Map/House4/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
+[editable path="Map/House4/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
+[editable path="Map/House4/Clipboard"]
+[editable path="Map/House5"]
+[editable path="Map/House5/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
+[editable path="Map/House5/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
+[editable path="Map/Checkpoint"]
+[editable path="Map/Checkpoint2"]
+[editable path="Map/Checkpoint3"]
+[editable path="Map/Checkpoint4"]
+[editable path="Map/Audio"]

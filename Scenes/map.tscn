@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://bkbv2il1eg4tl"]
+[gd_scene load_steps=23 format=3 uid="uid://cwng4e3faio4u"]
 
-[ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/player.tscn" id="1_olcgw"]
+[ext_resource type="Script" uid="uid://c1gmxvobootlc" path="res://level.gd" id="1_5qtum"]
 [ext_resource type="PackedScene" uid="uid://8eu3q1gwbqsv" path="res://Scenes/house.tscn" id="2_dlo4w"]
 [ext_resource type="PackedScene" uid="uid://dqq0dd360wjel" path="res://Scenes/photo.tscn" id="3_q6lx1"]
 [ext_resource type="Texture2D" uid="uid://bmhud6pre53jv" path="res://Assets/Documents/FOTO.png" id="4_5qtum"]
@@ -8,8 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://ytjrs36t812l" path="res://Assets/Documents/DOCUMENTO 1.png" id="6_x5dfk"]
 [ext_resource type="Texture2D" uid="uid://c52h6vwm8c3yc" path="res://Assets/Documents/DOCUMENTO 2.png" id="7_fls3e"]
 [ext_resource type="Texture2D" uid="uid://bc55icoxsyhg" path="res://Assets/Documents/DOCUMENTO 3.png" id="8_k63oc"]
-[ext_resource type="PackedScene" uid="uid://bq84n3n78cq5b" path="res://Scenes/water.tscn" id="9_j4oe2"]
+[ext_resource type="PackedScene" path="res://Scenes/water.tscn" id="9_j4oe2"]
 [ext_resource type="PackedScene" uid="uid://b6qypnmb2fuky" path="res://Scenes/ui.tscn" id="10_riaky"]
+[ext_resource type="PackedScene" uid="uid://cw38fqffw1xgs" path="res://Scenes/checkpoint.tscn" id="11_dlo4w"]
+[ext_resource type="Script" uid="uid://dj460881h7wmf" path="res://Scenes/final.gd" id="12_q6lx1"]
+[ext_resource type="PackedScene" uid="uid://decy35mve4tbg" path="res://Scenes/audio.tscn" id="14_ie368"]
+[ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/player.tscn" id="16_fls3e"]
+[ext_resource type="AudioStream" uid="uid://lx4kg28jopyt" path="res://Assets/audio/Horrible-Realization.mp3" id="22_uus22"]
+[ext_resource type="Texture2D" uid="uid://dkif0yhlev1al" path="res://black-screen-background.png" id="23_ltf6m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vtkp8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -23,38 +29,48 @@ background_mode = 2
 sky = SubResource("Sky_8od7v")
 tonemap_mode = 2
 glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.37891182, 0.5178365, 0.9472377, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_macow"]
 albedo_texture = ExtResource("4_5qtum")
 
+[sub_resource type="BoxMesh" id="BoxMesh_dlo4w"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q6lx1"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
 [node name="Map" type="Node3D"]
+script = ExtResource("1_5qtum")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rg57b")
 
-[node name="Player" parent="." instance=ExtResource("1_olcgw")]
-transform = Transform3D(0.59999996, 0, 0, 0, 0.6, 0, 0, 0, 0.59999996, 0.56076366, 0, -2.2576776)
-
 [node name="House" parent="." instance=ExtResource("2_dlo4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0028687716, 0, 0.001970023)
 
-[node name="Photo" parent="House" instance=ExtResource("3_q6lx1")]
+[node name="Door" parent="House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5" index="0"]
+script = null
+
+[node name="OldSquadPhoto" parent="House" instance=ExtResource("3_q6lx1")]
 transform = Transform3D(0.29999998, 0, 0, 0, 0.29980573, -0.010794276, 0, 0.010794276, 0.29980573, 0.7407372, 0.78025943, -1.485375)
 
-[node name="Photo" parent="House/Photo" index="0"]
+[node name="Photo" parent="House/OldSquadPhoto" index="0"]
 photo_texture = ExtResource("4_5qtum")
+animation_name = "Foto da antiga equipe"
 
-[node name="MeshInstance3D" parent="House/Photo/Photo" index="0"]
+[node name="MeshInstance3D" parent="House/OldSquadPhoto/Photo" index="0"]
 material_override = SubResource("StandardMaterial3D_macow")
 
 [node name="House2" parent="." instance=ExtResource("2_dlo4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2706184, -0.01930046, -0.01282829)
 
-[node name="Clipboard" parent="House2" instance=ExtResource("5_ie368")]
+[node name="ClipboardNotes" parent="House2" instance=ExtResource("5_ie368")]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 0.7504921, 0.8473131, -1.5035961)
 
-[node name="StaticBody3D" parent="House2/Clipboard" index="0"]
+[node name="StaticBody3D" parent="House2/ClipboardNotes" index="0"]
 photo_texture = ExtResource("6_x5dfk")
+animation_name = "Nota do pai"
 
 [node name="House3" parent="." instance=ExtResource("2_dlo4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.49717, 0, 0.001970023)
@@ -82,6 +98,7 @@ transform = Transform3D(-0.9285182, 0, 0.3712869, 0, 1, 0, -0.3712869, 0, -0.928
 
 [node name="StaticBody3D" parent="House3/Clipboard" index="0"]
 photo_texture = ExtResource("7_fls3e")
+animation_name = "Arrependimento"
 
 [node name="House4" parent="." instance=ExtResource("2_dlo4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.717882, 0, 0.001970023)
@@ -112,6 +129,7 @@ transform = Transform3D(-0.75354046, 0, -0.6574015, 0, 1, 0, 0.6574015, 0, -0.75
 
 [node name="StaticBody3D" parent="House4/Clipboard" index="0"]
 photo_texture = ExtResource("8_k63oc")
+animation_name = "Final"
 
 [node name="House5" parent="." instance=ExtResource("2_dlo4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.96058, 0, 0.001970023)
@@ -149,21 +167,75 @@ transform = Transform3D(1, 0, 0, 0, -0.8675138, -0.49741313, 0, 0.49741313, -0.8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3077545, 1.5640635, -1.1307905)
 
 [node name="Water" parent="." instance=ExtResource("9_j4oe2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5792837, -0.15285927, -0.500082)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5792837, -0.8881932, -0.500082)
 
 [node name="UI" parent="." instance=ExtResource("10_riaky")]
 
+[node name="Checkpoint" parent="." instance=ExtResource("11_dlo4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.025789, -0.06600022, -0.37686443)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("11_dlo4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.327395, -0.071523726, -0.34993112)
+
+[node name="Checkpoint3" parent="." instance=ExtResource("11_dlo4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.503954, -0.11524534, -0.3201817)
+
+[node name="Checkpoint4" parent="." instance=ExtResource("11_dlo4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.689741, -0.11524534, -0.38464642)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.413357, 0, -0.548296)
+script = ExtResource("12_q6lx1")
+SFX = ExtResource("22_uus22")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+visible = false
+mesh = SubResource("BoxMesh_dlo4w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.160368, 0, 0, 0, 1, 0, 0, 0, 1.2518106, 0.6012974, 0, -0.22647732)
+shape = SubResource("ConcavePolygonShape3D_q6lx1")
+
+[node name="Audio" parent="." instance=ExtResource("14_ie368")]
+
+[node name="SFX" parent="Audio" index="1"]
+stream = ExtResource("22_uus22")
+volume_db = 20.0
+
+[node name="BLACKOUT" type="Sprite3D" parent="."]
+transform = Transform3D(6.046858, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.79520774, -4.319679)
+texture = ExtResource("23_ltf6m")
+
+[node name="BLACKOUT2" type="Sprite3D" parent="."]
+transform = Transform3D(-2.6431647e-07, 0, -0.9999998, 0, 1, 0, 6.046856, 0, -4.371138e-08, 30.464182, -0.79520774, -0.5824928)
+texture = ExtResource("23_ltf6m")
+
+[node name="Player" parent="." instance=ExtResource("16_fls3e")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, -2.7530832)
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+
 [editable path="House"]
+[editable path="House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
-[editable path="House/Photo"]
+[editable path="House/OldSquadPhoto"]
 [editable path="House2"]
+[editable path="House2/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="House2/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
-[editable path="House2/Clipboard"]
+[editable path="House2/ClipboardNotes"]
 [editable path="House3"]
+[editable path="House3/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="House3/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
 [editable path="House3/Clipboard"]
 [editable path="House4"]
+[editable path="House4/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="House4/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
 [editable path="House4/Clipboard"]
 [editable path="House5"]
+[editable path="House5/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="House5/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
+[editable path="Checkpoint"]
+[editable path="Checkpoint2"]
+[editable path="Checkpoint3"]
+[editable path="Checkpoint4"]
+[editable path="Audio"]

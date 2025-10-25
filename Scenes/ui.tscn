@@ -1,9 +1,115 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6qypnmb2fuky"]
+[gd_scene load_steps=11 format=3 uid="uid://b6qypnmb2fuky"]
 
 [ext_resource type="Script" uid="uid://nq4v65apnrq8" path="res://Scripts/ui.gd" id="1_qdvrb"]
+[ext_resource type="Texture2D" uid="uid://cl3ueywcl2jpp" path="res://Assets/images/dot.png" id="2_qdvrb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qdvrb"]
 font_size = 30
+
+[sub_resource type="Animation" id="Animation_nf4gj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Subtitles:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center]"]
+}
+
+[sub_resource type="Animation" id="Animation_qdvrb"]
+resource_name = "subtitles"
+length = 11.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Subtitles:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000005, 3.1, 6.68, 8.75, 11.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["[center]", "[center]Que... porra? Maldita dor de cabeça", "[center] Dez anos... e esse medo idiota ainda me persegue.", "[center] O mar não é vivo...", "[center] Ele não pode me machucar.
+", "[center]"]
+}
+
+[sub_resource type="Animation" id="Animation_2246s"]
+resource_name = "Foto da antiga equipe"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Subtitles:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["[center]Pelo menos gostava da equipe.", "[center]"]
+}
+
+[sub_resource type="Animation" id="Animation_q7pk6"]
+resource_name = "Nota do pai"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Subtitles:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.98, 2.03, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["[center]Quem diria né porra...", "[center]", "[center]Sinto sua falta.", "[center]"]
+}
+
+[sub_resource type="Animation" id="Animation_m78vo"]
+resource_name = "Arrependimento"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Subtitles:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.89, 1.79, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["[center]Isso também já não importa mais.. - cough aarh..", "[center]Isso também já não importa mais.. - cough aarh..", "[center]PORAA PORRA PORRA PORRA EU NÃO QUERIA TER ÍDO FAZER AQUILO", "[center]"]
+}
+
+[sub_resource type="Animation" id="Animation_smcll"]
+resource_name = "Final"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Subtitles:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.55, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["[center]...", "[center] *tosse*", "[center]"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nf4gj"]
+_data = {
+&"Arrependimento": SubResource("Animation_m78vo"),
+&"Final": SubResource("Animation_smcll"),
+&"Foto da antiga equipe": SubResource("Animation_2246s"),
+&"Nota do pai": SubResource("Animation_q7pk6"),
+&"RESET": SubResource("Animation_nf4gj"),
+&"subtitles": SubResource("Animation_qdvrb")
+}
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -24,12 +130,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_qdvrb")
 
 [node name="PhotoViewer" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 8
@@ -37,10 +144,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -321.0
-offset_top = -179.0
-offset_right = 321.0
-offset_bottom = 179.0
+offset_left = -242.0
+offset_top = -326.0
+offset_right = 242.0
+offset_bottom = 326.0
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
@@ -53,3 +160,19 @@ grow_horizontal = 2
 label_settings = SubResource("LabelSettings_qdvrb")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Subtitles" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -130.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "[center]"
+
+[node name="SubtitlesAnimation" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_nf4gj")
+}
