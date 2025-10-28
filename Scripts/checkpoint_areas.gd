@@ -11,7 +11,6 @@ extends Area3D
 func _on_body_entered(body: Node3D) -> void:
 	if !has_been_passed:
 		if body is CharacterBody3D:
-			print(world_env)
 			var env := world_env.environment
 			var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
@@ -26,15 +25,10 @@ func _on_body_entered(body: Node3D) -> void:
 			if water:
 				var new_y = water.position.y + water_rise_amount
 				tween.tween_property(water, "position:y", new_y, 3.0)
-				print("entrou 2")
 				
 			
 			if audio is AudioStreamPlayer:
-				print("Volume atual: ", audio.volume_db)
-				print("Volume increase: ", volume_increase)
-				
 				var new_volume = audio.volume_db + volume_increase
-				print("Volume novo: ", new_volume)
 
 				tween.tween_property(audio, "volume_db", new_volume, 3.0)
 				

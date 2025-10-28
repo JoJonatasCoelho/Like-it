@@ -70,7 +70,7 @@ transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9
 
 [node name="StaticBody3D" parent="House2/ClipboardNotes" index="0"]
 photo_texture = ExtResource("6_x5dfk")
-animation_name = "Nota do pai"
+animation_name = "Arrependimento"
 
 [node name="House3" parent="." instance=ExtResource("2_dlo4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.49717, 0, 0.001970023)
@@ -98,7 +98,7 @@ transform = Transform3D(-0.9285182, 0, 0.3712869, 0, 1, 0, -0.3712869, 0, -0.928
 
 [node name="StaticBody3D" parent="House3/Clipboard" index="0"]
 photo_texture = ExtResource("7_fls3e")
-animation_name = "Arrependimento"
+animation_name = "Nota do pai"
 
 [node name="House4" parent="." instance=ExtResource("2_dlo4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.717882, 0, 0.001970023)
