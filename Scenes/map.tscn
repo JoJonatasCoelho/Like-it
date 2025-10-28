@@ -207,7 +207,7 @@ transform = Transform3D(6.046858, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.79520774, -4.319
 texture = ExtResource("23_ltf6m")
 
 [node name="BLACKOUT2" type="Sprite3D" parent="."]
-transform = Transform3D(-2.6431647e-07, 0, -0.9999998, 0, 1, 0, 6.046856, 0, -4.371138e-08, 30.464182, -0.79520774, -0.5824928)
+transform = Transform3D(-3.088534e-08, 0, -0.9999998, 0, 1, 0, 0.70657414, 0, -4.371138e-08, 30.464182, -0.79520774, -2.0024567)
 texture = ExtResource("23_ltf6m")
 
 [node name="Player" parent="." instance=ExtResource("16_fls3e")]
