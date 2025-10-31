@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://ddxaqp2rhgl86"]
 
 [ext_resource type="Script" uid="uid://dm8oagsclqabx" path="res://addons/proto_controller/proto_controller.gd" id="1_6t5aa"]
-[ext_resource type="Script" uid="uid://b2i7v67m6bs16" path="res://Scripts/interaction_component.gd" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://b2i7v67m6bs16" path="res://Scripts/Interactables/interaction_component.gd" id="2_cvnsp"]
 [ext_resource type="PackedScene" uid="uid://cigkko4hgq8p" path="res://Assets/model/PlayerBody.fbx" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://cqmpo3oir4k85" path="res://Assets/model/man_DarkpaleRed_clothes_blood.png" id="4_3smsa"]
 [ext_resource type="Texture2D" uid="uid://c151ui15fqg0k" path="res://Assets/model/man_Red_texture.png" id="5_8erm5"]

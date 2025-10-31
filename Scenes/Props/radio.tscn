@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://gip2uj27sl4a"]
 
-[ext_resource type="Script" uid="uid://boks5rmxlorc0" path="res://Scripts/radio.gd" id="1_8y21s"]
+[ext_resource type="Script" uid="uid://boks5rmxlorc0" path="res://Scripts/Interactables/radio.gd" id="1_8y21s"]
 [ext_resource type="AudioStream" uid="uid://blp5sm0va2dpm" path="res://Assets/audio/amargura (Eduardo Souto, interprete Zaíra de Oliveira)-radio.ogg" id="2_ibud7"]
 [ext_resource type="PackedScene" uid="uid://dyw4s00564y2u" path="res://Assets/Objects/radio.glb" id="3_ibud7"]
 

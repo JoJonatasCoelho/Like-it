@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bas4xdtdis5uh"]
 
-[ext_resource type="PackedScene" uid="uid://bn3sctafsnuk0" path="res://Assets/Objects/psx_chair.glb" id="1_nsp1p"]
+[ext_resource type="PackedScene" uid="uid://bn3sctafsnuk0" path="res://Assets/Objects/psx_chair.glb" id="1_2nb68"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ughjk"]
 size = Vector3(0.6239567, 0.73874664, 0.685791)
@@ -9,7 +9,7 @@ size = Vector3(0.6239567, 0.73874664, 0.685791)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="Sketchfab_Scene" parent="StaticBody3D" instance=ExtResource("1_nsp1p")]
+[node name="Sketchfab_Scene" parent="StaticBody3D" instance=ExtResource("1_2nb68")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026833534, 0.71165085, 0.041137695)

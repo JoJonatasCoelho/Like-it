@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://b6qypnmb2fuky"]
 
-[ext_resource type="Script" uid="uid://nq4v65apnrq8" path="res://Scripts/ui.gd" id="1_qdvrb"]
+[ext_resource type="Script" uid="uid://nq4v65apnrq8" path="res://Scripts/Systems/ui.gd" id="1_qdvrb"]
 [ext_resource type="Texture2D" uid="uid://cl3ueywcl2jpp" path="res://Assets/images/dot.png" id="2_qdvrb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qdvrb"]

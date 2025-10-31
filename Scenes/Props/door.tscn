@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://p7y7vqn01gnu"]
 
-[ext_resource type="Script" uid="uid://dhnryqa86w0ub" path="res://Scripts/door.gd" id="1_5quaa"]
+[ext_resource type="Script" uid="uid://dhnryqa86w0ub" path="res://Scripts/Interactables/door.gd" id="1_5quaa"]
 [ext_resource type="ArrayMesh" uid="uid://cq4pr4ip5y65k" path="res://Assets/model/House/house_door_001_door_001_0_001.res" id="2_p0e35"]
 
 [sub_resource type="Animation" id="Animation_8od7v"]
