@@ -1,8 +1,8 @@
 extends Area3D
 
-@onready var world_env: WorldEnvironment = get_tree().root.get_node("Map/WorldEnvironment")
-@onready var water: Node3D = get_tree().root.get_node("Map/Water")
-@onready var audio : AudioStreamPlayer = get_tree().root.get_node("Map/Audio/BGM")
+@onready var world_env: WorldEnvironment = $"../../WorldEnvironment"
+@onready var water: Node3D = $"../../Water"
+@onready var audio : AudioStreamPlayer = $"../../Audio/BGM" 
 
 @export var has_been_passed: bool = false
 @export var water_rise_amount: float = 0.5

@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://cwng4e3faio4u"]
+[gd_scene load_steps=24 format=3 uid="uid://cwng4e3faio4u"]
 
 [ext_resource type="Script" uid="uid://c1gmxvobootlc" path="res://Scripts/Core/level.gd" id="1_5qtum"]
 [ext_resource type="PackedScene" uid="uid://8eu3q1gwbqsv" path="res://Scenes/Props/house.tscn" id="2_dlo4w"]
 [ext_resource type="PackedScene" uid="uid://dqq0dd360wjel" path="res://Scenes/Props/photo.tscn" id="3_q6lx1"]
 [ext_resource type="Texture2D" uid="uid://bmhud6pre53jv" path="res://Assets/Documents/FOTO.png" id="4_5qtum"]
+[ext_resource type="PackedScene" uid="uid://1juud1fpoe8t" path="res://Assets/model/man.glb" id="5_cwa36"]
 [ext_resource type="PackedScene" uid="uid://djygw8pegtbei" path="res://Scenes/Props/clipboard.tscn" id="5_ie368"]
 [ext_resource type="Texture2D" uid="uid://ytjrs36t812l" path="res://Assets/Documents/DOCUMENTO 1.png" id="6_x5dfk"]
 [ext_resource type="Texture2D" uid="uid://c52h6vwm8c3yc" path="res://Assets/Documents/DOCUMENTO 2.png" id="7_fls3e"]
@@ -15,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://decy35mve4tbg" path="res://Scenes/audio.tscn" id="14_ie368"]
 [ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/Actors/player.tscn" id="16_fls3e"]
 [ext_resource type="AudioStream" uid="uid://lx4kg28jopyt" path="res://Assets/audio/Horrible-Realization.mp3" id="22_uus22"]
-[ext_resource type="Texture2D" uid="uid://dkif0yhlev1al" path="res://black-screen-background.png" id="23_ltf6m"]
+[ext_resource type="Texture2D" uid="uid://dkif0yhlev1al" path="res://Assets/images/black-screen-background.png" id="23_ltf6m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vtkp8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -61,6 +62,9 @@ animation_name = "Foto da antiga equipe"
 
 [node name="MeshInstance3D" parent="House/OldSquadPhoto/Photo" index="0"]
 material_override = SubResource("StandardMaterial3D_macow")
+
+[node name="man" parent="House" instance=ExtResource("5_cwa36")]
+transform = Transform3D(0.06336982, -0.6963334, -0.033228062, 0, -0.033365063, 0.6992044, -0.69712573, -0.06329779, -0.0030204828, 2.6542974, 0.10202789, -0.8970734)
 
 [node name="House2" parent="." instance=ExtResource("2_dlo4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2706184, -0.01930046, -0.01282829)
@@ -203,7 +207,8 @@ stream = ExtResource("22_uus22")
 volume_db = 20.0
 
 [node name="BLACKOUT" type="Sprite3D" parent="."]
-transform = Transform3D(6.046858, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.79520774, -4.319679)
+transform = Transform3D(3.0852687, 0, 0, 0, 1, 0, 0, 0, 1, 14.541882, -0.79520774, -4.395044)
+transparent = false
 texture = ExtResource("23_ltf6m")
 
 [node name="BLACKOUT2" type="Sprite3D" parent="."]
@@ -212,6 +217,47 @@ texture = ExtResource("23_ltf6m")
 
 [node name="Player" parent="." instance=ExtResource("16_fls3e")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, -2.7530832)
+
+[node name="Skeleton3D" parent="Player/ProtoController/PlayerBody/Game_engine" index="0"]
+bones/1/rotation = Quaternion(0.57945067, 0.4052616, 0.57945067, -0.4052616)
+bones/2/rotation = Quaternion(0.23932108, -1.5286457e-10, 6.201812e-10, 0.9709405)
+bones/3/rotation = Quaternion(-0.13352792, 6.5421e-11, -7.804903e-10, 0.99104506)
+bones/4/rotation = Quaternion(-0.012414844, -2.1409437e-11, -3.4618536e-10, 0.99992293)
+bones/5/rotation = Quaternion(0.025132518, 0.05998576, -0.7642291, 0.64165723)
+bones/6/rotation = Quaternion(-0.0045807757, 0.0016467568, -0.3316447, 0.9433918)
+bones/7/rotation = Quaternion(0.398912, 0.00937193, 0.013368125, 0.91684383)
+bones/8/rotation = Quaternion(0.034105994, 0.40129623, 0.025330398, 0.91496253)
+bones/9/rotation = Quaternion(0.16859761, 0.45347327, 0.019430319, 0.87496245)
+bones/10/rotation = Quaternion(0.12098342, 0.0022729929, 0.0055507375, 0.99263644)
+bones/12/rotation = Quaternion(0.17676792, 0.3979078, -0.14120173, 0.889092)
+bones/13/rotation = Quaternion(0.018530108, 0.0005195168, 0.029082205, 0.99940515)
+bones/15/rotation = Quaternion(0.087683685, 0.2984459, -0.28455862, 0.90678996)
+bones/16/rotation = Quaternion(0.08477263, -0.0016966007, 0.04050623, 0.9955752)
+bones/18/rotation = Quaternion(0.13867207, 0.3699488, -0.22643869, 0.8902997)
+bones/19/rotation = Quaternion(0.023033042, 0.00030104775, 0.040328063, 0.9989209)
+bones/21/rotation = Quaternion(0.3787963, 0.62470263, 0.44636458, 0.5167385)
+bones/22/rotation = Quaternion(0.019782593, -0.0056538964, -0.20825845, 0.9778574)
+bones/24/rotation = Quaternion(0.025132518, -0.05998576, 0.7642291, 0.64165723)
+bones/25/rotation = Quaternion(-0.0045807757, -0.0016467568, 0.3316447, 0.9433918)
+bones/26/rotation = Quaternion(0.398912, -0.00937193, -0.013368125, 0.91684383)
+bones/27/rotation = Quaternion(0.034105994, -0.40129623, -0.025330398, 0.91496253)
+bones/28/rotation = Quaternion(0.16859761, -0.45347327, -0.019430319, 0.87496245)
+bones/29/rotation = Quaternion(0.12098342, -0.0022729929, -0.0055507375, 0.99263644)
+bones/31/rotation = Quaternion(0.17676792, -0.3979078, 0.14120173, 0.889092)
+bones/32/rotation = Quaternion(0.018530108, -0.0005195168, -0.029082205, 0.99940515)
+bones/34/rotation = Quaternion(0.087683685, -0.2984459, 0.28455862, 0.90678996)
+bones/35/rotation = Quaternion(0.08477263, 0.0016966007, -0.04050623, 0.9955752)
+bones/37/rotation = Quaternion(0.13867207, -0.3699488, 0.22643869, 0.8902997)
+bones/38/rotation = Quaternion(0.023033042, -0.00030104775, -0.040328063, 0.9989209)
+bones/40/rotation = Quaternion(0.3787963, -0.62470263, -0.44636458, 0.5167385)
+bones/41/rotation = Quaternion(0.019782593, 0.0056538964, 0.20825845, 0.9778574)
+bones/43/rotation = Quaternion(0.23754758, 1.0705375e-09, 7.893233e-10, 0.9713759)
+bones/45/rotation = Quaternion(0.968706, 0.07868679, -0.19823404, -0.12696604)
+bones/46/rotation = Quaternion(0.03930379, 0.22464691, -0.006924827, 0.9736227)
+bones/47/rotation = Quaternion(-0.53090537, -4.5706557e-08, 4.508969e-08, 0.8474311)
+bones/49/rotation = Quaternion(0.968706, -0.078686774, 0.19823395, -0.1269661)
+bones/50/rotation = Quaternion(0.0393038, -0.22464691, 0.006924825, 0.9736227)
+bones/51/rotation = Quaternion(-0.53090537, 4.5706557e-08, -4.508969e-08, 0.8474311)
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
 
@@ -234,8 +280,11 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, -2.7530832)
 [editable path="House5"]
 [editable path="House5/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="House5/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
+[editable path="UI"]
 [editable path="Checkpoint"]
 [editable path="Checkpoint2"]
 [editable path="Checkpoint3"]
 [editable path="Checkpoint4"]
 [editable path="Audio"]
+[editable path="Player"]
+[editable path="Player/ProtoController/PlayerBody"]

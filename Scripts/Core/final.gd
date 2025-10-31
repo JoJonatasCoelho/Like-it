@@ -4,7 +4,7 @@ extends Area3D
 
 func _on_body_entered(body: Node3D) -> void:
 		if body is CharacterBody3D:
-			var sfx_player: AudioStreamPlayer = get_node("../Audio/SFX")
+			var sfx_player: AudioStreamPlayer = $"../Audio/SFX"
 			sfx_player.stream = SFX
 			
 			sfx_player.play(3)

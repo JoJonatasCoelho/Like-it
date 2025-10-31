@@ -15,6 +15,10 @@ run/main_scene="uid://bqlqngg600wus"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Game="*res://Scripts/Autoload/game.gd"
+
 [dotnet]
 
 project/assembly_name="Like It"
