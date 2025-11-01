@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqq0dd360wjel"]
 
-[ext_resource type="Script" uid="uid://vfmdb7cb3hv3" path="res://Scripts/Interactables/photo.gd" id="1_q2i1c"]
+[ext_resource type="Script" uid="uid://tl5u6lywl30q" path="res://Scripts/Interactables/visualizable.gd" id="1_lathb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gd2ei"]
 
@@ -10,7 +10,7 @@
 
 [node name="Photo" type="StaticBody3D" parent="."]
 collision_layer = 3
-script = ExtResource("1_q2i1c")
+script = ExtResource("1_lathb")
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Photo"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://djygw8pegtbei"]
 
+[ext_resource type="Script" uid="uid://tl5u6lywl30q" path="res://Scripts/Interactables/visualizable.gd" id="1_npawn"]
 [ext_resource type="PackedScene" uid="uid://bi2jwy0vvqwdh" path="res://Assets/Objects/ps1_style_patient_sheet_with_clipboard.glb" id="1_w5eus"]
-[ext_resource type="Script" uid="uid://tuhwqk3igdc5" path="res://Scripts/Interactables/pasta.gd" id="2_ndh86"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_swann"]
 size = Vector3(0.21905518, 0.40911865, 0.04083252)
@@ -11,7 +11,7 @@ size = Vector3(0.21905518, 0.40911865, 0.04083252)
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(0.99273634, 0.12016748, -0.0058561508, -3.47085e-10, 0.048675444, 0.9988146, 0.12031008, -0.99155957, 0.04832188, 0, 0, 0)
 collision_layer = 3
-script = ExtResource("2_ndh86")
+script = ExtResource("1_npawn")
 
 [node name="Pasta" parent="StaticBody3D" instance=ExtResource("1_w5eus")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 3.7252903e-09, 4.656613e-10, 0, 1, 0, 0, 0)
