@@ -216,7 +216,7 @@ transform = Transform3D(-3.088534e-08, 0, -0.9999998, 0, 1, 0, 0.70657414, 0, -4
 texture = ExtResource("23_ltf6m")
 
 [node name="Player" parent="." instance=ExtResource("16_fls3e")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, -2.7530832)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.018224925, -2.7530832)
 
 [node name="Skeleton3D" parent="Player/ProtoController/PlayerBody/Game_engine" index="0"]
 bones/1/rotation = Quaternion(0.57945067, 0.4052616, 0.57945067, -0.4052616)

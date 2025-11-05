@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpbsww1hv1vfe"]
+
+[ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/Actors/player.tscn" id="1_cmgem"]
+[ext_resource type="PackedScene" uid="uid://qjkjl51n5pha" path="res://Scenes/Props/key.tscn" id="2_4te2q"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bwlui"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cmgem"]
+sky_top_color = Color(0.10819007, 0.46942025, 0.7266536, 1)
+
+[sub_resource type="Sky" id="Sky_4te2q"]
+sky_material = SubResource("ProceduralSkyMaterial_cmgem")
+
+[sub_resource type="Environment" id="Environment_q1p36"]
+background_mode = 2
+sky = SubResource("Sky_4te2q")
+
+[node name="Test" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_cmgem")]
+
+[node name="Floor" type="CSGMesh3D" parent="."]
+transform = Transform3D(30.788633, 0, 0, 0, 1, 0, 0, 0, 44.956432, 0, -0.4998261, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_bwlui")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_q1p36")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.008726561, 0.9999619, 0, -0.9999619, 0.008726561, 0, 30.790512, 0)
+
+[node name="Key" parent="." instance=ExtResource("2_4te2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9608933, -1.6990409)
+is_interacting = false

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://qjkjl51n5pha"]
+
+[ext_resource type="Script" uid="uid://c3hsniou7lr8n" path="res://Scripts/Interactables/key.gd" id="1_y27jv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p6773"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y27jv"]
+size = Vector3(0.2, 0.1, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hqdli"]
+size = Vector3(0.2, 0.1, 0.5)
+
+[node name="Key" type="Node3D"]
+script = ExtResource("1_y27jv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_p6773")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_y27jv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_hqdli")

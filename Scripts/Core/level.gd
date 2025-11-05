@@ -10,6 +10,6 @@ func _ready() -> void:
 	player_animator.play("standingUp")
 	subtitles_animator.play("subtitles")
 	await get_tree().create_timer(11.4).timeout
-	player_animator.play("RESET")
 	player.can_move = true
 	player.can_look = true
+	player_animator.play("RESET")
