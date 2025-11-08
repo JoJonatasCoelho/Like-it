@@ -32,4 +32,3 @@ transform = Transform3D(1, 0, 0, 0, 0.008726561, 0.9999619, 0, -0.9999619, 0.008
 
 [node name="Key" parent="." instance=ExtResource("2_4te2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9608933, -1.6990409)
-is_interacting = false
