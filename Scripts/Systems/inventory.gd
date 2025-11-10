@@ -1,13 +1,15 @@
-@onready var held_item: Item
+extends Node3D
 
-func equip(item: Item):
+@onready var held_item: EquippedItem
+
+func equip(item: EquippedItem):
 	if(item is not Null):
 		held_item = item
 	else:
 		print("assim naaaao bobinho")
 
-func use_equipped(held_item):
+func use_equipped(held_item: EquippedItem):
 	held_item.use()
 	
-func drop_equipped(held_item):
+func drop_equipped(held_item: EquippedItem):
 	held_item.drop()

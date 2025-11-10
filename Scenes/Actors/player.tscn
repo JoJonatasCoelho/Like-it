@@ -460,7 +460,7 @@ transform = Transform3D(1, 0, 1.2544918e-15, 0, 1, 7.1054274e-15, 0, 0, 1, -0.04
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
 [node name="Game_engine" parent="ProtoController/PlayerBody" index="0"]
-transform = Transform3D(0.99845475, 0.029085536, 0.04734908, -0.028271606, 0.99944216, -0.017770007, -0.04783952, 0.016403913, 0.9987203, 0, 0, 0)
+transform = Transform3D(0.9984548, 0.029085526, 0.047349077, -0.028271599, 0.99944216, -0.017770007, -0.047839515, 0.016403913, 0.9987203, 0, 0, 0)
 
 [node name="Skeleton3D" parent="ProtoController/PlayerBody/Game_engine" index="0"]
 bones/1/rotation = Quaternion(0.5794509, 0.40526128, 0.5794509, -0.40526128)
@@ -598,6 +598,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tx1dd")
 libraries = {
 &"": SubResource("AnimationLibrary_x3wgy")
 }
+
+[node name="Inventory" type="Node3D" parent="."]
 
 [editable path="ProtoController/Hand/Key"]
 [editable path="ProtoController/PlayerBody"]
