@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpbsww1hv1vfe"]
+[gd_scene load_steps=8 format=3 uid="uid://dpbsww1hv1vfe"]
 
 [ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/Actors/player.tscn" id="1_cmgem"]
 [ext_resource type="PackedScene" uid="uid://qjkjl51n5pha" path="res://Scenes/Props/key.tscn" id="2_4te2q"]
+[ext_resource type="Script" uid="uid://cy7j1qf4ffcum" path="res://Scripts/Interactables/pickup_item.gd" id="3_q1p36"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bwlui"]
 
@@ -32,3 +33,10 @@ transform = Transform3D(1, 0, 0, 0, 0.008726561, 0.9999619, 0, -0.9999619, 0.008
 
 [node name="Key" parent="." instance=ExtResource("2_4te2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9608933, -1.6990409)
+
+[node name="pickup" type="Node3D" parent="."]
+script = ExtResource("3_q1p36")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pickup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2890993, 0.96889806, 0)
+skeleton = NodePath("../..")

@@ -8,7 +8,9 @@ func equip(hand: Node3D):
 	var _original_parent: Node3D = get_parent()
 	reparent(hand)
 	
-func drop(player: Node3D):
+func drop():
 	pass
 	
+func use():
+	pass
 	
