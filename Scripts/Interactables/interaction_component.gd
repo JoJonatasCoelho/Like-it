@@ -19,11 +19,10 @@ func _process(_delta):
 			interaction_is_reset = true
 
 func _input(event):
-		
 	if event.is_action_pressed("interact"):
 		if interaction_raycast.is_colliding():
 			var interactable = interaction_raycast.get_collider()
-			if interactable is Interactable:
+			if interactable.has_method("interact"):
 				if interactable.is_interacting:
 					return
 				interactable.is_interacting = true

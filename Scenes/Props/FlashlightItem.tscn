@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://chricnvy7eee3"]
+
+[ext_resource type="Script" uid="uid://dwi788ie7cqad" path="res://Scripts/Interactables/flashlight_item.gd" id="1_neshq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4kokr"]
+
+[node name="FlashlightItem" type="Node3D"]
+script = ExtResource("1_neshq")
+item_name = null
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.11570144, 0, 0, 0, 0.12633431, 0, 0, 0, 0.36786446, 0, 0, 0)
+mesh = SubResource("BoxMesh_4kokr")

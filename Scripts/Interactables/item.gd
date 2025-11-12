@@ -4,13 +4,12 @@ class_name Item
 
 @export var item_name: String = "Item"
 
-func equip(hand: Node3D):
-	var _original_parent: Node3D = get_parent()
-	reparent(hand)
+func on_pick_up(hand_socket: Node3D):
+	hand_socket.add_child(self)
+	global_transform = hand_socket.global_transform
 	
-func drop():
+func on_drop():
 	pass
 	
-func use():
+func on_use() -> void:
 	pass
-	

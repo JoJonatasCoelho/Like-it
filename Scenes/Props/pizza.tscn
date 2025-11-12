@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dttxsaxb44557"]
+[gd_scene load_steps=5 format=3 uid="uid://dttxsaxb44557"]
 
 [ext_resource type="PackedScene" uid="uid://c0jkudn4mrx4g" path="res://Assets/Objects/ps1_pizza.glb" id="1_nkrds"]
+[ext_resource type="Script" uid="uid://cy7j1qf4ffcum" path="res://Scripts/Interactables/pickup_item.gd" id="1_rctb5"]
+[ext_resource type="PackedScene" uid="uid://chricnvy7eee3" path="res://Scenes/Props/FlashlightItem.tscn" id="2_uh5o0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_je5pd"]
 size = Vector3(0.43798828, 0.27069092, 0.40307617)
@@ -8,6 +10,9 @@ size = Vector3(0.43798828, 0.27069092, 0.40307617)
 [node name="Pizza" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+script = ExtResource("1_rctb5")
+item_scene = ExtResource("2_uh5o0")
 
 [node name="Sketchfab_Scene" parent="StaticBody3D" instance=ExtResource("1_nkrds")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

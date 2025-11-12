@@ -1,5 +1,4 @@
-extends Interactable
-
+extends Item
 
 func _ready() -> void:
 	pass

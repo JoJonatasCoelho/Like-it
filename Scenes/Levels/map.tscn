@@ -218,6 +218,9 @@ texture = ExtResource("23_ltf6m")
 [node name="Player" parent="." instance=ExtResource("16_fls3e")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.018224925, -2.7530832)
 
+[node name="Game_engine" parent="Player/ProtoController/PlayerBody" index="0"]
+transform = Transform3D(0.9984549, 0.02908544, 0.04734904, -0.028271517, 0.99944216, -0.017770013, -0.047839485, 0.016403925, 0.9987203, 0, 0, 0)
+
 [node name="Skeleton3D" parent="Player/ProtoController/PlayerBody/Game_engine" index="0"]
 bones/1/rotation = Quaternion(0.57945067, 0.4052616, 0.57945067, -0.4052616)
 bones/2/rotation = Quaternion(0.23932108, -1.5286457e-10, 6.201812e-10, 0.9709405)
@@ -287,4 +290,5 @@ bones/51/rotation = Quaternion(-0.53090537, 4.5706557e-08, -4.508969e-08, 0.8474
 [editable path="Checkpoint4"]
 [editable path="Audio"]
 [editable path="Player"]
+[editable path="Player/ProtoController/Hand/Key"]
 [editable path="Player/ProtoController/PlayerBody"]

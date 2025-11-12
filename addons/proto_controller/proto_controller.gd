@@ -5,6 +5,8 @@
 
 extends CharacterBody3D
 
+class_name PlayerController
+
 ## Can we move around?
 @export var can_move : bool = true
 ## Are we affected by gravity?
@@ -45,11 +47,14 @@ extends CharacterBody3D
 @export var input_sprint : String = "sprint"
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
+## Name of Input Action to use the item in inventory.
+@export var input_use_item : String = "use_item"
 
 var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
+var can_interact : bool = true
 
 @export var has_held_item : bool = false
 
@@ -57,6 +62,7 @@ var freeflying : bool = false
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
 @onready var animator: AnimationPlayer = $PlayerBody/AnimationPlayer
+@onready var _inventory: Inventory = $"../Inventory"
 
 func _ready() -> void:
 	check_input_mappings()
@@ -123,7 +129,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		velocity.y = 0
 	
-	# Use velocity to actually move
+	if can_interact and Input.is_action_just_pressed(input_use_item) and has_held_item:
+		use_equipped_item()
+	
 	move_and_slide()
 
 
@@ -191,3 +199,12 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
+
+func pick_up_item(item: Item):
+	print("picado no player")
+	_inventory.equip(item)
+	item.on_pick_up(get_node("Hand"))
+	
+func use_equipped_item():
+	_inventory.use_equipped()
+	

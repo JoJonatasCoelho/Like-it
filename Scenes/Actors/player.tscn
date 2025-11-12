@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddxaqp2rhgl86"]
+[gd_scene load_steps=19 format=3 uid="uid://ddxaqp2rhgl86"]
 
 [ext_resource type="Script" uid="uid://dm8oagsclqabx" path="res://addons/proto_controller/proto_controller.gd" id="1_6t5aa"]
 [ext_resource type="Script" uid="uid://b2i7v67m6bs16" path="res://Scripts/Interactables/interaction_component.gd" id="2_cvnsp"]
@@ -10,6 +10,7 @@
 [ext_resource type="Animation" uid="uid://bxvms7mshh5sc" path="res://Assets/animations/breathing_idle.res" id="5_x3wgy"]
 [ext_resource type="Animation" uid="uid://drf3ojgwwpqaf" path="res://Assets/animations/open_door.res" id="8_8erm5"]
 [ext_resource type="Animation" uid="uid://bli4s82qq380v" path="res://Assets/animations/die.res" id="9_f1ek2"]
+[ext_resource type="Script" uid="uid://biurt3t2ui5kw" path="res://Scripts/Systems/inventory.gd" id="11_0by00"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
 radius = 0.4
@@ -449,9 +450,7 @@ transform = Transform3D(0.9999998, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999991, 0.207
 
 [node name="Key" parent="ProtoController/Hand" instance=ExtResource("3_borc1")]
 transform = Transform3D(0.14098012, -0.2906789, -9.773312e-09, 0.25418842, 0.1612188, 5.4205587e-09, 0, 0, 0.26267385, 0, 0, 0)
-
-[node name="StaticBody3D" parent="ProtoController/Hand/Key" index="0"]
-collision_layer = 0
+visible = false
 
 [node name="MeshInstance3D" parent="ProtoController/Hand/Key/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 1.2544918e-15, 0, 1, 7.1054274e-15, 0, 0, 1, -0.043922424, 0.06925118, -0.12734026)
@@ -460,7 +459,7 @@ transform = Transform3D(1, 0, 1.2544918e-15, 0, 1, 7.1054274e-15, 0, 0, 1, -0.04
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
 [node name="Game_engine" parent="ProtoController/PlayerBody" index="0"]
-transform = Transform3D(0.99845487, 0.029085496, 0.047349047, -0.02827157, 0.99944216, -0.017770007, -0.04783949, 0.016403915, 0.9987203, 0, 0, 0)
+transform = Transform3D(0.9984549, 0.029085388, 0.04734904, -0.028271465, 0.99944216, -0.017770018, -0.047839485, 0.016403932, 0.9987203, 0, 0, 0)
 
 [node name="Skeleton3D" parent="ProtoController/PlayerBody/Game_engine" index="0"]
 bones/1/rotation = Quaternion(0.5794509, 0.40526128, 0.5794509, -0.40526128)
@@ -600,6 +599,7 @@ libraries = {
 }
 
 [node name="Inventory" type="Node3D" parent="."]
+script = ExtResource("11_0by00")
 
 [editable path="ProtoController/Hand/Key"]
 [editable path="ProtoController/PlayerBody"]
