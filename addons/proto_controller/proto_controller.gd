@@ -214,7 +214,8 @@ func drop_held_item():
 		return
 	# calcula posição à frente da mão/jogador para o drop
 	var hand = get_node("Hand")
-	var drop_pos = hand.global_transform.origin + Vector3(-0.2, 0.5, -0.5)
+	var forward = -hand.global_transform.basis.z
+	var drop_pos = hand.global_transform.origin + forward * 0.6 + Vector3(0, 0.5, 0)
 	var drop_tf = Transform3D(hand.global_transform.basis, drop_pos)
 	item.on_drop(drop_tf)
 	has_held_item = false
