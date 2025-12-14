@@ -40,13 +40,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9608933, -1.6990409)
 collision_layer = 3
 script = ExtResource("3_q1p36")
 item_scene = ExtResource("4_ovt37")
-is_interacting = false
+is_interacting = null
 
 [node name="pickup" type="Node3D" parent="."]
 script = ExtResource("3_q1p36")
+is_interacting = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="pickup"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2890993, 0.96889806, 0)
 skeleton = NodePath("../..")
 
+[node name="Key2" parent="." instance=ExtResource("2_4te2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49925637, 0.9608933, -1.6990409)
+
+[node name="StaticBody3D" parent="Key2" index="0"]
+collision_layer = 3
+script = ExtResource("3_q1p36")
+item_scene = ExtResource("4_ovt37")
+is_interacting = null
+
 [editable path="Key"]
+[editable path="Key2"]

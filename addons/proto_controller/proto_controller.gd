@@ -204,6 +204,21 @@ func pick_up_item(item: Item):
 	print("picado no player")
 	_inventory.equip(item)
 	item.on_pick_up(get_node("Hand"))
+	has_held_item = true
+	
+func drop_held_item():
+	print("dropou item")
+	# pede o item ao inventory (ele limpa a referência internamente)
+	var item: Item = _inventory.drop_equipped()
+	if item == null:
+		return
+	# calcula posição à frente da mão/jogador para o drop
+	var hand = get_node("Hand")
+	var drop_pos = hand.global_transform.origin + Vector3(-0.2, 0.5, -0.5)
+	var drop_tf = Transform3D(hand.global_transform.basis, drop_pos)
+	item.on_drop(drop_tf)
+	has_held_item = false
+
 	
 func use_equipped_item():
 	_inventory.use_equipped()
