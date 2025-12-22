@@ -7,6 +7,13 @@ extends CharacterBody3D
 
 class_name PlayerController
 
+
+## IMPORTANT REFERENCES
+@onready var head: Node3D = $Head
+@onready var collider: CollisionShape3D = $Collider
+@onready var animator: AnimationPlayer = $PlayerBody/AnimationPlayer
+@export var _inventory: Inventory
+
 ## Can we move around?
 @export var can_move : bool = true
 ## Are we affected by gravity?
@@ -58,11 +65,6 @@ var can_interact : bool = true
 
 @export var has_held_item : bool = false
 
-## IMPORTANT REFERENCES
-@onready var head: Node3D = $Head
-@onready var collider: CollisionShape3D = $Collider
-@onready var animator: AnimationPlayer = $PlayerBody/AnimationPlayer
-@onready var _inventory: Inventory = $"../Inventory"
 
 func _ready() -> void:
 	check_input_mappings()
@@ -78,6 +80,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	# Look around
 	if mouse_captured and can_look and event is InputEventMouseMotion:
+		print("oii")
 		rotate_look(event.relative)
 	
 	# Toggle freefly mode
@@ -173,6 +176,7 @@ func capture_mouse():
 func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
+	
 
 
 ## Checks if some Input Actions haven't been created.

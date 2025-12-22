@@ -6,5 +6,6 @@ extends Interactable
 
 func interact(_caller):
 	var subtitle_animator: AnimationPlayer = ui.get_node("SubtitlesAnimation")
+	print("Em visualizable: ", photo_texture)
 	ui.toggle_photo(photo_texture)
 	subtitle_animator.play(animation_name)
