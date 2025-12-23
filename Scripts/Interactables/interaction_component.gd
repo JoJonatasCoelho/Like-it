@@ -19,6 +19,7 @@ func _process(_delta):
 			interaction_is_reset = true
 
 func _input(event):
+	# to-do: consertar a forma que o player eh passado nas funçoes de interaction_component
 	if event.is_action_pressed("interact"):
 		if interaction_raycast.is_colliding():
 			var interactable = interaction_raycast.get_collider()

@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpbsww1hv1vfe"]
+[gd_scene load_steps=11 format=3 uid="uid://dpbsww1hv1vfe"]
 
 [ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/Actors/player.tscn" id="1_cmgem"]
 [ext_resource type="PackedScene" uid="uid://qjkjl51n5pha" path="res://Scenes/Props/key.tscn" id="2_4te2q"]
 [ext_resource type="Script" uid="uid://cy7j1qf4ffcum" path="res://Scripts/Interactables/pickup_item.gd" id="3_q1p36"]
 [ext_resource type="PackedScene" uid="uid://chricnvy7eee3" path="res://Scenes/Props/FlashlightItem.tscn" id="4_ovt37"]
+[ext_resource type="PackedScene" uid="uid://p7y7vqn01gnu" path="res://Scenes/Props/door.tscn" id="5_x0mv3"]
+[ext_resource type="PackedScene" uid="uid://cx4utt76q7glb" path="res://Scenes/Systems/item_slot.tscn" id="6_pgtsq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bwlui"]
 
@@ -40,11 +42,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9608933, -1.6990409)
 collision_layer = 3
 script = ExtResource("3_q1p36")
 item_scene = ExtResource("4_ovt37")
-is_interacting = null
+is_interacting = false
 
 [node name="pickup" type="Node3D" parent="."]
 script = ExtResource("3_q1p36")
-is_interacting = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="pickup"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2890993, 0.96889806, 0)
@@ -57,7 +58,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49925637, 0.9608933, -1.699
 collision_layer = 3
 script = ExtResource("3_q1p36")
 item_scene = ExtResource("4_ovt37")
-is_interacting = null
+is_interacting = false
+
+[node name="Door" parent="." instance=ExtResource("5_x0mv3")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.777628, 0, 0)
+
+[node name="ItemSlot" parent="Door" instance=ExtResource("6_pgtsq")]
+missing_item_text = "Key"
 
 [editable path="Key"]
 [editable path="Key2"]

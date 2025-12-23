@@ -1,9 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://ddxaqp2rhgl86"]
+[gd_scene load_steps=18 format=3 uid="uid://ddxaqp2rhgl86"]
 
 [ext_resource type="Script" uid="uid://dm8oagsclqabx" path="res://Scripts/Player/proto_controller/proto_controller.gd" id="1_6t5aa"]
 [ext_resource type="Script" uid="uid://b2i7v67m6bs16" path="res://Scripts/Interactables/interaction_component.gd" id="2_cvnsp"]
 [ext_resource type="PackedScene" uid="uid://cigkko4hgq8p" path="res://Assets/model/PlayerBody.fbx" id="3_6t5aa"]
-[ext_resource type="PackedScene" uid="uid://qjkjl51n5pha" path="res://Scenes/Props/key.tscn" id="3_borc1"]
 [ext_resource type="Texture2D" uid="uid://cqmpo3oir4k85" path="res://Assets/model/man_DarkpaleRed_clothes_blood.png" id="4_3smsa"]
 [ext_resource type="Texture2D" uid="uid://c151ui15fqg0k" path="res://Assets/model/man_Red_texture.png" id="5_8erm5"]
 [ext_resource type="Animation" uid="uid://uh6ghueo6xm8" path="res://Assets/animations/standingUp.res" id="5_fkybt"]
@@ -427,9 +426,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, -3.539114e-08, -0.99999994, 0, 0.8096548, -4.3711385e-08, 0, 0, 0)
 collision_mask = 2
 
-[node name="InteractionComponent" type="Node3D" parent="ProtoController/Head/Camera3D" node_paths=PackedStringArray("player")]
+[node name="InteractionComponent" type="Node3D" parent="ProtoController/Head/Camera3D"]
 script = ExtResource("2_cvnsp")
-player = NodePath("../../..")
 
 [node name="Interaction Label" type="Label" parent="ProtoController/Head"]
 anchors_preset = 8
@@ -450,18 +448,11 @@ vertical_alignment = 1
 [node name="Hand" type="Node3D" parent="ProtoController"]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999991, 0.207591, 0.7867509, -0.12052727)
 
-[node name="Key" parent="ProtoController/Hand" instance=ExtResource("3_borc1")]
-transform = Transform3D(0.14098012, -0.2906789, -9.773312e-09, 0.25418842, 0.1612188, 5.4205587e-09, 0, 0, 0.26267385, 0, 0, 0)
-visible = false
-
-[node name="MeshInstance3D" parent="ProtoController/Hand/Key/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 1.2544918e-15, 0, 1, 7.1054274e-15, 0, 0, 1, -0.043922424, 0.06925118, -0.12734026)
-
 [node name="PlayerBody" parent="ProtoController" instance=ExtResource("3_6t5aa")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
 [node name="Game_engine" parent="ProtoController/PlayerBody" index="0"]
-transform = Transform3D(0.9984549, 0.029085303, 0.047349025, -0.028271379, 0.99944216, -0.017770024, -0.047839466, 0.016403943, 0.9987203, 0, 0, 0)
+transform = Transform3D(0.9984549, 0.029085295, 0.047349017, -0.028271371, 0.99944216, -0.017770024, -0.04783946, 0.016403943, 0.9987203, 0, 0, 0)
 
 [node name="Skeleton3D" parent="ProtoController/PlayerBody/Game_engine" index="0"]
 bones/1/rotation = Quaternion(0.5794509, 0.40526128, 0.5794509, -0.40526128)
@@ -603,5 +594,4 @@ libraries = {
 [node name="Inventory" type="Node3D" parent="."]
 script = ExtResource("11_0by00")
 
-[editable path="ProtoController/Hand/Key"]
 [editable path="ProtoController/PlayerBody"]

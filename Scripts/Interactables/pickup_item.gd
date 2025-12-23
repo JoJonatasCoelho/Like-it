@@ -4,7 +4,7 @@ class_name PickupItem
 
 @export var item_scene: PackedScene
 
-func interact(player: Node) -> void:
+func interact(player) -> void:
 	var player_controller: PlayerController = player.get_node("../../..")
 	if item_scene == null:
 		return

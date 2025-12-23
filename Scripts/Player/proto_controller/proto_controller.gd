@@ -80,7 +80,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	# Look around
 	if mouse_captured and can_look and event is InputEventMouseMotion:
-		print("oii")
 		rotate_look(event.relative)
 	
 	# Toggle freefly mode
