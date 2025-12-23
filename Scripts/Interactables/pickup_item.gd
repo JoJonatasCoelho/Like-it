@@ -2,6 +2,7 @@ extends Interactable
 
 class_name PickupItem
 
+# to-do: settar a desgraça do nome dos itens pegaveis
 @export var item_scene: PackedScene
 
 func interact(player) -> void:

@@ -5,7 +5,6 @@ extends Interactable
 
 func interact(_caller):
 	var item_slot: ItemSlot = get_node("../ItemSlot")
-	print(item_slot)
 	if item_slot:
 		if item_slot.check_item(_caller.get_node("../../..")):
 			open_door()

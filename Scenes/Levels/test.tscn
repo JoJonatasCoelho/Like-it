@@ -64,7 +64,7 @@ is_interacting = false
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.777628, 0, 0)
 
 [node name="ItemSlot" parent="Door" instance=ExtResource("6_pgtsq")]
-missing_item_text = "Key"
+required_item_name = "Item"
 
 [editable path="Key"]
 [editable path="Key2"]
