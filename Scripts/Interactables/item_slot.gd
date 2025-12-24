@@ -9,7 +9,7 @@ class_name ItemSlot
 func check_item(player: PlayerController) -> bool:
 	var hand = player.get_node("Hand")
 	if hand.get_child_count() == 0:
-		print("deu false negeba")
+		print("deu false bobo!")
 		return false
 		
 	var item: Item = hand.get_child(0)

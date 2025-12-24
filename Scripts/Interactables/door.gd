@@ -6,7 +6,7 @@ extends Interactable
 func interact(_caller: PlayerController):
 	var item_slot: ItemSlot = get_node("../ItemSlot")
 	if item_slot:
-		if item_slot.check_item(_caller.get_node("../../..")):
+		if item_slot.check_item(_caller):
 			open_door()
 		else:
 			# to-do: fazer isso aqui depois :P

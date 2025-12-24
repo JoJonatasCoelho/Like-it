@@ -426,8 +426,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, -3.539114e-08, -0.99999994, 0, 0.8096548, -4.3711385e-08, 0, 0, 0)
 collision_mask = 2
 
-[node name="InteractionComponent" type="Node3D" parent="ProtoController/Head/Camera3D"]
+[node name="InteractionComponent" type="Node3D" parent="ProtoController/Head/Camera3D" node_paths=PackedStringArray("interaction_raycast", "interaction_label", "player")]
 script = ExtResource("2_cvnsp")
+interaction_raycast = NodePath("../RayCast3D")
+interaction_label = NodePath("../../Interaction Label")
+player = NodePath("../../..")
 
 [node name="Interaction Label" type="Label" parent="ProtoController/Head"]
 anchors_preset = 8
@@ -452,7 +455,7 @@ transform = Transform3D(0.9999998, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999991, 0.207
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
 [node name="Game_engine" parent="ProtoController/PlayerBody" index="0"]
-transform = Transform3D(0.9984549, 0.029085295, 0.047349017, -0.028271371, 0.99944216, -0.017770024, -0.04783946, 0.016403943, 0.9987203, 0, 0, 0)
+transform = Transform3D(0.9984549, 0.02908528, 0.047349002, -0.028271357, 0.99944216, -0.017770024, -0.047839444, 0.016403943, 0.9987203, 0, 0, 0)
 
 [node name="Skeleton3D" parent="ProtoController/PlayerBody/Game_engine" index="0"]
 bones/1/rotation = Quaternion(0.5794509, 0.40526128, 0.5794509, -0.40526128)

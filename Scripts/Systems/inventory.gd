@@ -7,9 +7,9 @@ class_name 	Inventory
 func equip(item: Item):
 	if(item != null):
 		held_item = item
-		print("equipado")
+		print("item equipado: " + item.get_id())
 	else:
-		print("assim naaaao bobinho")
+		print("Erro ao equipar o item")
 
 func use_equipped():
 	if (held_item != null):

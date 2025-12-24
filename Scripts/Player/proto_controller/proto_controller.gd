@@ -204,7 +204,6 @@ func check_input_mappings():
 		can_freefly = false
 
 func pick_up_item(item: Item):
-	print("picado no player")
 	_inventory.equip(item)
 	item.on_pick_up(get_node("Hand"))
 	has_held_item = true
