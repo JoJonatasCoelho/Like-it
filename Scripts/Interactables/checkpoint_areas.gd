@@ -1,14 +1,14 @@
-extends Area3D
+extends Node3D
 
-@onready var world_env: WorldEnvironment = $"../../WorldEnvironment"
-@onready var water: Node3D = $"../../Water"
-@onready var audio : AudioStreamPlayer = $"../../Audio/BGM" 
+@export var world_env: WorldEnvironment
+@export var water: Node3D
+@export var audio : AudioStreamPlayer 
 
 @export var has_been_passed: bool = false
 @export var water_rise_amount: float = 0.5
 @export var volume_increase: float = 0.0
 
-func _on_body_entered(body: Node3D) -> void:
+func _on_area_3d_body_entered(body: Node3D) -> void:
 	if !has_been_passed:
 		if body is CharacterBody3D:
 			var env := world_env.environment
@@ -31,4 +31,3 @@ func _on_body_entered(body: Node3D) -> void:
 				var new_volume = audio.volume_db + volume_increase
 
 				tween.tween_property(audio, "volume_db", new_volume, 3.0)
-				

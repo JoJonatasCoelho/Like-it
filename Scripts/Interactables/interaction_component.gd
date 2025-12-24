@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var interaction_raycast : RayCast3D = $"../RayCast3D"
 @onready var interaction_label : Label = $"../../Interaction Label"
-@export var player: CharacterBody3D
+@export var player: PlayerController
 var interaction_is_reset : bool = true
 
 func _process(_delta):
@@ -29,5 +29,5 @@ func _input(event):
 				get_viewport().set_input_as_handled()
 				interactable.is_interacting = true
 				interaction_label.text = ""  
-				await interactable.interact(self)
+				await interactable.interact(player)
 				interactable.is_interacting = false
