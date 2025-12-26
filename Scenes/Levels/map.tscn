@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://8eu3q1gwbqsv" path="res://Scenes/Props/house.tscn" id="2_dlo4w"]
 [ext_resource type="PackedScene" uid="uid://dqq0dd360wjel" path="res://Scenes/Props/photo.tscn" id="3_q6lx1"]
 [ext_resource type="Texture2D" uid="uid://bmhud6pre53jv" path="res://Assets/Documents/FOTO.png" id="4_5qtum"]
-[ext_resource type="PackedScene" uid="uid://1juud1fpoe8t" path="res://Assets/model/man.glb" id="5_cwa36"]
+[ext_resource type="PackedScene" uid="uid://1juud1fpoe8t" path="res://Assets/model/actors/player/man.glb" id="5_cwa36"]
 [ext_resource type="PackedScene" uid="uid://djygw8pegtbei" path="res://Scenes/Props/clipboard.tscn" id="5_ie368"]
 [ext_resource type="Texture2D" uid="uid://ytjrs36t812l" path="res://Assets/Documents/DOCUMENTO 1.png" id="6_x5dfk"]
 [ext_resource type="Texture2D" uid="uid://c52h6vwm8c3yc" path="res://Assets/Documents/DOCUMENTO 2.png" id="7_fls3e"]

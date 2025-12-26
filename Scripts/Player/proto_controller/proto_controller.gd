@@ -221,7 +221,6 @@ func drop_held_item():
 	var drop_tf = Transform3D(hand.global_transform.basis, drop_pos)
 	item.on_drop(drop_tf)
 	has_held_item = false
-
 	
 func use_equipped_item():
 	_inventory.use_equipped()

@@ -41,3 +41,6 @@ required_item_name = "Flashlight"
 
 [node name="Flashlight" parent="." instance=ExtResource("4_ovt37")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8234845, -1.5992355)
+
+[node name="Flashlight2" parent="." instance=ExtResource("4_ovt37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7916068, -3.198471)

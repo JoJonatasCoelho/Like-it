@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://cdunqwucajhuu"]
+[gd_scene load_steps=64 format=4 uid="uid://cdunqwucajhuu"]
 
 [ext_resource type="Texture2D" uid="uid://be0v4ohujmas7" path="res://Assets/model/house_wood003_diffuse.jpg" id="1_oo5vo"]
 [ext_resource type="Texture2D" uid="uid://d4itbu4xfg23" path="res://Assets/model/house_bathroom_floor_diffuse.jpg" id="2_lcjof"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cjp8tisjykm7k" path="res://Assets/model/house_tiles005_diffuse.jpg" id="4_oa3jc"]
 [ext_resource type="Texture2D" uid="uid://drqf6t1hgo0r2" path="res://Assets/model/house_house_wallpaper001_0.jpg" id="5_3aibu"]
 [ext_resource type="PackedScene" uid="uid://p7y7vqn01gnu" path="res://Scenes/Props/door.tscn" id="6_umw6q"]
+[ext_resource type="ArrayMesh" uid="uid://cq4pr4ip5y65k" path="res://Assets/model/House/house_door_001_door_001_0_001.res" id="7_b1b2i"]
 [ext_resource type="PackedScene" uid="uid://b7owrg7rqor8x" path="res://Scenes/Props/waterdrip.tscn" id="7_p0nya"]
 [ext_resource type="PackedScene" uid="uid://cvhdcbceade7x" path="res://Scenes/Props/gabinet.tscn" id="8_3xhaw"]
 [ext_resource type="PackedScene" uid="uid://gip2uj27sl4a" path="res://Scenes/Props/radio.tscn" id="9_svcy0"]
@@ -17,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bppucmfjxknsd" path="res://Scenes/Props/toilet_paper.tscn" id="15_n4gpq"]
 [ext_resource type="PackedScene" uid="uid://dqq0dd360wjel" path="res://Scenes/Props/photo.tscn" id="16_ma2g3"]
 [ext_resource type="Texture2D" uid="uid://bmhud6pre53jv" path="res://Assets/Documents/FOTO.png" id="17_5txu5"]
-[ext_resource type="PackedScene" uid="uid://1juud1fpoe8t" path="res://Assets/model/man.glb" id="18_jfd7m"]
+[ext_resource type="PackedScene" uid="uid://1juud1fpoe8t" path="res://Assets/model/actors/player/man.glb" id="18_jfd7m"]
 [ext_resource type="Texture2D" uid="uid://dkif0yhlev1al" path="res://Assets/images/black-screen-background.png" id="19_lcjof"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_okrnj"]
@@ -491,6 +492,45 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6rjwf")
 
+[sub_resource type="Animation" id="Animation_8od7v"]
+resource_name = "abrir_porta"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w6aom"]
+resource_name = "close_door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ys1qc"]
+_data = {
+&"abrir_porta": SubResource("Animation_8od7v"),
+&"close_door": SubResource("Animation_w6aom")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8od7v"]
+size = Vector3(0.92388916, 1.3583374, 0.03753662)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_macow"]
 albedo_texture = ExtResource("17_5txu5")
 
@@ -621,16 +661,28 @@ transform = Transform3D(-4.3711384e-06, 0, 99.99999, 0, 99.99997, 0, -99.99999, 
 [node name="Door4" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001" instance=ExtResource("6_umw6q")]
 transform = Transform3D(-4.3711384e-06, 0, 99.999985, 0, 99.99997, 0, -99.99999, 0, -4.371138e-06, 532.2868, -11.061041, -125.78963)
 
-[node name="Door5" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001" instance=ExtResource("6_umw6q")]
+[node name="Door5" type="Node3D" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001"]
 transform = Transform3D(-4.371139e-06, 0, 100, 0, 100, 0, -100, 0, -4.371139e-06, 275.019, -11.061, -88.526)
 
-[node name="Door" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5" index="0"]
-script = null
+[node name="Door" type="StaticBody3D" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94020545, 0)
+collision_layer = 2
 
-[node name="MeshInstance3D" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5/Door" index="2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5/Door"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ys1qc")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5/Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.447271, -0.2719524, 0.027679421)
+shape = SubResource("BoxShape3D_8od7v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5/Door"]
 transform = Transform3D(-4.3711385e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.3711385e-08, 1.9106853e-15, -0.0018436313, -0.272, 0.028000116)
+mesh = ExtResource("7_b1b2i")
 
-[node name="Dripping" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5/Door" index="3" instance=ExtResource("7_p0nya")]
+[node name="Dripping" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5/Door" instance=ExtResource("7_p0nya")]
 transform = Transform3D(-4.371141e-08, 0, -1.0000001, 0, 1.0000001, 0, 1, 0, -4.3711413e-08, -0.6772071, 0.8531754, -2.3837352)
 
 [node name="Gabinet" parent="." instance=ExtResource("8_3xhaw")]
@@ -676,5 +728,4 @@ transparent = false
 texture = ExtResource("19_lcjof")
 
 [editable path="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
-[editable path="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
 [editable path="OldSquadPhoto"]

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c151ui15fqg0k"
-path.s3tc="res://.godot/imported/man_Red_texture.png-d1cab4dcfbb99566737a41772524a689.s3tc.ctex"
+uid="uid://cqmpo3oir4k85"
+path.s3tc="res://.godot/imported/man_DarkpaleRed_clothes_blood.png-1b9b57e902581234a1b26e6b8a031e48.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "553f6016cba4603feb9bffe7211c8138"
+"md5": "9c66ff750c73a67053ab9f7a6efb3228"
 }
 
 [deps]
 
-source_file="res://Assets/model/man_Red_texture.png"
-dest_files=["res://.godot/imported/man_Red_texture.png-d1cab4dcfbb99566737a41772524a689.s3tc.ctex"]
+source_file="res://Assets/model/actors/player/man_DarkpaleRed_clothes_blood.png"
+dest_files=["res://.godot/imported/man_DarkpaleRed_clothes_blood.png-1b9b57e902581234a1b26e6b8a031e48.s3tc.ctex"]
 
 [params]
 
