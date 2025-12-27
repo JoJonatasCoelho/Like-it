@@ -1,5 +1,7 @@
 extends Node3D
 
+signal checkpoint_passed(stats)
+
 @export var world_env: WorldEnvironment
 @export var water: Node3D
 @export var audio : AudioStreamPlayer 
@@ -31,3 +33,9 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 				var new_volume = audio.volume_db + volume_increase
 
 				tween.tween_property(audio, "volume_db", new_volume, 3.0)
+			
+			var stats = {
+				"time": Time.get_ticks_msec()/1000
+			}
+			print($"tempo de jogo: {stats.time}")
+			emit_signal("checkpoint_passed", stats)

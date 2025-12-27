@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpbsww1hv1vfe"]
+[gd_scene load_steps=10 format=3 uid="uid://dpbsww1hv1vfe"]
 
 [ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/Actors/player.tscn" id="1_cmgem"]
 [ext_resource type="PackedScene" uid="uid://chricnvy7eee3" path="res://Scenes/Props/flashlight.tscn" id="4_ovt37"]
+[ext_resource type="PackedScene" uid="uid://cdunqwucajhuu" path="res://Scenes/Levels/houses/house_0.tscn" id="5_pgtsq"]
 [ext_resource type="PackedScene" uid="uid://p7y7vqn01gnu" path="res://Scenes/Props/door.tscn" id="5_x0mv3"]
 [ext_resource type="PackedScene" uid="uid://cx4utt76q7glb" path="res://Scenes/Systems/item_slot.tscn" id="6_pgtsq"]
 
@@ -44,3 +45,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8234845, -1.5992355)
 
 [node name="Flashlight2" parent="." instance=ExtResource("4_ovt37")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7916068, -3.198471)
+
+[node name="House" parent="." instance=ExtResource("5_pgtsq")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.3126094, 0.1514929, -6.01206)
+
+[node name="MWall_Collision4" parent="House/StaticBody3D" index="6"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -0.773849, 2.9700217, -2.6585894)
+
+[editable path="House"]
+[editable path="House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
+[editable path="House/OldSquadPhoto"]
