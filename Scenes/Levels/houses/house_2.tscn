@@ -623,34 +623,36 @@ transform = Transform3D(-4.371139e-06, 0, 100, 0, 100, 0, -100, 0, -4.371139e-06
 [node name="Dripping" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5/Door" index="3" instance=ExtResource("7_niol6")]
 transform = Transform3D(-4.371141e-08, 0, -1.0000001, 0, 1.0000001, 0, 1, 0, -4.3711413e-08, -0.6772071, 0.8531754, -2.3837352)
 
-[node name="Gabinet" parent="." instance=ExtResource("8_ahfwf")]
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Gabinet" parent="Props" instance=ExtResource("8_ahfwf")]
 transform = Transform3D(-0.8999977, -2.1625242e-09, 0.0019792046, -0.0003074342, 0.8890762, -0.13979763, -0.0019551818, -0.13979796, -0.88907397, 1.0996752, -0.117560446, -1.4974539)
 
-[node name="Radio" parent="." instance=ExtResource("9_y64fi")]
+[node name="Radio" parent="Props" instance=ExtResource("9_y64fi")]
 transform = Transform3D(-0.9714374, 0, -0.23729603, 0, 1, 0, 0.23729603, 0, -0.9714374, 1.40833, 0.8309053, -1.7127128)
 
-[node name="Chair" parent="." instance=ExtResource("10_2u71j")]
+[node name="Chair" parent="Props" instance=ExtResource("10_2u71j")]
 transform = Transform3D(0.70414555, 0.22671372, -0.3045981, -0.24518098, 0.7615027, 0, 0.28994033, 0.09335208, 0.7397432, 3.7621527, 0, -3.6012838)
 
-[node name="Items" parent="." instance=ExtResource("11_rtbv2")]
+[node name="Items" parent="Props" instance=ExtResource("11_rtbv2")]
 transform = Transform3D(0.13728407, 0, 0.060440753, 0, 0.14999999, 0, -0.060440753, 0, 0.13728407, 3.3526888, -0.08431621, -1.7028638)
 
-[node name="Pizza" parent="." instance=ExtResource("12_3ewy0")]
+[node name="Pizza" parent="Props" instance=ExtResource("12_3ewy0")]
 transform = Transform3D(-0.7452616, -1.1162355e-08, 0.29083514, -0.0012283847, 0.7999927, -0.0031477362, -0.29083255, -0.0033789873, -0.7452549, 4.228818, 0.11260566, -3.3759851)
 
-[node name="Closet" parent="." instance=ExtResource("13_43dyl")]
+[node name="Closet" parent="Props" instance=ExtResource("13_43dyl")]
 transform = Transform3D(0.026260998, 0, -0.6995073, 0.106230415, 0.6918809, 0.003988117, 0.6913939, -0.10630524, 0.025956405, 5.176509, -0.11167985, -3.0088325)
 
-[node name="Toilet" parent="." instance=ExtResource("14_5ajnd")]
+[node name="Toilet" parent="Props" instance=ExtResource("14_5ajnd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9493278, -0.083265305, -0.7182985)
 
-[node name="Toilet Paper" parent="." instance=ExtResource("15_lwalu")]
+[node name="Toilet Paper" parent="Props" instance=ExtResource("15_lwalu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3077538, 0.5399503, -1.1307905)
 
-[node name="Clipboard" parent="." instance=ExtResource("16_42lwb")]
+[node name="Clipboard" parent="Props" instance=ExtResource("16_42lwb")]
 transform = Transform3D(-0.9285182, 0, 0.3712869, 0, 1, 0, -0.3712869, 0, -0.9285182, 0.73441124, 0.8192511, -1.6844573)
 
-[node name="StaticBody3D" parent="Clipboard" index="0"]
+[node name="StaticBody3D" parent="Props/Clipboard" index="0"]
 photo_texture = ExtResource("17_db60p")
 animation_name = "Nota do pai"
 
@@ -661,4 +663,4 @@ texture = ExtResource("18_8cocm")
 
 [editable path="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
-[editable path="Clipboard"]
+[editable path="Props/Clipboard"]
