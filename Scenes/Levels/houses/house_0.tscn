@@ -1,5 +1,6 @@
-[gd_scene load_steps=64 format=4 uid="uid://cdunqwucajhuu"]
+[gd_scene load_steps=66 format=4 uid="uid://cdunqwucajhuu"]
 
+[ext_resource type="Script" uid="uid://dhlnr7b5ekunj" path="res://Scripts/Systems/house.gd" id="1_oa3jc"]
 [ext_resource type="Texture2D" uid="uid://be0v4ohujmas7" path="res://Assets/model/house_wood003_diffuse.jpg" id="1_oo5vo"]
 [ext_resource type="Texture2D" uid="uid://d4itbu4xfg23" path="res://Assets/model/house_bathroom_floor_diffuse.jpg" id="2_lcjof"]
 [ext_resource type="Texture2D" uid="uid://cx5bfvqfsep65" path="res://Assets/model/house_Material.jpg" id="3_b1b2i"]
@@ -20,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bmhud6pre53jv" path="res://Assets/Documents/FOTO.png" id="17_5txu5"]
 [ext_resource type="PackedScene" uid="uid://1juud1fpoe8t" path="res://Assets/model/actors/player/man.glb" id="18_jfd7m"]
 [ext_resource type="Texture2D" uid="uid://dkif0yhlev1al" path="res://Assets/images/black-screen-background.png" id="19_lcjof"]
+[ext_resource type="PackedScene" uid="uid://cw38fqffw1xgs" path="res://Scenes/checkpoint.tscn" id="20_3aibu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_okrnj"]
 size = Vector3(6.1788483, 0.4350586, 4.487732)
@@ -535,6 +537,8 @@ size = Vector3(0.92388916, 1.3583374, 0.03753662)
 albedo_texture = ExtResource("17_5txu5")
 
 [node name="House" type="Node3D"]
+script = ExtResource("1_oa3jc")
+checkpoint_node_path = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -720,6 +724,15 @@ animation_name = "Foto da antiga equipe"
 
 [node name="MeshInstance3D" parent="Props/OldSquadPhoto/Photo" index="0"]
 material_override = SubResource("StandardMaterial3D_macow")
+
+[node name="Entry" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31699783, -2.922669)
+
+[node name="Exit" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3582616, -0.12158463, -1.2794559)
+
+[node name="Checkpoint" parent="." instance=ExtResource("20_3aibu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6258215, 0.84285474, -0.41392434)
 
 [node name="man" parent="." instance=ExtResource("18_jfd7m")]
 transform = Transform3D(0.06336982, -0.6963334, -0.033228062, 0, -0.033365063, 0.6992044, -0.69712573, -0.06329779, -0.0030204828, 2.6542974, 0.10202789, -0.8970734)

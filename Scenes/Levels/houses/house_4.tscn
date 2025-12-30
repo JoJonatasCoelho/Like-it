@@ -1,5 +1,6 @@
-[gd_scene load_steps=55 format=4 uid="uid://bq54jnssiwfcv"]
+[gd_scene load_steps=57 format=4 uid="uid://bq54jnssiwfcv"]
 
+[ext_resource type="Script" uid="uid://dhlnr7b5ekunj" path="res://Scripts/Systems/house.gd" id="1_ct85c"]
 [ext_resource type="Texture2D" uid="uid://be0v4ohujmas7" path="res://Assets/model/house_wood003_diffuse.jpg" id="1_ngi3d"]
 [ext_resource type="Texture2D" uid="uid://d4itbu4xfg23" path="res://Assets/model/house_bathroom_floor_diffuse.jpg" id="2_ehbp8"]
 [ext_resource type="Texture2D" uid="uid://cx5bfvqfsep65" path="res://Assets/model/house_Material.jpg" id="3_ys3ew"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c51x3akjkinf" path="res://Scenes/Props/toilet.tscn" id="14_nt2xp"]
 [ext_resource type="PackedScene" uid="uid://bppucmfjxknsd" path="res://Scenes/Props/toilet_paper.tscn" id="15_jjyjs"]
 [ext_resource type="Texture2D" uid="uid://dkif0yhlev1al" path="res://Assets/images/black-screen-background.png" id="16_ehbp8"]
+[ext_resource type="PackedScene" uid="uid://cw38fqffw1xgs" path="res://Scenes/checkpoint.tscn" id="16_ys3ew"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_okrnj"]
 size = Vector3(6.1788483, 0.4350586, 4.487732)
@@ -489,6 +491,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6rjwf")
 
 [node name="House4" type="Node3D"]
+script = ExtResource("1_ct85c")
+checkpoint_node_path = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -648,6 +652,15 @@ transform = Transform3D(1, 0, 0, 0, -0.8675138, -0.49741313, 0, 0.49741313, -0.8
 
 [node name="Toilet Paper" parent="Props" instance=ExtResource("15_jjyjs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3077545, 1.5640635, -1.1307905)
+
+[node name="Entry" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8694427, -0.12117822, -0.81407785)
+
+[node name="Exit" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3582616, -0.12158463, -1.2794559)
+
+[node name="Checkpoint" parent="." instance=ExtResource("16_ys3ew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6258215, 0.84285474, -0.41392434)
 
 [node name="BLACKOUT" type="Sprite3D" parent="."]
 transform = Transform3D(0.10370057, 0, 0, 0, 0.11198727, 0, 0, 0, 0.275464, 0.8692758, 0.9175284, -4.2764544)

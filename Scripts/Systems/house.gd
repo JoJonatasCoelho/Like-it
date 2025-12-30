@@ -2,9 +2,9 @@ extends Node3D
 
 signal checkpoint_passed(stats)
 
-@export var checkpoint_node_path: NodePath = "" # Adicionar path do checkpoint
-@export var entry_path: NodePath = "" # Adicionar path da Entry
-@export var exit_path: NodePath = "" # Adicionar path da Exit
+@export var checkpoint_node_path: NodePath = "Checkpoint"
+@export var entry_path: NodePath = "Entry"
+@export var exit_path: NodePath = "Exit"
 
 var interactions := {}     # Mapa de interações dentro da casa
 var items_used : Array[Item] = []       # Lista de itens usados dentro da casa
@@ -37,7 +37,3 @@ func get_entry_node() -> Node3D:
 
 func get_exit_node() -> Node3D:
 	return get_node(exit_path) if has_node(exit_path) else null
-
-func lock_backdoor() -> void:
-	# ATIVAR A COLISAO DA PAREDE DO BANHEIRO
-	pass

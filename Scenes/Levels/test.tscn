@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dpbsww1hv1vfe"]
+[gd_scene load_steps=12 format=3 uid="uid://dpbsww1hv1vfe"]
 
 [ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/Actors/player.tscn" id="1_cmgem"]
 [ext_resource type="PackedScene" uid="uid://chricnvy7eee3" path="res://Scenes/Props/flashlight.tscn" id="4_ovt37"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://p7y7vqn01gnu" path="res://Scenes/Props/door.tscn" id="5_x0mv3"]
 [ext_resource type="PackedScene" uid="uid://cx4utt76q7glb" path="res://Scenes/Systems/item_slot.tscn" id="6_pgtsq"]
 [ext_resource type="PackedScene" uid="uid://blv0831ugnnig" path="res://Scenes/Levels/houses/house_1.tscn" id="6_xdu2t"]
+[ext_resource type="PackedScene" uid="uid://btcm5nit4atxe" path="res://Scenes/Systems/loop_manager.tscn" id="7_xdu2t"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bwlui"]
 
@@ -22,6 +23,7 @@ sky = SubResource("Sky_4te2q")
 [node name="Test" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_cmgem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.158321, 0, -2.9307482)
 
 [node name="Floor" type="CSGMesh3D" parent="."]
 transform = Transform3D(30.788633, 0, 0, 0, 1, 0, 0, 0, 44.956432, 0, -0.4998261, 0)
@@ -56,6 +58,8 @@ transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -
 [node name="House2" parent="." instance=ExtResource("6_xdu2t")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 12.693408, 0.15209538, -6.9230957)
 
+[node name="LoopManager" parent="." instance=ExtResource("7_xdu2t")]
+
 [editable path="House"]
 [editable path="House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
-[editable path="House/OldSquadPhoto"]
+[editable path="House/Props/OldSquadPhoto"]
