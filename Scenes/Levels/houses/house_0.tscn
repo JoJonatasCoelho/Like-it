@@ -725,12 +725,6 @@ animation_name = "Foto da antiga equipe"
 [node name="MeshInstance3D" parent="Props/OldSquadPhoto/Photo" index="0"]
 material_override = SubResource("StandardMaterial3D_macow")
 
-[node name="Entry" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31699783, -2.922669)
-
-[node name="Exit" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3582616, -0.12158463, -1.2794559)
-
 [node name="Checkpoint" parent="." instance=ExtResource("20_3aibu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6258215, 0.84285474, -0.41392434)
 
@@ -741,6 +735,12 @@ transform = Transform3D(0.06336982, -0.6963334, -0.033228062, 0, -0.033365063, 0
 transform = Transform3D(0.10370057, 0, 0, 0, 0.11198727, 0, 0, 0, 0.275464, 0.8692758, 0.9175284, -4.2764544)
 transparent = false
 texture = ExtResource("19_lcjof")
+
+[node name="Entry" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8694427, -0.12117822, -0.81407785)
+
+[node name="Exit" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3582616, -0.12158463, -1.2794559)
 
 [editable path="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="Props/OldSquadPhoto"]

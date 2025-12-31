@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpbsww1hv1vfe"]
+[gd_scene load_steps=14 format=3 uid="uid://dpbsww1hv1vfe"]
 
 [ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/Actors/player.tscn" id="1_cmgem"]
 [ext_resource type="PackedScene" uid="uid://chricnvy7eee3" path="res://Scenes/Props/flashlight.tscn" id="4_ovt37"]
-[ext_resource type="PackedScene" uid="uid://cdunqwucajhuu" path="res://Scenes/Levels/houses/house_0.tscn" id="5_pgtsq"]
 [ext_resource type="PackedScene" uid="uid://p7y7vqn01gnu" path="res://Scenes/Props/door.tscn" id="5_x0mv3"]
 [ext_resource type="PackedScene" uid="uid://cx4utt76q7glb" path="res://Scenes/Systems/item_slot.tscn" id="6_pgtsq"]
-[ext_resource type="PackedScene" uid="uid://blv0831ugnnig" path="res://Scenes/Levels/houses/house_1.tscn" id="6_xdu2t"]
+[ext_resource type="PackedScene" uid="uid://bq84n3n78cq5b" path="res://Scenes/Props/water.tscn" id="6_x2ky3"]
 [ext_resource type="PackedScene" uid="uid://btcm5nit4atxe" path="res://Scenes/Systems/loop_manager.tscn" id="7_xdu2t"]
+[ext_resource type="PackedScene" uid="uid://b6qypnmb2fuky" path="res://Scenes/UI/ui.tscn" id="7_y8ow1"]
+[ext_resource type="PackedScene" uid="uid://decy35mve4tbg" path="res://Scenes/audio.tscn" id="8_2bnbj"]
+[ext_resource type="AudioStream" uid="uid://lx4kg28jopyt" path="res://Assets/audio/Horrible-Realization.mp3" id="9_27pap"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bwlui"]
 
@@ -23,7 +25,7 @@ sky = SubResource("Sky_4te2q")
 [node name="Test" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_cmgem")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.158321, 0, -2.9307482)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 5.158321, 0, -2.9307482)
 
 [node name="Floor" type="CSGMesh3D" parent="."]
 transform = Transform3D(30.788633, 0, 0, 0, 1, 0, 0, 0, 44.956432, 0, -0.4998261, 0)
@@ -49,17 +51,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8234845, -1.5992355)
 [node name="Flashlight2" parent="." instance=ExtResource("4_ovt37")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7916068, -3.198471)
 
-[node name="House" parent="." instance=ExtResource("5_pgtsq")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.3126094, 0.1514929, -6.01206)
-
-[node name="MWall_Collision4" parent="House/StaticBody3D" index="6"]
-transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -0.773849, 2.9700217, -2.6585894)
-
-[node name="House2" parent="." instance=ExtResource("6_xdu2t")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 12.693408, 0.15209538, -6.9230957)
-
 [node name="LoopManager" parent="." instance=ExtResource("7_xdu2t")]
 
-[editable path="House"]
-[editable path="House/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
-[editable path="House/Props/OldSquadPhoto"]
+[node name="Water" parent="." instance=ExtResource("6_x2ky3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5792837, -0.8881932, -0.500082)
+
+[node name="UI" parent="." instance=ExtResource("7_y8ow1")]
+
+[node name="CanvasLayer" parent="UI" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("")
+
+[node name="Audio" parent="." instance=ExtResource("8_2bnbj")]
+
+[node name="SFX" parent="Audio" index="1"]
+stream = ExtResource("9_27pap")
+volume_db = 20.0
+
+[editable path="UI"]
+[editable path="Audio"]

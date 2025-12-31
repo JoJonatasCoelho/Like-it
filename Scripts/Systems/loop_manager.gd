@@ -12,7 +12,7 @@ extends Node
 @export var start_index: int = GlobalVars.loop_count
 
 @export var use_linear_layout: bool = true
-@export var layout_step: Vector3 = Vector3(6.5, 0, 0)  # delta (X, Z) entre casas (cada step)
+@export var layout_step: Vector3 = Vector3(6.3, 0, 0)  # delta (X, Z) entre casas (cada step)
 @export var spawn_origin_offset: Vector3 = Vector3(5, 1, 0) # offset inicial (X,Z) relativo ao anchor
 
 const DEFAULT_MANUAL_CURRENT_NAME := "House"
@@ -64,7 +64,7 @@ func _ready() -> void:
 	next_spawn_index = 2
 
 func _instantiate_house(idx: int, spawn_index: int = -1) -> Node3D:
-	print("_instantiate_house: idx:", idx, " candidate:", house_scenes[idx])
+	#print("_instantiate_house: idx:", idx, " candidate:", house_scenes[idx])
 	if house_scenes.size() == 0:
 		return null
 	idx = idx % house_scenes.size()
@@ -96,7 +96,7 @@ func _instantiate_house(idx: int, spawn_index: int = -1) -> Node3D:
 	# posicione também deferido para garantir que o nodo já esteja no scene tree
 	var spawn_idx = spawn_index if spawn_index >= 0 else next_spawn_index
 	call_deferred("_deferred_post_spawn", inst, spawn_idx)
-	print("_instantiate_house: instantiated (deferred add) ->", inst.name)
+	#print("_instantiate_house: instantiated (deferred add) ->", inst.name)
 	return inst
 
 func _deferred_post_spawn(inst: Node3D, spawn_idx: int) -> void:
@@ -108,10 +108,9 @@ func _deferred_post_spawn(inst: Node3D, spawn_idx: int) -> void:
 		inst.name = "House_inst_" + str(next_spawn_index)  # ou outro padrão
 
 	# debug
-	print("deferred_post_spawn: spawned:", inst.name, " spawn_idx:", spawn_idx, " anchor:", house_anchor.name)
+	#print("deferred_post_spawn: spawned:", inst.name, " spawn_idx:", spawn_idx, " anchor:", house_anchor.name)
 
 	inst.scale = GlobalVars.house_scale
-	print("applied scale:", inst.scale)
 
 	# posiciona
 	if use_linear_layout:
@@ -119,7 +118,7 @@ func _deferred_post_spawn(inst: Node3D, spawn_idx: int) -> void:
 	else:
 		_align_house_to_anchor_entry(inst, house_anchor.global_transform)
 
-	print("deferred_post_spawn: positioned:", inst.name, inst.global_transform.origin)
+	#print("deferred_post_spawn: positioned:", inst.name, inst.global_transform.origin)
 
 # ---------------------------------------------------------
 # Helper: procura recursivamente um nó que possua certo signal
@@ -163,7 +162,7 @@ func _connect_house_checkpoint(house: Node3D) -> void:
 			"checkpoint_passed",
 			Callable(self, "_on_emitter_checkpoint").bind(emitter, house)
 		)
-		print("[LoopManager] connected emitter:", emitter.name, "in house:", house.name)
+		#print("[LoopManager] connected emitter:", emitter.name, "in house:", house.name)
 		return
 
 	# fallback: procura Area3D e conecta body_entered
@@ -190,7 +189,7 @@ func _on_area_body_entered(body: Node, house: Node) -> void:
 
 # ---------- chamada quando checkpoint é passado ----------
 func _on_house_entered(stats: Dictionary, entered_house: Node) -> void:
-	print("_on_house_entered called. entered_house:", entered_house, " house_next:", house_next)
+	#print("_on_house_entered called. entered_house:", entered_house, " house_next:", house_next)
 	# se entered_house for Node, imprime nomes
 	if entered_house and entered_house is Node:
 		print("entered_house.name:", entered_house.name)
