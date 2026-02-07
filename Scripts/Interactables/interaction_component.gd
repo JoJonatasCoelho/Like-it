@@ -1,8 +1,17 @@
 extends Node3D
 
-@onready var interaction_raycast : RayCast3D = $"../RayCast3D"
-@onready var interaction_label : Label = $"../../Interaction Label"
+@export var interaction_raycast : RayCast3D # = $"../RayCast3D"
+@export var interaction_label : Label # = $"../../Interaction Label"
+@export var player: PlayerController
 var interaction_is_reset : bool = true
+
+func _ready() -> void:
+	if not interaction_raycast:
+		push_error("Raycast não setado")
+	if not interaction_label:
+		push_error("Label não setada")
+	if not player:
+		push_error("Player não setado")
 
 func _process(_delta):
 	if interaction_raycast.is_colliding():
@@ -12,20 +21,24 @@ func _process(_delta):
 			interaction_label.text = "Aperte \"E\" para interagir."
 		else:
 			interaction_label.text = "Estranho..."
-
 	else:
 		if !interaction_is_reset:
 			interaction_label.text = ""
 			interaction_is_reset = true
 
 func _input(event):
+	# to-do: consertar a forma que o player eh passado nas funçoes de interaction_component
 	if event.is_action_pressed("interact"):
 		if interaction_raycast.is_colliding():
 			var interactable = interaction_raycast.get_collider()
 			if interactable.has_method("interact"):
 				if interactable.is_interacting:
 					return
+				get_viewport().set_input_as_handled()
 				interactable.is_interacting = true
 				interaction_label.text = ""  
-				await interactable.interact(self)
+				if player:
+					await interactable.interact(player)
+				else:
+					push_error("Player não setado")
 				interactable.is_interacting = false

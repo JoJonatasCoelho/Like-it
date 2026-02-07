@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6qypnmb2fuky"]
+[gd_scene load_steps=10 format=3 uid="uid://b6qypnmb2fuky"]
 
 [ext_resource type="Script" uid="uid://nq4v65apnrq8" path="res://Scripts/Systems/ui.gd" id="1_qdvrb"]
-[ext_resource type="Texture2D" uid="uid://cl3ueywcl2jpp" path="res://Assets/images/dot.png" id="2_qdvrb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qdvrb"]
 font_size = 30
@@ -113,30 +112,14 @@ _data = {
 
 [node name="UI" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("1_qdvrb")
-
-[node name="Crosshair" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -200.0
-offset_right = 200.0
-offset_bottom = 200.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_qdvrb")
 
 [node name="PhotoViewer" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 8
@@ -172,6 +155,7 @@ anchor_bottom = 1.0
 offset_top = -130.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 1
 bbcode_enabled = true
 text = "[center]"
 
@@ -179,3 +163,17 @@ text = "[center]"
 libraries = {
 &"": SubResource("AnimationLibrary_nf4gj")
 }
+
+[node name="Crosshair" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -56.0
+offset_right = 332.0
+offset_bottom = 344.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2925839, 0.2925839)

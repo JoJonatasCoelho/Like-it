@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c151ui15fqg0k"
-path.s3tc="res://.godot/imported/man_Red_texture.png-d1cab4dcfbb99566737a41772524a689.s3tc.ctex"
+path.s3tc="res://.godot/imported/man_Red_texture.png-d83731baaeb54f8ece848a435da5f2ac.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/model/man_Red_texture.png"
-dest_files=["res://.godot/imported/man_Red_texture.png-d1cab4dcfbb99566737a41772524a689.s3tc.ctex"]
+source_file="res://Assets/model/actors/player/man_Red_texture.png"
+dest_files=["res://.godot/imported/man_Red_texture.png-d83731baaeb54f8ece848a435da5f2ac.s3tc.ctex"]
 
 [params]
 

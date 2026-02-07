@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqlqngg600wus"]
+[gd_scene load_steps=3 format=3 uid="uid://bqlqngg600wus"]
 
 [ext_resource type="Script" uid="uid://cmfafwqtqbho4" path="res://Scripts/Core/menu.gd" id="1_lti8b"]
+[ext_resource type="Texture2D" uid="uid://bs08mfxfoibx0" path="res://Assets/images/credits.png" id="2_uk6bn"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -33,17 +34,28 @@ size_flags_vertical = 4
 focus_neighbor_top = NodePath("../CreditsButton")
 text = "Jogar"
 
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartButton")
+text = "Créditos"
+
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 focus_neighbor_bottom = NodePath("../CreditsButton")
 text = "Sair"
 
-[node name="CreditsButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-focus_neighbor_bottom = NodePath("../StartButton")
-text = "Créditos"
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_uk6bn")
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

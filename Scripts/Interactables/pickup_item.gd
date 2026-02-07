@@ -2,16 +2,20 @@ extends Interactable
 
 class_name PickupItem
 
-@export var item_scene: PackedScene
+# to-do: settar a desgraça do nome dos itens pegaveis
+#@export var item_scene: PackedScene
+@export var item: Item
 
-func interact(player: Node) -> void:
-	var player_controller: PlayerController = player.get_node("../../..")
-	if item_scene == null || player_controller.has_held_item:
+func _ready() -> void:
+	if not item:
+		push_error("Pickup_item sem item")
+
+func interact(player: PlayerController) -> void:
+	if item == null:
+		push_error("Item não settado")
 		return
-	if player_controller.has_held_item:
-		player_controller.drop_held_item()
-	var item := item_scene.instantiate()
-	if item is Item:
-		player_controller.pick_up_item(item)
+	if player.has_held_item:
+		player.drop_held_item()
+	player.pick_up_item(item)
 	# if not item?
-	queue_free()
+	#queue_free()

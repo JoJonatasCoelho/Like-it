@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx4utt76q7glb"]
+
+[ext_resource type="Script" uid="uid://k20s823pel4l" path="res://Scripts/Interactables/item_slot.gd" id="1_oyep5"]
+
+[node name="ItemSlot" type="Node3D"]
+script = ExtResource("1_oyep5")

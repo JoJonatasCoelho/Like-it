@@ -3,14 +3,23 @@
 [ext_resource type="Script" uid="uid://bv480jelemsui" path="res://Scripts/Interactables/checkpoint_areas.gd" id="1_lbcco"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jkya8"]
+size = Vector3(0.0859375, 1.2697754, 1.3515625)
 
 [node name="Checkpoint" type="Node3D"]
+script = ExtResource("1_lbcco")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7099705, 0, 0)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08295053, 0, 0)
+shape = SubResource("BoxShape3D_jkya8")
 
 [node name="Area3D" type="Area3D" parent="."]
-script = ExtResource("1_lbcco")
-volume_increase = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_jkya8")
 
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

@@ -7,6 +7,13 @@ extends CharacterBody3D
 
 class_name PlayerController
 
+
+## IMPORTANT REFERENCES
+@onready var head: Node3D = $Head
+@onready var collider: CollisionShape3D = $Collider
+@onready var animator: AnimationPlayer = $PlayerBody/AnimationPlayer
+@export var _inventory: Inventory
+
 ## Can we move around?
 @export var can_move : bool = true
 ## Are we affected by gravity?
@@ -58,11 +65,6 @@ var can_interact : bool = true
 
 @export var has_held_item : bool = false
 
-## IMPORTANT REFERENCES
-@onready var head: Node3D = $Head
-@onready var collider: CollisionShape3D = $Collider
-@onready var animator: AnimationPlayer = $PlayerBody/AnimationPlayer
-@onready var _inventory: Inventory = $"../Inventory"
 
 func _ready() -> void:
 	check_input_mappings()
@@ -173,6 +175,7 @@ func capture_mouse():
 func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
+	
 
 
 ## Checks if some Input Actions haven't been created.
@@ -201,9 +204,23 @@ func check_input_mappings():
 		can_freefly = false
 
 func pick_up_item(item: Item):
-	print("picado no player")
 	_inventory.equip(item)
 	item.on_pick_up(get_node("Hand"))
+	has_held_item = true
+	
+func drop_held_item():
+	print("dropou item")
+	# pede o item ao inventory (ele limpa a referência internamente)
+	var item: Item = _inventory.drop_equipped()
+	if item == null:
+		return
+	# calcula posição à frente da mão/jogador para o drop
+	var hand = get_node("Hand")
+	var forward = -hand.global_transform.basis.z
+	var drop_pos = hand.global_transform.origin + forward * 0.6 + Vector3(0, 0.5, 0)
+	var drop_tf = Transform3D(hand.global_transform.basis, drop_pos)
+	item.on_drop(drop_tf)
+	has_held_item = false
 	
 func use_equipped_item():
 	_inventory.use_equipped()
