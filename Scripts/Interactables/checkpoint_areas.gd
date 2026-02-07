@@ -57,7 +57,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		var stats = {
 			"time_spent": Time.get_ticks_msec()/1000
 		}
-		print("oi")
 		# print("tempo de jogo: ",stats.time)
 		print("Checkpoint emitting from node:", self, " parent house:", get_parent(), " stats:", stats)
 		emit_signal("checkpoint_passed", stats)

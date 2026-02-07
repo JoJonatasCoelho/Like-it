@@ -58,9 +58,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5792837, -0.8881932, -0.50
 
 [node name="UI" parent="." instance=ExtResource("7_y8ow1")]
 
-[node name="CanvasLayer" parent="UI" index="0" node_paths=PackedStringArray("player")]
-player = NodePath("")
-
 [node name="Audio" parent="." instance=ExtResource("8_2bnbj")]
 
 [node name="SFX" parent="Audio" index="1"]

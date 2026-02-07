@@ -11,7 +11,7 @@ extends Node
 @export var house_anchor: Node3D
 @export var start_index: int = GlobalVars.loop_count
 
-@export var use_linear_layout: bool = true
+@export var use_linear_layout: bool = true # casas em corredor on
 @export var layout_step: Vector3 = Vector3(6.3, 0, 0)  # delta (X, Z) entre casas (cada step)
 @export var spawn_origin_offset: Vector3 = Vector3(5, 1, 0) # offset inicial (X,Z) relativo ao anchor
 
@@ -40,11 +40,6 @@ func _ready() -> void:
 	if manual_current and manual_next:
 		house_current = manual_current
 		house_next = manual_next
-		current_scene_idx = start_index % house_scenes.size()
-		next_scene_idx = (start_index + 1) % house_scenes.size()
-		next_spawn_index = 2
-		_connect_house_checkpoint(house_current)
-		_connect_house_checkpoint(house_next)
 		print("LoopManager: usando casas já instanciadas: ", house_current.name, ", ", house_next.name)
 		return
 
@@ -54,6 +49,7 @@ func _ready() -> void:
 
 	current_scene_idx = start_index % house_scenes.size()
 	next_scene_idx = (start_index + 1) % house_scenes.size()
+	next_spawn_index = 2
 
 	house_current = _instantiate_house(current_scene_idx, 0)
 	_connect_house_checkpoint(house_current)
@@ -61,7 +57,6 @@ func _ready() -> void:
 	house_next = _instantiate_house(next_scene_idx, 1)
 	_connect_house_checkpoint(house_next)
 
-	next_spawn_index = 2
 
 func _instantiate_house(idx: int, spawn_index: int = -1) -> Node3D:
 	#print("_instantiate_house: idx:", idx, " candidate:", house_scenes[idx])
@@ -71,6 +66,7 @@ func _instantiate_house(idx: int, spawn_index: int = -1) -> Node3D:
 
 	var candidate = house_scenes[idx]
 	var packed: PackedScene = null
+	# suporte ao array de varios formatos?
 	if candidate is PackedScene:
 		packed = candidate
 	elif typeof(candidate) == TYPE_STRING:
@@ -103,9 +99,9 @@ func _deferred_post_spawn(inst: Node3D, spawn_idx: int) -> void:
 	if not is_instance_valid(inst):
 		return
 
-	# force um nome legível se estiver vazio
+	# força um nome legível se estiver vazio
 	if inst.name == "" or inst.name.begins_with("@Node3D"):
-		inst.name = "House_inst_" + str(next_spawn_index)  # ou outro padrão
+		inst.name = "House_inst_" + str(next_spawn_index)  
 
 	# debug
 	#print("deferred_post_spawn: spawned:", inst.name, " spawn_idx:", spawn_idx, " anchor:", house_anchor.name)
@@ -120,7 +116,6 @@ func _deferred_post_spawn(inst: Node3D, spawn_idx: int) -> void:
 
 	#print("deferred_post_spawn: positioned:", inst.name, inst.global_transform.origin)
 
-# ---------------------------------------------------------
 # Helper: procura recursivamente um nó que possua certo signal
 func _find_node_with_signal(root: Node, signal_name: String) -> Node:
 	if not root:
@@ -187,7 +182,6 @@ func _on_area_body_entered(body: Node, house: Node) -> void:
 	if body is CharacterBody3D:
 		_on_house_entered({"time_spent":0}, house)
 
-# ---------- chamada quando checkpoint é passado ----------
 func _on_house_entered(stats: Dictionary, entered_house: Node) -> void:
 	#print("_on_house_entered called. entered_house:", entered_house, " house_next:", house_next)
 	# se entered_house for Node, imprime nomes
@@ -235,22 +229,50 @@ func _on_house_entered(stats: Dictionary, entered_house: Node) -> void:
 	# incrementamos o índice linear para o próximo spawn
 	next_spawn_index += 1
 
-# heurística simples (substituir pelo teu algoritmo)
+# heurística simples
 func _choose_next_house(stats: Dictionary, loop_count: int) -> int:
+	# Segurança básica
 	if house_scenes.size() == 0:
 		return -1
-	if stats != null and stats.has("time_spent"):
-		var t = stats["time_spent"]
-		if t < 20.0:
-			return min(2, house_scenes.size() - 1)
-	if stats != null and stats.has("items_used"):
-		var items = stats["items_used"]
-		if "key_of_fire" in items:
-			return min(3, house_scenes.size() - 1)
-	# fallback cíclico
-	return (start_index + loop_count + randi()) % house_scenes.size()
+	
+	var time_spent = 0.0
+	var items_held = []
+	if stats != null:
+		time_spent = stats.get("time_spent", 0.0)
+		items_held = stats.get("items_used", [])
 
-# ---------- ALINHAMENTO LINEAR ----------
+	
+	var max_idx = house_scenes.size() - 1
+
+	# 1. FINAL / PESADELO ETERNO (House 4)
+	# Se o jogador já passou de 3 loops, ele fica preso na última casa (House 4)
+	if loop_count >= 3:
+		# Se ele tiver um item específico,  fazer algo diferente
+		# por padrão, mantém ele no pesadelo.
+		return 4 
+
+	# 2. SPEEDRUNNER / MEDO (Pula etapas)
+	# Se o jogador correu muito rápido na House 1 ou 2 (menos de 15s),
+	# o "Emotions" percebe o medo e joga ele direto para a casa perigosa (House 3)
+	if loop_count >= 1 and time_spent < 15.0:
+		print("LoopManager: Jogador com pressa. Pulando para o perigo.")
+		return 3
+
+	# 3. PUZZLE DE LORE (House 2)
+	# Se ele pegou a "key" (ou outro item de lore), garantimos que ele 
+	# vá para a casa que tem a fechadura correspondente (vamos supor que é a House 2)
+	if "key" in items_held and loop_count < 2:
+		return 2
+
+	# Loop 0 (Intro) -> Próxima será 1
+	# Loop 1 (Estranho) -> Próxima será 2
+	# Loop 2 (Tenso) -> Próxima será 3
+	# Loop 3 (Perigo) -> Próxima será 4
+	var next_logical_index = loop_count + 1
+	
+	# Garante que não estoure o array (clamp entre 0 e 4)
+	return clampi(next_logical_index, 0, max_idx)
+
 # posiciona tal que o Entry da house coincida com a posição linear (origin + layout_step * spawn_index)
 func _align_house_linear_to_entry(house: Node3D, spawn_index: int) -> void:
 	if not house:
@@ -269,7 +291,6 @@ func _align_house_linear_to_entry(house: Node3D, spawn_index: int) -> void:
 	else:
 		house.global_transform = desired_transform
 
-# ---------- ALINHAMENTO ANTIGO (por Entry do anchor / Exit->Entry) ----------
 func _align_house_to_anchor_entry(house: Node3D, desired_global: Transform3D) -> void:
 	if not house:
 		return

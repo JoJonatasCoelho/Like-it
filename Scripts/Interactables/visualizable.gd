@@ -5,8 +5,9 @@ extends Interactable
 var ui: CanvasLayer
 
 func _ready() -> void:
-	ui = get_tree().root.get_node("/root/Test/UI/CanvasLayer")
-	print(ui)
+	ui = get_tree().root.get_node("/root/" + get_tree().current_scene.name + "/UI/CanvasLayer")	
+	print("UI: ", ui)
+	print(get_tree().current_scene.name)
 
 func interact(_caller):
 	var subtitle_animator: AnimationPlayer = ui.get_node("SubtitlesAnimation")
