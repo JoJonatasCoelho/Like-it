@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://qjkjl51n5pha"]
+
+[ext_resource type="Script" uid="uid://dwi788ie7cqad" path="res://Scripts/Interactables/flashlight_item.gd" id="1_hqdli"]
+[ext_resource type="Script" uid="uid://cy7j1qf4ffcum" path="res://Scripts/Interactables/pickup_item.gd" id="2_gyfgb"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vqo3e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p4w2b"]
+size = Vector3(0.060158156, 0.02088318, 0.16075897)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4kokr"]
+
+[node name="Key" type="Node3D"]
+script = ExtResource("1_hqdli")
+item_name = "Flashlight"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("item")]
+collision_layer = 2
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_vqo3e")
+script = ExtResource("2_gyfgb")
+item = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002002147, -0.0011734031, 0.021198273)
+shape = SubResource("BoxShape3D_p4w2b")
+
+[node name="Body" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.014710804, 0, 0, 0, 0.017923111, 0, 0, 0, 0.116510995, 0, 0, 0.041818157)
+mesh = SubResource("BoxMesh_4kokr")
+skeleton = NodePath("../..")
+
+[node name="Body3" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.03426299, 0, 0, 0, 0.017923111, 0, 0, 0, -0.011507451, 0.014463484, 0, 0.061684176)
+mesh = SubResource("BoxMesh_4kokr")
+skeleton = NodePath("../..")
+
+[node name="Body4" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.03426299, 0, 0, 0, 0.017923111, 0, 0, 0, -0.011507451, 0.014463484, 0, 0.082113534)
+mesh = SubResource("BoxMesh_4kokr")
+skeleton = NodePath("../..")
+
+[node name="Body2" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.05, 0, 0, 0, 0.018, 0, 0, 0, 0.05, 0, 0, -0.032919433)
+mesh = SubResource("BoxMesh_4kokr")
+skeleton = NodePath("../..")
