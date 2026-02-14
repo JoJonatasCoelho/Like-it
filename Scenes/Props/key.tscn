@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://qjkjl51n5pha"]
+[gd_scene load_steps=6 format=3 uid="uid://b85m1a6okn8pq"]
 
-[ext_resource type="Script" uid="uid://dwi788ie7cqad" path="res://Scripts/Interactables/flashlight_item.gd" id="1_hqdli"]
+[ext_resource type="Script" uid="uid://rqoxgxqac33f" path="res://Scripts/Interactables/key_item.gd" id="1_hqdli"]
 [ext_resource type="Script" uid="uid://cy7j1qf4ffcum" path="res://Scripts/Interactables/pickup_item.gd" id="2_gyfgb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vqo3e"]
@@ -11,8 +11,9 @@ size = Vector3(0.060158156, 0.02088318, 0.16075897)
 [sub_resource type="BoxMesh" id="BoxMesh_4kokr"]
 
 [node name="Key" type="Node3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_hqdli")
-item_name = "Flashlight"
+item_name = "Key"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("item")]
 collision_layer = 2
