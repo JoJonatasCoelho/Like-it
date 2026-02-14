@@ -6,7 +6,11 @@ extends Node
 	"res://Scenes/Levels/houses/house_1.tscn",
 	"res://Scenes/Levels/houses/house_2.tscn",
 	"res://Scenes/Levels/houses/house_3.tscn",
-	"res://Scenes/Levels/houses/house_4.tscn"
+	"res://Scenes/Levels/houses/house_4.tscn",
+	"res://Scenes/Levels/houses/house_5.tscn",
+	"res://Scenes/Levels/houses/house_6.tscn",
+	"res://Scenes/Levels/houses/house_7.tscn",
+	"res://Scenes/Levels/houses/house_8.tscn"
 ]
 @export var house_anchor: Node3D
 @export var start_index: int = GlobalVars.loop_count
@@ -244,30 +248,30 @@ func _choose_next_house(stats: Dictionary, loop_count: int) -> int:
 	
 	var max_idx = house_scenes.size() - 1
 
-	# 1. FINAL / PESADELO ETERNO (House 4)
-	# Se o jogador já passou de 3 loops, ele fica preso na última casa (House 4)
-	if loop_count >= 3:
-		# Se ele tiver um item específico,  fazer algo diferente
-		# por padrão, mantém ele no pesadelo.
-		return 4 
-
-	# 2. SPEEDRUNNER / MEDO (Pula etapas)
-	# Se o jogador correu muito rápido na House 1 ou 2 (menos de 15s),
-	# o "Emotions" percebe o medo e joga ele direto para a casa perigosa (House 3)
-	if loop_count >= 1 and time_spent < 15.0:
-		print("LoopManager: Jogador com pressa. Pulando para o perigo.")
-		return 3
-
-	# 3. PUZZLE DE LORE (House 2)
-	# Se ele pegou a "key" (ou outro item de lore), garantimos que ele 
-	# vá para a casa que tem a fechadura correspondente (vamos supor que é a House 2)
-	if "key" in items_held and loop_count < 2:
-		return 2
-
-	# Loop 0 (Intro) -> Próxima será 1
-	# Loop 1 (Estranho) -> Próxima será 2
-	# Loop 2 (Tenso) -> Próxima será 3
-	# Loop 3 (Perigo) -> Próxima será 4
+	## 1. FINAL / PESADELO ETERNO (House 4)
+	## Se o jogador já passou de 3 loops, ele fica preso na última casa (House 4)
+	#if loop_count >= 3:
+		## Se ele tiver um item específico,  fazer algo diferente
+		## por padrão, mantém ele no pesadelo.
+		#return 4 
+#
+	## 2. SPEEDRUNNER / MEDO (Pula etapas)
+	## Se o jogador correu muito rápido na House 1 ou 2 (menos de 15s),
+	## o "Emotions" percebe o medo e joga ele direto para a casa perigosa (House 3)
+	#if loop_count >= 1 and time_spent < 15.0:
+		#print("LoopManager: Jogador com pressa. Pulando para o perigo.")
+		#return 3
+#
+	## 3. PUZZLE DE LORE (House 2)
+	## Se ele pegou a "key" (ou outro item de lore), garantimos que ele 
+	## vá para a casa que tem a fechadura correspondente (vamos supor que é a House 2)
+	#if "key" in items_held and loop_count < 2:
+		#return 2
+#
+	## Loop 0 (Intro) -> Próxima será 1
+	## Loop 1 (Estranho) -> Próxima será 2
+	## Loop 2 (Tenso) -> Próxima será 3
+	## Loop 3 (Perigo) -> Próxima será 4
 	var next_logical_index = loop_count + 1
 	
 	# Garante que não estoure o array (clamp entre 0 e 4)
