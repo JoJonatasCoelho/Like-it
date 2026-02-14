@@ -14,6 +14,7 @@ func check_item(player: PlayerController) -> bool:
 		
 	var item: Item = hand.get_child(0)
 	if item.item_name == required_item_name:
+		item.queue_free()
 		return true
 	else:
 		return false

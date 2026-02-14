@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://cp0snds1tsm1m"]
+[gd_scene load_steps=59 format=4 uid="uid://cp0snds1tsm1m"]
 
 [ext_resource type="Script" uid="uid://dhlnr7b5ekunj" path="res://Scripts/Systems/house.gd" id="1_euwhy"]
 [ext_resource type="Texture2D" uid="uid://be0v4ohujmas7" path="res://Assets/model/house_wood003_diffuse.jpg" id="2_r7db1"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://b85m1a6okn8pq" path="res://Scenes/Props/key.tscn" id="18_euwhy"]
 [ext_resource type="PackedScene" uid="uid://cw38fqffw1xgs" path="res://Scenes/checkpoint.tscn" id="19_mhfa4"]
 [ext_resource type="Texture2D" uid="uid://dkif0yhlev1al" path="res://Assets/images/black-screen-background.png" id="20_iqle5"]
-[ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/Actors/player.tscn" id="21_r7db1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_okrnj"]
 size = Vector3(6.1788483, 0.4350586, 4.487732)
@@ -674,9 +673,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6258215, 0.84285474, -0.41
 transform = Transform3D(0.10370057, 0, 0, 0, 0.11198727, 0, 0, 0, 0.275464, 0.8692758, 0.9175284, -4.2764544)
 transparent = false
 texture = ExtResource("20_iqle5")
-
-[node name="Player" parent="." instance=ExtResource("21_r7db1")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 
 [editable path="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]

@@ -7,6 +7,7 @@ func interact(_caller: PlayerController):
 	var item_slot: ItemSlot = get_node("../ItemSlot")
 	if item_slot:
 		if item_slot.check_item(_caller):
+			item_slot.queue_free()
 			open_door()
 		else:
 			# to-do: fazer isso aqui depois :P
