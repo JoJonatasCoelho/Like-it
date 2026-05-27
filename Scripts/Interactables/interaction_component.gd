@@ -20,13 +20,13 @@ func _process(_delta):
 		if interactable != null and interactable.has_method("interact"):
 			interaction_label.text = "Aperte \"E\" para interagir."
 		else:
-			interaction_label.text = "Estranho..."
+			interaction_label.text = ""
 	else:
 		if !interaction_is_reset:
 			interaction_label.text = ""
 			interaction_is_reset = true
 
-func _input(event):
+func _unhandled_input(event):
 	# to-do: consertar a forma que o player eh passado nas funçoes de interaction_component
 	if event.is_action_pressed("interact"):
 		if interaction_raycast.is_colliding():

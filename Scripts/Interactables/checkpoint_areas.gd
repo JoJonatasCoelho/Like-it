@@ -48,9 +48,12 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 			var tw2 = create_tween()
 			tw2.tween_property(audio, "volume_db", new_volume, 3.0)
 
-		# backdoor — use get_node_or_null para evitar erros
+		# backdoor — trava passagem de volta após o checkpoint
 		var backdoor = get_node_or_null("StaticBody3D")
-		backdoor.collision_layer = 1
+		if backdoor:
+			backdoor.collision_layer = 1
+		else:
+			push_error("CheckpointAreas: nó 'StaticBody3D' (backdoor) não encontrado em " + name)
 
 		has_been_passed = true
 

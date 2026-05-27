@@ -1,11 +1,11 @@
 extends Control
 
-const MAP_SCENE: String = "res://Scenes/Levels/map.tscn"
+const MAP_SCENE: String = "res://Scenes/Levels/loop.tscn"
 const CREDIT_SCENE: String = "res://Scenes/UI/credits.tscn"
 
 
 func _ready() -> void:
-	#$VBoxContainer/StartButton.grab_focus()
+	#$VBsoxContainer/StartButton.grab_focus()
 	pass
 
 func _on_start_button_pressed() -> void:

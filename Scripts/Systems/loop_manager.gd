@@ -9,11 +9,11 @@ extends Node
 	"res://Scenes/Levels/houses/house_4.tscn"
 ]
 @export var house_anchor: Node3D
-@export var start_index: int = GlobalVars.loop_count
+@export var start_index: int = 0
 
 @export var use_linear_layout: bool = true # casas em corredor on
 @export var layout_step: Vector3 = Vector3(6.3, 0, 0)  # delta (X, Z) entre casas (cada step)
-@export var spawn_origin_offset: Vector3 = Vector3(5, 1, 0) # offset inicial (X,Z) relativo ao anchor
+@export var spawn_origin_offset: Vector3 = Vector3(0, 0, 0) # offset inicial (X,Z) relativo ao anchor
 
 const DEFAULT_MANUAL_CURRENT_NAME := "House"
 const DEFAULT_MANUAL_NEXT_NAME := "House1"
