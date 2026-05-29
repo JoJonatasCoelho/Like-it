@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cw38fqffw1xgs" path="res://Scenes/checkpoint.tscn" id="19_q2wnk"]
 [ext_resource type="Texture2D" uid="uid://dkif0yhlev1al" path="res://Assets/images/black-screen-background.png" id="20_1t02j"]
 [ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/Actors/player.tscn" id="21_2tbly"]
-[ext_resource type="PackedScene" uid="uid://cij3cql4ud7w5" path="res://Scenes/Actors/emotions.tscn" id="21_fe3j4"]
+[ext_resource type="PackedScene" uid="uid://c03offllw464w" path="res://Scenes/Actors/emotions.tscn" id="21_fe3j4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_okrnj"]
 size = Vector3(6.1788483, 0.4350586, 4.487732)

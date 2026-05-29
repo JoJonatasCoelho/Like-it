@@ -667,5 +667,9 @@ transform = Transform3D(0.10370057, 0, 0, 0, 0.11198727, 0, 0, 0, 0.275464, 0.86
 transparent = false
 texture = ExtResource("16_ehbp8")
 
+[node name="BLACKOUT2" type="Sprite3D" parent="."]
+transform = Transform3D(-4.1950243e-09, 0, 0.99999964, 0, 0.09531284, 0, -0.09597097, 0, -4.3711374e-08, 5.4238873, 0.90276396, -2.9424708)
+texture = ExtResource("16_ehbp8")
+
 [editable path="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]

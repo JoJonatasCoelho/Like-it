@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cwng4e3faio4u"]
+[gd_scene load_steps=15 format=3 uid="uid://cwng4e3faio4u"]
 
 [ext_resource type="Script" uid="uid://c1gmxvobootlc" path="res://Scripts/Core/level.gd" id="1_5qtum"]
 [ext_resource type="PackedScene" uid="uid://btcm5nit4atxe" path="res://Scenes/Systems/loop_manager.tscn" id="2_past1"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://decy35mve4tbg" path="res://Scenes/audio.tscn" id="14_ie368"]
 [ext_resource type="PackedScene" uid="uid://ddxaqp2rhgl86" path="res://Scenes/Actors/player.tscn" id="16_fls3e"]
 [ext_resource type="AudioStream" uid="uid://lx4kg28jopyt" path="res://Assets/audio/Horrible-Realization.mp3" id="22_uus22"]
-[ext_resource type="Texture2D" uid="uid://dkif0yhlev1al" path="res://Assets/images/black-screen-background.png" id="23_ltf6m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vtkp8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -93,15 +92,6 @@ shape = SubResource("ConcavePolygonShape3D_q6lx1")
 stream = ExtResource("22_uus22")
 volume_db = 20.0
 
-[node name="BLACKOUT" type="Sprite3D" parent="."]
-transform = Transform3D(3.0852687, 0, 0, 0, 1, 0, 0, 0, 1, 14.541882, -0.79520774, -4.395044)
-transparent = false
-texture = ExtResource("23_ltf6m")
-
-[node name="BLACKOUT2" type="Sprite3D" parent="."]
-transform = Transform3D(-3.088534e-08, 0, -0.9999998, 0, 1, 0, 0.70657414, 0, -4.371138e-08, 30.464182, -0.79520774, -2.0024567)
-texture = ExtResource("23_ltf6m")
-
 [node name="Player" parent="." instance=ExtResource("16_fls3e")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1, -0.018, -1.931)
 
@@ -109,7 +99,7 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1, -0.018, -1.931)
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.040498815, 1.6029497, -0.19518375)
 
 [node name="Game_engine" parent="Player/ProtoController/PlayerBody" index="0"]
-transform = Transform3D(0.9984549, 0.029085536, 0.047349073, -0.02827161, 0.99944216, -0.01777002, -0.04783952, 0.016403927, 0.9987203, 0, 0, 0)
+transform = Transform3D(0.9984549, 0.029085534, 0.04734907, -0.028271608, 0.99944216, -0.017770018, -0.047839515, 0.016403925, 0.9987203, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Player/ProtoController/PlayerBody/Game_engine" index="0"]
 bones/2/rotation = Quaternion(0.24095757, 0.002485083, 0.003750554, 0.9705253)
