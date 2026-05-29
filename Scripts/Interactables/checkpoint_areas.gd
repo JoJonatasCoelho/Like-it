@@ -50,13 +50,16 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 		# backdoor — use get_node_or_null para evitar erros
 		var backdoor = get_node_or_null("StaticBody3D")
+
+		if (!backdoor):
+			print("Backdoor not found!")
+			
+		
 		backdoor.collision_layer = 1
 
 		has_been_passed = true
 
 		var stats = {
-			"time_spent": Time.get_ticks_msec()/1000
+			"time_spent": Time.get_ticks_msec()/float(1000)
 		}
-		# print("tempo de jogo: ",stats.time)
-		print("Checkpoint emitting from node:", self, " parent house:", get_parent(), " stats:", stats)
 		emit_signal("checkpoint_passed", stats)
