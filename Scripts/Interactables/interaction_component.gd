@@ -16,7 +16,6 @@ func _ready() -> void:
 func _process(_delta):
 	if interaction_raycast.is_colliding():
 		var interactable = interaction_raycast.get_collider()
-		print(interactable)
 		interaction_is_reset = false
 		if interactable != null and interactable.has_method("interact"):
 			interaction_label.text = "Aperte \"E\" para interagir."
