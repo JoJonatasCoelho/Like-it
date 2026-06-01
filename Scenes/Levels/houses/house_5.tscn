@@ -618,13 +618,13 @@ mesh = SubResource("ArrayMesh_pqrgt")
 skeleton = NodePath("")
 
 [node name="Door6" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001" instance=ExtResource("7_gjdph")]
-transform = Transform3D(-4.3711384e-06, 0, 99.99999, 0, 99.99997, 0, -99.99999, 0, -4.3711384e-06, 275.01883, -11.061041, -310.6921)
+transform = Transform3D(-43.83711, 0, 89.8794, 0, 99.99997, 0, -89.8794, 0, -43.83711, 275.01883, -11.061041, -310.6921)
 
 [node name="Door" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door6" index="0"]
 is_interacting = true
 
 [node name="MeshInstance3D" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door6/Door" index="2"]
-transform = Transform3D(-0.4384182, 0.89877105, -3.928653e-08, 0, -4.3711385e-08, -0.99999994, -0.8987711, -0.43841824, 1.9163869e-08, 0, -0.272, 0.027999878)
+transform = Transform3D(-4.371139e-08, 0.99999994, -4.3711385e-08, 0, -4.3711385e-08, -0.99999994, -1, -4.3711385e-08, 1.9106853e-15, 0, -0.272, 0.027999878)
 
 [node name="Door4" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001" instance=ExtResource("7_gjdph")]
 transform = Transform3D(-4.3711384e-06, 0, 99.999985, 0, 99.99997, 0, -99.99999, 0, -4.371138e-06, 532.2868, -11.061041, -125.78963)
