@@ -13,6 +13,8 @@ class_name PlayerController
 @onready var collider: CollisionShape3D = $Collider
 @onready var animator: AnimationPlayer = $PlayerBody/AnimationPlayer
 @export var _inventory: Inventory
+@onready var initial_head_transform: Transform3D
+
 
 ## Can we move around?
 @export var can_move : bool = true
@@ -23,7 +25,7 @@ class_name PlayerController
 ## Can we hold to run?
 @export var can_sprint : bool = false
 ## Can we press to enter freefly mode (noclip)?
-@export var can_freefly : bool = false
+@export var can_freefly : bool = true
 ## Can we look around?
 @export var can_look : bool = true
 
@@ -31,13 +33,13 @@ class_name PlayerController
 ## Look around rotation speed.
 @export var look_speed : float = 0.002
 ## Normal speed.
-@export var base_speed : float = 7.0
+@export var base_speed : float = 1.5
 ## Speed of jump.
 @export var jump_velocity : float = 4.5
 ## How fast do we run?
 @export var sprint_speed : float = 10.0
 ## How fast do we freefly?
-@export var freefly_speed : float = 25.0
+@export var freefly_speed : float = 3.0
 
 @export_group("Input Actions")
 ## Name of Input Action to move Left.
@@ -67,9 +69,13 @@ var can_interact : bool = true
 
 
 func _ready() -> void:
+	if not OS.has_feature("debug"):
+		can_freefly = false
+		print("fora de teste")
 	check_input_mappings()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
+	initial_head_transform = head.transform
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -90,12 +96,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			disable_freefly()
 
 func _physics_process(delta: float) -> void:
-	# If freeflying, handle freefly and nothing else
 	if can_freefly and freeflying:
 		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
 		var motion := (head.global_basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		motion *= freefly_speed * delta
-		move_and_collide(motion)
+		head.global_position += motion
 		return
 	
 	# Apply gravity to velocity
@@ -151,20 +156,29 @@ func rotate_look(rot_input : Vector2):
 	look_rotation.x -= rot_input.y * look_speed
 	look_rotation.x = clamp(look_rotation.x, deg_to_rad(-85), deg_to_rad(85))
 	look_rotation.y -= rot_input.x * look_speed
-	transform.basis = Basis()
-	rotate_y(look_rotation.y)
-	head.transform.basis = Basis()
-	head.rotate_x(look_rotation.x)
 
+	if freeflying:
+		head.global_rotation = Vector3(look_rotation.x, look_rotation.y, 0.0)
+	else:
+		# Modo normal: Roda o corpo em Y e a cabeça em X (mantido original)
+		transform.basis = Basis()
+		rotate_y(look_rotation.y)
+		head.transform.basis = Basis()
+		head.rotate_x(look_rotation.x)
 
 func enable_freefly():
-	collider.disabled = true
 	freeflying = true
 	velocity = Vector3.ZERO
+	if animator:
+		animator.play("breathing_idle")
+	head.top_level = true
 
 func disable_freefly():
-	collider.disabled = false
 	freeflying = false
+	head.top_level = false
+	head.transform = initial_head_transform
+	look_rotation.y = rotation.y
+	look_rotation.x = head.rotation.x
 
 
 func capture_mouse():

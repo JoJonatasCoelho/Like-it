@@ -1027,7 +1027,6 @@ _data = {
 script = ExtResource("1_6t5aa")
 _inventory = NodePath("../Inventory")
 can_jump = false
-base_speed = 2.0
 
 [node name="Collider" type="CollisionShape3D" parent="ProtoController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -1072,7 +1071,7 @@ transform = Transform3D(0.9999998, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999991, 0.207
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
 [node name="Game_engine" parent="ProtoController/PlayerBody" index="0"]
-transform = Transform3D(0.99977785, 0.017754193, 0.011347764, -0.017805103, 0.9998315, 0.004400763, -0.011267722, -0.004601833, 0.999926, 0, 0, 0)
+transform = Transform3D(0.99977785, 0.017754218, 0.011347764, -0.01780513, 0.9998314, 0.004400768, -0.011267722, -0.0046018376, 0.999926, 0, 0, 0)
 
 [node name="Skeleton3D" parent="ProtoController/PlayerBody/Game_engine" index="0"]
 bones/1/rotation = Quaternion(0.5794509, 0.40526128, 0.5794509, -0.40526128)

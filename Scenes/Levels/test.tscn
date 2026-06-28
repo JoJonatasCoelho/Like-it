@@ -27,6 +27,15 @@ sky = SubResource("Sky_4te2q")
 [node name="Player" parent="." instance=ExtResource("1_cmgem")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1, 0, -1.931)
 
+[node name="ProtoController" parent="Player" index="0"]
+freefly_speed = 0.4
+
+[node name="Camera3D" parent="Player/ProtoController/Head" index="0"]
+transform = Transform3D(1.6666667, 0, 0, 0, 1.6666665, 0, 0, 0, 1.6666667, 0, 0, 0)
+
+[node name="Game_engine" parent="Player/ProtoController/PlayerBody" index="0"]
+transform = Transform3D(0.99977785, 0.01775424, 0.011347767, -0.017805152, 0.9998314, 0.004400774, -0.011267724, -0.004601844, 0.999926, 0, 0, 0)
+
 [node name="Floor" type="CSGMesh3D" parent="."]
 transform = Transform3D(30.788633, 0, 0, 0, 1, 0, 0, 0, 44.956432, 0, -0.4998261, 0)
 use_collision = true
@@ -40,7 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 0.008726561, 0.9999619, 0, -0.9999619, 0.008
 light_energy = 0.1
 
 [node name="Door" parent="." instance=ExtResource("5_x0mv3")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.777628, 0, 0)
+transform = Transform3D(-0.43837112, 0, 0.89879405, 0, 1, 0, -0.89879405, 0, -0.43837112, -4.777628, 0, 0)
 
 [node name="ItemSlot" parent="Door" instance=ExtResource("6_pgtsq")]
 required_item_name = "Flashlight"
@@ -64,5 +73,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5792837, -0.8881932, -0.50
 stream = ExtResource("9_27pap")
 volume_db = 20.0
 
+[editable path="Player"]
+[editable path="Player/ProtoController/PlayerBody"]
 [editable path="UI"]
 [editable path="Audio"]
