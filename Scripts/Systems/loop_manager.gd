@@ -16,7 +16,7 @@ extends Node
 @export var spawn_origin_offset: Vector3 = Vector3(0, 0, 0) # offset inicial (X,Z) relativo ao anchor
 
 @onready var global_water = $"../Water"
-@onready var global_audio = $"../Audio/SFX"
+@onready var global_audio = $"../Audio/BGM"
 @onready var global_env = $"../WorldEnvironment"
 
 const DEFAULT_MANUAL_CURRENT_NAME := "House"
