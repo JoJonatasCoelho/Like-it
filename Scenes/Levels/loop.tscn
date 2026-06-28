@@ -74,7 +74,7 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1, -0.018, -1.931)
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.040498815, 1.6029497, -0.19518375)
 
 [node name="Game_engine" parent="Player/ProtoController/PlayerBody" index="0"]
-transform = Transform3D(0.9984549, 0.029085532, 0.04734907, -0.028271606, 0.99944216, -0.017770018, -0.047839515, 0.016403925, 0.9987203, 0, 0, 0)
+transform = Transform3D(0.9984549, 0.029085513, 0.04734907, -0.028271588, 0.99944216, -0.017770018, -0.047839515, 0.016403927, 0.9987203, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Player/ProtoController/PlayerBody/Game_engine" index="0"]
 bones/2/rotation = Quaternion(0.24095757, 0.002485083, 0.003750554, 0.9705253)
