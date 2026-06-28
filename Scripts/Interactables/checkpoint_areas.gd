@@ -2,13 +2,13 @@ extends Node3D
 
 signal checkpoint_passed(stats)
 
-@export var world_env: WorldEnvironment
-@export var water: Node3D
-@export var audio : AudioStreamPlayer 
+var world_env: WorldEnvironment
+var water: Node3D
+var audio : AudioStreamPlayer 
 
 @export var has_been_passed: bool = false
 @export var water_rise_amount: float = 0.5
-@export var volume_increase: float = 0.0
+@export var volume_increase: float = 10
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if has_been_passed:
@@ -47,19 +47,26 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 			var new_volume = audio.volume_db + volume_increase
 			var tw2 = create_tween()
 			tw2.tween_property(audio, "volume_db", new_volume, 3.0)
+			print("volume atual:", new_volume)
 
-		# backdoor — use get_node_or_null para evitar erros
+		# backdoor — trava passagem de volta após o checkpoint
 		var backdoor = get_node_or_null("StaticBody3D")
-
-		if (!backdoor):
-			print("Backdoor not found!")
-			
-		
+		if backdoor:
+			backdoor.collision_layer = 1
+		else:
+			push_error("CheckpointAreas: nó 'StaticBody3D' (backdoor) não encontrado em " + name)
 		backdoor.collision_layer = 1
-
 		has_been_passed = true
 
 		var stats = {
 			"time_spent": Time.get_ticks_msec()/float(1000)
 		}
 		emit_signal("checkpoint_passed", stats)
+
+func _find_node_by_name(root: Node, node_name: String) -> Node:
+	if not root: return null
+	if root.name == node_name: return root
+	for child in root.get_children():
+		var found = _find_node_by_name(child, node_name)
+		if found: return found
+	return null

@@ -9,8 +9,9 @@ var dialogue_playing = false
 
 @export var player: CharacterBody3D
 
-func _unhandled_input(event):
+func _input(event):
 	if is_photo_open and event.is_action_pressed("interact"):
+		get_viewport().set_input_as_handled()
 		toggle_photo()
 
 func toggle_photo(texture: Texture2D = null):

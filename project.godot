@@ -13,6 +13,8 @@ config_version=5
 config/name="Like It"
 run/main_scene="uid://bqlqngg600wus"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.36854923, 0.75094295, 0.8948908, 1)
+boot_splash/image="uid://cjuh7x0femd6c"
 config/icon="res://icon.svg"
 
 [autoload]

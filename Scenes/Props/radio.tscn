@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://gip2uj27sl4a"]
 
 [ext_resource type="Script" uid="uid://boks5rmxlorc0" path="res://Scripts/Interactables/radio.gd" id="1_8y21s"]
-[ext_resource type="AudioStream" uid="uid://blp5sm0va2dpm" path="res://Assets/audio/amargura (Eduardo Souto, interprete Zaíra de Oliveira)-radio.ogg" id="2_ibud7"]
+[ext_resource type="AudioStream" uid="uid://bjw2n14ss2he0" path="res://Assets/audio/e-quando-você-comer-meu-coração.wav" id="2_fj1kb"]
 [ext_resource type="PackedScene" uid="uid://dyw4s00564y2u" path="res://Assets/Objects/radio.glb" id="3_ibud7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ibud7"]
@@ -18,7 +18,8 @@ transform = Transform3D(0.82943994, 0, 0, 0, 0.51839995, 0, 0, 0, 0.51839995, 0.
 shape = SubResource("BoxShape3D_ibud7")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="StaticBody3D"]
-stream = ExtResource("2_ibud7")
+stream = ExtResource("2_fj1kb")
+volume_db = -21.052
 autoplay = true
 max_distance = 5.13
 

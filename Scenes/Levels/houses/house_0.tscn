@@ -742,5 +742,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8694427, -0.12117822, -0.8
 [node name="Exit" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3582616, -0.12158463, -1.2794559)
 
+[node name="BLACKOUT2" type="Sprite3D" parent="."]
+transform = Transform3D(-0.13318573, 0, -8.742275e-08, 0, 0.13134271, 0, 1.1643467e-08, 0, -0.9999997, 0.867394, 0.7396666, -4.2700253)
+texture = ExtResource("19_lcjof")
+
 [editable path="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="Props/OldSquadPhoto"]

@@ -6,8 +6,7 @@ func _ready():
 	audio_player.play(0)
 
 func interact(_caller):
-	audio_player.playing = !audio_player.playing
 	if audio_player.playing:
-		audio_player.play(0)
-	if !audio_player.playing:
 		audio_player.stop()
+	else:
+		audio_player.play(0)

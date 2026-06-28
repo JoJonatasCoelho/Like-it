@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://n1tebp7uvn36"]
 
 [ext_resource type="Script" uid="uid://c1gmxvobootlc" path="res://Scripts/Core/level.gd" id="1_tumq0"]
-[ext_resource type="PackedScene" uid="uid://cwng4e3faio4u" path="res://Scenes/Levels/map.tscn" id="3_6phgx"]
+[ext_resource type="PackedScene" uid="uid://cwng4e3faio4u" path="res://Scenes/Levels/loop.tscn" id="3_6phgx"]
 [ext_resource type="PackedScene" uid="uid://decy35mve4tbg" path="res://Scenes/audio.tscn" id="5_wqkje"]
 
 [node name="Level" type="Node3D"]
@@ -31,8 +31,11 @@ script = ExtResource("1_tumq0")
 [editable path="Map/House5"]
 [editable path="Map/House5/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door4"]
 [editable path="Map/House5/house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5"]
+[editable path="Map/UI"]
 [editable path="Map/Checkpoint"]
 [editable path="Map/Checkpoint2"]
 [editable path="Map/Checkpoint3"]
 [editable path="Map/Checkpoint4"]
 [editable path="Map/Audio"]
+[editable path="Map/Player"]
+[editable path="Map/Player/ProtoController/PlayerBody"]

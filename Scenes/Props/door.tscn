@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://p7y7vqn01gnu"]
+[gd_scene load_steps=9 format=3 uid="uid://p7y7vqn01gnu"]
 
 [ext_resource type="Script" uid="uid://dhnryqa86w0ub" path="res://Scripts/Interactables/door.gd" id="1_5quaa"]
 [ext_resource type="ArrayMesh" uid="uid://cq4pr4ip5y65k" path="res://Assets/model/House/house_door_001_door_001_0_001.res" id="2_p0e35"]
@@ -33,17 +33,50 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_sc646"]
+resource_name = "close_door_emotions"
+length = 2.38
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.3666666, 2.3666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.024582, 0), Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bplwt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.024582, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ys1qc"]
 _data = {
+&"RESET": SubResource("Animation_bplwt"),
 &"abrir_porta": SubResource("Animation_8od7v"),
-&"close_door": SubResource("Animation_w6aom")
+&"close_door": SubResource("Animation_w6aom"),
+&"close_door_emotions": SubResource("Animation_sc646")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8od7v"]
 size = Vector3(0.92388916, 1.3583374, 0.03753662)
 
 [node name="Door" type="Node3D"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+transform = Transform3D(-0.43837112, 0, 0.89879405, 0, 1, 0, -0.89879405, 0, -0.43837112, 0, 0, 0)
 
 [node name="Door" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94020545, 0)

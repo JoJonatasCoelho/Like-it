@@ -9,11 +9,15 @@ extends Node
 	"res://Scenes/Levels/houses/house_4.tscn"
 ]
 @export var house_anchor: Node3D
-@export var start_index: int = GlobalVars.loop_count
+@export var start_index: int = 0
 
 @export var use_linear_layout: bool = true # casas em corredor on
 @export var layout_step: Vector3 = Vector3(6.3, 0, 0)  # delta (X, Z) entre casas (cada step)
-@export var spawn_origin_offset: Vector3 = Vector3(5, 1, 0) # offset inicial (X,Z) relativo ao anchor
+@export var spawn_origin_offset: Vector3 = Vector3(0, 0, 0) # offset inicial (X,Z) relativo ao anchor
+
+@onready var global_water = $"../Water"
+@onready var global_audio = $"../Audio/SFX"
+@onready var global_env = $"../WorldEnvironment"
 
 const DEFAULT_MANUAL_CURRENT_NAME := "House"
 const DEFAULT_MANUAL_NEXT_NAME := "House1"
@@ -152,12 +156,23 @@ func _connect_house_checkpoint(house: Node3D) -> void:
 	# procura o nó que emite "checkpoint_passed"
 	var emitter: Node = _find_node_with_signal(house, "checkpoint_passed")
 	if emitter:
-		# conecta o emitter a um wrapper que loga e delega
+		# --- INJEÇÃO DE DEPENDÊNCIA AQUI ---
+		# O LoopManager passa as referências globais para dentro do Checkpoint da casa atual
+		if "water" in emitter:
+			emitter.water = global_water
+			print("deu certo")
+		if "audio" in emitter:
+			emitter.audio = global_audio
+		if "world_env" in emitter:
+			emitter.world_env = global_env
+		# -----------------------------------
+
 		emitter.connect(
 			"checkpoint_passed",
 			Callable(self, "_on_emitter_checkpoint").bind(emitter, house)
 		)
-		#print("[LoopManager] connected emitter:", emitter.name, "in house:", house.name)
+		
+		print("volume do elevador: ", global_audio.volume_db)
 		return
 
 	# fallback: procura Area3D e conecta body_entered
