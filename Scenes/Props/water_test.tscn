@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqlpl07u1bsln"]
+
+[ext_resource type="Shader" uid="uid://sijtnyuv4mxt" path="res://shader/water.tres" id="1_7aaf1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ua7hw"]
+render_priority = 0
+shader = ExtResource("1_7aaf1")
+shader_parameter/waveheight = Vector2(0.5, 0.5)
+shader_parameter/conter_wave = Vector2(-0.1, -0.1)
+shader_parameter/wave_speed = Vector2(0.1, 0.1)
+shader_parameter/WaterColor = Color(0.03484, 0.353546, 0.538036, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_slmpt"]
+material = SubResource("ShaderMaterial_ua7hw")
+subdivide_width = 66
+subdivide_depth = 70
+
+[node name="Water" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(12.117911, 0, 0, 0, 1, 0, 0, 0, 11.275231, 0, 0, 0)
+mesh = SubResource("PlaneMesh_slmpt")

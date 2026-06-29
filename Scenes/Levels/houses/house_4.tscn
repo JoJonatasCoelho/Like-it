@@ -621,14 +621,14 @@ mesh = SubResource("ArrayMesh_pqrgt")
 skeleton = NodePath("")
 
 [node name="Door6" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001" instance=ExtResource("6_uxb2d")]
-transform = Transform3D(-6.3477523e-07, -98.93991, 14.521962, -4.324802e-06, 14.521962, 98.939926, -99.99999, 0, -4.371138e-06, 275.0188, -415.3829, -310.69202)
+transform = Transform3D(-43.83711, 0, 89.879395, 0, 99.99997, 0, -89.8794, 0, -43.837105, 275.0188, -415.3829, -310.69202)
 visible = false
 
 [node name="Door4" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001" instance=ExtResource("6_uxb2d")]
-transform = Transform3D(-4.3711384e-06, 0, 99.999985, 0, 99.99997, 0, -99.99999, 0, -4.371138e-06, 532.2868, -11.061041, -125.78963)
+transform = Transform3D(-43.83711, 0, 89.879395, 0, 99.99997, 0, -89.8794, 0, -43.837105, 532.2868, -11.061041, -125.78963)
 
 [node name="Door5" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001" instance=ExtResource("6_uxb2d")]
-transform = Transform3D(-4.371139e-06, 0, 100, 0, 99.99999, 0, -99.99999, 0, -4.371139e-06, 275.01904, -190.85397, -88.526)
+transform = Transform3D(-43.83711, 0, 89.8794, 0, 99.99999, 0, -89.8794, 0, -43.837112, 275.01904, -190.85397, -88.526)
 visible = false
 
 [node name="Dripping" parent="house/Sketchfab_model_001/houses_fbx_001/RootNode_001/Door5/Door" index="3" instance=ExtResource("7_olrkn")]

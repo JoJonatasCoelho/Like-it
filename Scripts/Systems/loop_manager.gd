@@ -16,7 +16,7 @@ extends Node
 @export var spawn_origin_offset: Vector3 = Vector3(0, 0, 0) # offset inicial (X,Z) relativo ao anchor
 
 @onready var global_water = $"../Water"
-@onready var global_audio = $"../Audio/BGM"
+@onready var bgm = $"../Audio/BGM"
 @onready var global_env = $"../WorldEnvironment"
 
 const DEFAULT_MANUAL_CURRENT_NAME := "House"
@@ -162,7 +162,7 @@ func _connect_house_checkpoint(house: Node3D) -> void:
 			emitter.water = global_water
 			print("deu certo")
 		if "audio" in emitter:
-			emitter.audio = global_audio
+			emitter.audio = bgm
 		if "world_env" in emitter:
 			emitter.world_env = global_env
 		# -----------------------------------
@@ -172,7 +172,7 @@ func _connect_house_checkpoint(house: Node3D) -> void:
 			Callable(self, "_on_emitter_checkpoint").bind(emitter, house)
 		)
 		
-		print("volume do elevador: ", global_audio.volume_db)
+		print("volume do elevador: ", bgm.volume_db)
 		return
 
 	# fallback: procura Area3D e conecta body_entered
