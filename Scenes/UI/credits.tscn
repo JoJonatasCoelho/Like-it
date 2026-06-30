@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://blxks48shn46y"]
+[gd_scene load_steps=4 format=3 uid="uid://blxks48shn46y"]
 
 [ext_resource type="Script" uid="uid://1ok7venpnupf" path="res://Scripts/Systems/credits.gd" id="1_h87vg"]
+[ext_resource type="Texture2D" uid="uid://dwgw1odugbf1e" path="res://Assets/images/credits_text.png" id="2_lm48m"]
 [ext_resource type="Texture2D" uid="uid://bs08mfxfoibx0" path="res://Assets/images/credits.png" id="2_q4iv0"]
 
 [node name="Credits" type="Control"]
@@ -19,6 +20,10 @@ offset_top = 32.0
 offset_right = 95.0
 offset_bottom = 63.0
 text = "Voltar"
+
+[node name="CreditsText" type="Sprite2D" parent="."]
+position = Vector2(577, 324)
+texture = ExtResource("2_lm48m")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1
